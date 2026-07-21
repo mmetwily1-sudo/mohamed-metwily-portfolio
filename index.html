@@ -34,7 +34,7 @@
             background-size: 200% 200%;
             animation: gradient 8s ease infinite;
             color: var(--white);
-            padding: 80px 20px;
+            padding: 120px 20px 80px;
             text-align: center;
         }
 
@@ -508,9 +508,78 @@
         .footer a:hover {
             text-decoration: underline;
         }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .navbar .logo span {
+            color: var(--accent);
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .navbar-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .navbar-links a:hover,
+        .navbar-links a.active {
+            color: var(--accent);
+        }
+
+        .navbar-links a.nav-cv {
+            background: var(--accent);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 6px;
+        }
+
+        .navbar-links a.nav-cv:hover {
+            background: #ff6b81;
+            color: var(--white);
+        }
     </style>
 </head>
 <body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <a href="index.html" class="logo">Mohamed <span>Metwily</span></a>
+    <div class="navbar-links">
+        <a href="index.html" class="active">Portfolio</a>
+        <a href="cv.html" class="nav-cv">CV</a>
+    </div>
+</nav>
 
 <!-- Hero -->
 <div class="hero">
@@ -886,134 +955,6 @@
     <p><strong>Bachelor's Degree in Arts</strong> - Archaeology Department, Mansoura University (2017 - 2020)</p>
 </div>
 
-<!-- Full CV Section -->
-<div class="section" id="cv">
-    <h2>Full CV</h2>
-    <p style="color: var(--text-secondary); margin-bottom: 20px;">Complete professional resume with detailed experience, projects, and qualifications.</p>
-    
-    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px;">
-        <div style="flex: 1; min-width: 300px; background: #2a2a2a; border-radius: 10px; padding: 25px;">
-            <h3 style="color: var(--text-primary); margin-bottom: 15px; font-size: 1.2rem;">Mohamed METWILY</h3>
-            <p style="color: var(--accent); font-weight: 500; margin-bottom: 10px;">HEAD OF SEO</p>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">Results-driven Head of SEO with hands-on experience managing end-to-end SEO strategy for high-revenue e-commerce businesses in the Saudi market. Proven track record of driving organic growth that generated over 4.75M SAR in revenue across multiple stores.</p>
-        </div>
-        <div style="flex: 1; min-width: 300px; background: #2a2a2a; border-radius: 10px; padding: 25px;">
-            <h3 style="color: var(--text-primary); margin-bottom: 15px; font-size: 1.2rem;">Contact Information</h3>
-            <p style="color: var(--text-secondary); margin: 8px 0;">Email: mmetwily1@gmail.com</p>
-            <p style="color: var(--text-secondary); margin: 8px 0;">Phone: +20 10 25183569</p>
-            <p style="color: var(--text-secondary); margin: 8px 0;">Location: Mansoura, Egypt</p>
-            <p style="color: var(--text-secondary); margin: 8px 0;">LinkedIn: <a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank" style="color: var(--accent);">linkedin.com/in/mohamed-metwily</a></p>
-            <p style="color: var(--text-secondary); margin: 8px 0;">Portfolio: <a href="https://mmetwily1-sudo.github.io/mohamed-metwily-portfolio/" target="_blank" style="color: var(--accent);">mmetwily1-sudo.github.io/mohamed-metwily-portfolio</a></p>
-        </div>
-    </div>
-
-    <h3 style="color: var(--text-primary); margin: 30px 0 15px; font-size: 1.3rem; border-bottom: 2px solid var(--accent); padding-bottom: 8px; display: inline-block;">Professional Experience</h3>
-    
-    <div class="experience-item">
-        <h3>HEAD OF SEO <span class="company">| Freelance / Multiple E-commerce Projects</span></h3>
-        <div class="period">AUG 2025 - Present</div>
-        <ul>
-            <li>Developed and led overall SEO strategy for multiple e-commerce stores in the Saudi market, driving growth in organic visibility, traffic, and revenue.</li>
-            <li>Managed full SEO lifecycle including technical audits, on-page optimization, keyword strategy, content planning, and performance tracking.</li>
-            <li>Led a cross-functional team of 3 Team Leaders, 4 SEO Agents, and content specialists, ensuring alignment on strategy execution and KPI targets.</li>
-            <li>Achieved top 1-5 search rankings for target keywords and secured visibility in Google AI Overviews for high-intent commercial queries.</li>
-        </ul>
-    </div>
-
-    <div class="experience-item">
-        <h3>TEAM LEADER SEO <span class="company">| Salasl Agency (Marketing Agency)</span></h3>
-        <div class="period">AUG 2024 - AUG 2025</div>
-        <ul>
-            <li>Led a team of SEO specialists at a full-service marketing agency, managing SEO projects across multiple client accounts in various industries.</li>
-            <li>Coordinated with content, design, and strategy teams to deliver integrated SEO campaigns.</li>
-        </ul>
-    </div>
-
-    <div class="experience-item">
-        <h3>SEO SPECIALIST</h3>
-        <div class="period">FEB 2023 - AUG 2024</div>
-        <ul>
-            <li>Implemented SEO strategies to improve rankings and increase organic traffic across multiple e-commerce websites in the Saudi market.</li>
-        </ul>
-    </div>
-
-    <h3 style="color: var(--text-primary); margin: 30px 0 15px; font-size: 1.3rem; border-bottom: 2px solid var(--accent); padding-bottom: 8px; display: inline-block;">Key Projects & Results</h3>
-
-    <div class="experience-item">
-        <h3>Alwfi.com - Automotive & Car Spare Parts E-commerce</h3>
-        <div class="period">Mar 2025 - Jun 2026</div>
-        <ul>
-            <li>Drove organic search revenue of 633,727 SAR (71.9% of total store revenue of 881,076 SAR).</li>
-            <li>Generated 95.7K organic clicks and 2.54M impressions via Google Search Console.</li>
-            <li>Achieved top 1-5 search rankings for high-intent commercial keywords in the Saudi market.</li>
-            <li>Secured visibility in Google AI Overviews for key product-related search queries.</li>
-            <li>Delivered 1,156 conversions from organic search (72.6% of all conversions).</li>
-        </ul>
-    </div>
-
-    <div class="experience-item">
-        <h3>Hishma-sa.com - Modest Fashion & Jalabiyat</h3>
-        <div class="period">Jun 2025 - Jul 2026</div>
-        <ul>
-            <li>Contributed to SEO strategy that generated 618,817 SAR in organic search revenue (21% of total 2.95M SAR).</li>
-            <li>Achieved organic search conversion rate of 13.67% (highest among all channels).</li>
-            <li>Drove 1.74M organic sessions with average engagement time of 3+ minutes per session.</li>
-            <li>Organic search engagement rate reached 89.5%, significantly outperforming paid channels.</li>
-        </ul>
-    </div>
-
-    <div class="experience-item">
-        <h3>Daily.sa - Sports Equipment & Fitness E-commerce</h3>
-        <div class="period">Mar 2025 - Jul 2025</div>
-        <ul>
-            <li>Drove organic search revenue of 52,466 SAR (6% of total store revenue of 869,253 SAR).</li>
-            <li>Generated 12.4K organic clicks and 1.3M impressions via Google Search Console.</li>
-            <li>Managed SEO strategy alongside organic social (46.6% of traffic) and paid channels.</li>
-        </ul>
-    </div>
-
-    <div class="experience-item">
-        <h3>MHS Jewellery - Jewelry, Prayer Beads & Precious Stones</h3>
-        <div class="period">Jul 2024 - Mar 2025</div>
-        <ul>
-            <li>Drove organic search revenue of 21,340 SAR (43.8% of total store revenue of 48,768 SAR).</li>
-            <li>Generated 4.32K organic clicks and 242K impressions via Google Search Console.</li>
-            <li>Organic search contributed 43.8% of total revenue, outperforming direct traffic (18.8%).</li>
-        </ul>
-    </div>
-
-    <h3 style="color: var(--text-primary); margin: 30px 0 15px; font-size: 1.3rem; border-bottom: 2px solid var(--accent); padding-bottom: 8px; display: inline-block;">Technical Skills</h3>
-    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
-        <span class="skill-tag">Search Engine Optimization (SEO) - On-Page, Off-Page & Technical</span>
-        <span class="skill-tag">Keyword Research & Competitor Analysis</span>
-        <span class="skill-tag">Google Search Console & Google Analytics (GA4)</span>
-        <span class="skill-tag">Google Tag Manager & Google Keyword Planner</span>
-        <span class="skill-tag">SEMrush & Screaming Frog SEO Audit</span>
-        <span class="skill-tag">E-commerce SEO (Salla, Shopify, Zid, WordPress)</span>
-        <span class="skill-tag">AI Overviews & Generative Engine Optimization</span>
-        <span class="skill-tag">AI Tools & AI Agents (Prompt Engineering, Workflow Automation)</span>
-        <span class="skill-tag">AI-Powered Content Optimization & Scaling</span>
-    </div>
-
-    <h3 style="color: var(--text-primary); margin: 30px 0 15px; font-size: 1.3rem; border-bottom: 2px solid var(--accent); padding-bottom: 8px; display: inline-block;">Soft Skills</h3>
-    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
-        <span class="skill-tag">Digital Marketing & Content Strategy</span>
-        <span class="skill-tag">Monthly Reporting & Client Communication</span>
-        <span class="skill-tag">Team Leadership & Project Management</span>
-        <span class="skill-tag">Data-Driven Decision Making</span>
-    </div>
-
-    <h3 style="color: var(--text-primary); margin: 30px 0 15px; font-size: 1.3rem; border-bottom: 2px solid var(--accent); padding-bottom: 8px; display: inline-block;">Certifications & Training</h3>
-    <ul class="cert-list">
-        <li>Digital Marketing - Google</li>
-        <li>SEO Training - Salasl Agency</li>
-        <li>Digital Marketing - Edrak Platform</li>
-    </ul>
-
-    <h3 style="color: var(--text-primary); margin: 30px 0 15px; font-size: 1.3rem; border-bottom: 2px solid var(--accent); padding-bottom: 8px; display: inline-block;">Languages</h3>
-    <p style="color: var(--text-secondary);">Arabic (Native) | English (Good)</p>
-</div>
-
 <!-- Proof of Results -->
 <div class="section">
     <h2>Proof of Results</h2>
@@ -1061,8 +1002,7 @@
 <div class="footer">
     <p>Languages: <strong>Arabic</strong> (Native) | <strong>English</strong> (Good)</p>
     <p style="margin-top: 15px;">Contact: <a href="mailto:mmetwily1@gmail.com">mmetwily1@gmail.com</a> | +20 10 25183569</p>
-    <p style="margin-top: 10px;"><a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn Profile</a> | <a href="#cv">View Full CV</a></p>
-    <p style="margin-top: 10px; font-size: 0.8rem; color: #666;">CV Download: <a href="Mohamed-Metwily-CV.pdf" download>Download PDF CV</a></p>
+    <p style="margin-top: 10px;"><a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn Profile</a> | <a href="cv.html">View Full CV</a> | <a href="Mohamed-Metwily-CV.pdf" download>Download PDF CV</a></p>
 </div>
 
 <script>
