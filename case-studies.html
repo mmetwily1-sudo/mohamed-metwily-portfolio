@@ -88,6 +88,36 @@
             color: var(--white);
         }
 
+        /* Language Toggle */
+        .lang-toggle {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lang-toggle:hover {
+            background: var(--accent);
+            transform: scale(1.05);
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .project-bullets li {
+            padding-left: 0;
+            padding-right: 25px;
+        }
+
+        [dir="rtl"] .project-bullets li::before {
+            left: auto;
+            right: 0;
+        }
+
         /* Hero */
         .hero {
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent2) 50%, #0f3460 100%);
@@ -387,31 +417,32 @@
         <a href="index.html">Portfolio</a>
         <a href="case-studies.html" class="active">Case Studies</a>
         <a href="cv.html" class="nav-cv">CV</a>
+        <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">AR</button>
     </div>
 </nav>
 
 <!-- Hero -->
 <div class="hero">
-    <h1>Case Studies</h1>
-    <div class="subtitle">Real Results. Real Data. Real Impact.</div>
-    <p class="desc">Detailed breakdown of SEO strategies and measurable results across e-commerce projects in the Saudi market.</p>
+    <h1 data-i18n="cs_hero_title">Case Studies</h1>
+    <div class="subtitle" data-i18n="cs_hero_subtitle">Real Results. Real Data. Real Impact.</div>
+    <p class="desc" data-i18n="cs_hero_desc">Detailed breakdown of SEO strategies and measurable results across e-commerce projects in the Saudi market.</p>
     
     <div class="stats-bar">
         <div class="stat-card">
             <div class="number">4.75M+</div>
-            <div class="label">Total Revenue (SAR)</div>
+            <div class="label" data-i18n="cs_stat1">Total Revenue (SAR)</div>
         </div>
         <div class="stat-card">
             <div class="number">1.32M</div>
-            <div class="label">Organic Revenue (SAR)</div>
+            <div class="label" data-i18n="cs_stat2">Organic Revenue (SAR)</div>
         </div>
         <div class="stat-card">
             <div class="number">112K+</div>
-            <div class="label">Organic Clicks</div>
+            <div class="label" data-i18n="cs_stat3">Organic Clicks</div>
         </div>
         <div class="stat-card">
             <div class="number">4.1M+</div>
-            <div class="label">Impressions</div>
+            <div class="label" data-i18n="cs_stat4">Impressions</div>
         </div>
     </div>
 </div>
@@ -424,62 +455,62 @@
         <div class="project-header">
             <div>
                 <h2>Alwfi.com</h2>
-                <span class="niche">Automotive & Car Spare Parts</span>
+                <span class="niche" data-i18n="cs_niche1">Automotive & Car Spare Parts</span>
             </div>
             <span class="period">Mar 2025 - Jun 2026</span>
         </div>
         <div class="project-stats">
             <div class="project-stat">
                 <div class="value">881K</div>
-                <div class="label">Total Revenue</div>
+                <div class="label" data-i18n="cs_label_total_rev">Total Revenue</div>
             </div>
             <div class="project-stat">
                 <div class="value">634K</div>
-                <div class="label">Organic Revenue</div>
+                <div class="label" data-i18n="cs_label_org_rev">Organic Revenue</div>
             </div>
             <div class="project-stat">
                 <div class="value">71.9%</div>
-                <div class="label">Organic Share</div>
+                <div class="label" data-i18n="cs_label_org_share">Organic Share</div>
             </div>
             <div class="project-stat">
                 <div class="value">95.7K</div>
-                <div class="label">Organic Clicks</div>
+                <div class="label" data-i18n="cs_label_clicks">Organic Clicks</div>
             </div>
             <div class="project-stat">
                 <div class="value">2.54M</div>
-                <div class="label">Impressions</div>
+                <div class="label" data-i18n="cs_label_impressions">Impressions</div>
             </div>
             <div class="project-stat">
                 <div class="value">1,156</div>
-                <div class="label">Conversions</div>
+                <div class="label" data-i18n="cs_label_conv">Conversions</div>
             </div>
         </div>
         <div class="project-story">
-            <h3>The Challenge</h3>
-            <p>Alwfi.com operates in the highly competitive Saudi automotive spare parts market, dominated by established players with strong brand recognition. The goal was to build organic visibility from scratch and drive measurable revenue growth.</p>
+            <h3 data-i18n="cs_challenge">The Challenge</h3>
+            <p data-i18n="cs_n1_challenge">Alwfi.com operates in the highly competitive Saudi automotive spare parts market, dominated by established players with strong brand recognition. The goal was to build organic visibility from scratch and drive measurable revenue growth.</p>
             
-            <h3>The Strategy</h3>
-            <p>Implemented a comprehensive SEO strategy focusing on high-intent commercial keywords, technical optimization for e-commerce product pages, and AI Overviews visibility to capture search demand at the moment of decision.</p>
+            <h3 data-i18n="cs_strategy">The Strategy</h3>
+            <p data-i18n="cs_n1_strategy">Implemented a comprehensive SEO strategy focusing on high-intent commercial keywords, technical optimization for e-commerce product pages, and AI Overviews visibility to capture search demand at the moment of decision.</p>
 
-            <h3>Key Results</h3>
+            <h3 data-i18n="cs_results">Key Results</h3>
             <ul class="project-bullets">
-                <li>Organic search became the #1 revenue channel with 71.9% of total store revenue (633,727 SAR out of 881,076 SAR)</li>
-                <li>Generated 95.7K organic clicks and 2.54M impressions via Google Search Console</li>
-                <li>Achieved top 1-5 search rankings for high-intent commercial keywords in the Saudi market</li>
-                <li>Secured visibility in Google AI Overviews for key product-related search queries</li>
-                <li>Achieved average CTR of 3.8% and average search position of 5.5</li>
-                <li>Delivered 1,156 conversions from organic search (72.6% of all conversions)</li>
-                <li>Grew organic sessions to 1.06M (74.7% of total traffic)</li>
+                <li data-i18n="cs_n1_b1">Organic search became the #1 revenue channel with 71.9% of total store revenue (633,727 SAR out of 881,076 SAR)</li>
+                <li data-i18n="cs_n1_b2">Generated 95.7K organic clicks and 2.54M impressions via Google Search Console</li>
+                <li data-i18n="cs_n1_b3">Achieved top 1-5 search rankings for high-intent commercial keywords in the Saudi market</li>
+                <li data-i18n="cs_n1_b4">Secured visibility in Google AI Overviews for key product-related search queries</li>
+                <li data-i18n="cs_n1_b5">Achieved average CTR of 3.8% and average search position of 5.5</li>
+                <li data-i18n="cs_n1_b6">Delivered 1,156 conversions from organic search (72.6% of all conversions)</li>
+                <li data-i18n="cs_n1_b7">Grew organic sessions to 1.06M (74.7% of total traffic)</li>
             </ul>
         </div>
         <div class="project-gallery">
             <div class="gallery-item">
                 <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.02.08 PM.jpeg" alt="Alwfi - Google Analytics" onclick="openLightbox(this)">
-                <div class="gallery-caption">Google Analytics - Traffic & Revenue</div>
+                <div class="gallery-caption" data-i18n="cs_ga_traffic">Google Analytics - Traffic & Revenue</div>
             </div>
             <div class="gallery-item">
                 <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.00.37 PM.jpeg" alt="Alwfi - Search Console" onclick="openLightbox(this)">
-                <div class="gallery-caption">Google Search Console - Performance</div>
+                <div class="gallery-caption" data-i18n="cs_gsc_perf">Google Search Console - Performance</div>
             </div>
         </div>
     </div>
@@ -489,61 +520,61 @@
         <div class="project-header">
             <div>
                 <h2>Hishma-sa.com</h2>
-                <span class="niche">Modest Fashion & Jalabiyat</span>
+                <span class="niche" data-i18n="cs_niche2">Modest Fashion & Jalabiyat</span>
             </div>
             <span class="period">Jun 2025 - Jul 2026</span>
         </div>
         <div class="project-stats">
             <div class="project-stat">
                 <div class="value">2.95M</div>
-                <div class="label">Total Revenue</div>
+                <div class="label" data-i18n="cs_label_total_rev">Total Revenue</div>
             </div>
             <div class="project-stat">
                 <div class="value">619K</div>
-                <div class="label">Organic Revenue</div>
+                <div class="label" data-i18n="cs_label_org_rev">Organic Revenue</div>
             </div>
             <div class="project-stat">
                 <div class="value">13.67%</div>
-                <div class="label">Conv. Rate</div>
+                <div class="label" data-i18n="cs_label_conv_rate">Conv. Rate</div>
             </div>
             <div class="project-stat">
                 <div class="value">1.74M</div>
-                <div class="label">Organic Sessions</div>
+                <div class="label" data-i18n="cs_label_sessions">Organic Sessions</div>
             </div>
             <div class="project-stat">
                 <div class="value">6.5%</div>
-                <div class="label">Avg CTR</div>
+                <div class="label" data-i18n="cs_label_ctr">Avg CTR</div>
             </div>
             <div class="project-stat">
                 <div class="value">89.5%</div>
-                <div class="label">Engagement Rate</div>
+                <div class="label" data-i18n="cs_label_engagement">Engagement Rate</div>
             </div>
         </div>
         <div class="project-story">
-            <h3>The Challenge</h3>
-            <p>Hishma-sa.com is a modest fashion and jalabiyat e-commerce store targeting the Saudi market. The goal was to increase organic visibility and drive high-intent traffic that converts, in a market with strong competition from both local and international fashion brands.</p>
+            <h3 data-i18n="cs_challenge">The Challenge</h3>
+            <p data-i18n="cs_n2_challenge">Hishma-sa.com is a modest fashion and jalabiyat e-commerce store targeting the Saudi market. The goal was to increase organic visibility and drive high-intent traffic that converts, in a market with strong competition from both local and international fashion brands.</p>
             
-            <h3>The Strategy</h3>
-            <p>Focused on category-level SEO optimization, content strategy for product descriptions, and building topical authority in the modest fashion niche. Leveraged AI Overviews to capture both commercial and informational search intent.</p>
+            <h3 data-i18n="cs_strategy">The Strategy</h3>
+            <p data-i18n="cs_n2_strategy">Focused on category-level SEO optimization, content strategy for product descriptions, and building topical authority in the modest fashion niche. Leveraged AI Overviews to capture both commercial and informational search intent.</p>
 
-            <h3>Key Results</h3>
+            <h3 data-i18n="cs_results">Key Results</h3>
             <ul class="project-bullets">
-                <li>Organic search generated 618,817 SAR in revenue (21% of total 2.95M SAR)</li>
-                <li>Achieved the highest conversion rate among all channels at 13.67%</li>
-                <li>Drove 1.74M organic sessions with average engagement time of 3+ minutes per session</li>
-                <li>Achieved average CTR of 6.5% and average search position of 4.9</li>
-                <li>Organic search engagement rate reached 89.5%, significantly outperforming paid channels</li>
-                <li>Secured visibility in Google AI Overviews for commercial and informational queries</li>
+                <li data-i18n="cs_n2_b1">Organic search generated 618,817 SAR in revenue (21% of total 2.95M SAR)</li>
+                <li data-i18n="cs_n2_b2">Achieved the highest conversion rate among all channels at 13.67%</li>
+                <li data-i18n="cs_n2_b3">Drove 1.74M organic sessions with average engagement time of 3+ minutes per session</li>
+                <li data-i18n="cs_n2_b4">Achieved average CTR of 6.5% and average search position of 4.9</li>
+                <li data-i18n="cs_n2_b5">Organic search engagement rate reached 89.5%, significantly outperforming paid channels</li>
+                <li data-i18n="cs_n2_b6">Secured visibility in Google AI Overviews for commercial and informational queries</li>
             </ul>
         </div>
         <div class="project-gallery">
             <div class="gallery-item">
                 <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.04.47 PM.jpeg" alt="Hishma - Google Analytics" onclick="openLightbox(this)">
-                <div class="gallery-caption">Google Analytics - Traffic & Revenue</div>
+                <div class="gallery-caption" data-i18n="cs_ga_traffic">Google Analytics - Traffic & Revenue</div>
             </div>
             <div class="gallery-item">
                 <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.03.08 PM.jpeg" alt="Hishma - Search Console" onclick="openLightbox(this)">
-                <div class="gallery-caption">Google Search Console - Performance</div>
+                <div class="gallery-caption" data-i18n="cs_gsc_perf">Google Search Console - Performance</div>
             </div>
         </div>
     </div>
@@ -553,60 +584,60 @@
         <div class="project-header">
             <div>
                 <h2>Daily.sa</h2>
-                <span class="niche">Sports Equipment & Fitness</span>
+                <span class="niche" data-i18n="cs_niche3">Sports Equipment & Fitness</span>
             </div>
             <span class="period">Mar 2025 - Jul 2025</span>
         </div>
         <div class="project-stats">
             <div class="project-stat">
                 <div class="value">869K</div>
-                <div class="label">Total Revenue</div>
+                <div class="label" data-i18n="cs_label_total_rev">Total Revenue</div>
             </div>
             <div class="project-stat">
                 <div class="value">52K</div>
-                <div class="label">Organic Revenue</div>
+                <div class="label" data-i18n="cs_label_org_rev">Organic Revenue</div>
             </div>
             <div class="project-stat">
                 <div class="value">12.4K</div>
-                <div class="label">Organic Clicks</div>
+                <div class="label" data-i18n="cs_label_clicks">Organic Clicks</div>
             </div>
             <div class="project-stat">
                 <div class="value">1.3M</div>
-                <div class="label">Impressions</div>
+                <div class="label" data-i18n="cs_label_impressions">Impressions</div>
             </div>
             <div class="project-stat">
                 <div class="value">1%</div>
-                <div class="label">Avg CTR</div>
+                <div class="label" data-i18n="cs_label_ctr">Avg CTR</div>
             </div>
             <div class="project-stat">
                 <div class="value">10.8</div>
-                <div class="label">Avg Position</div>
+                <div class="label" data-i18n="cs_label_position">Avg Position</div>
             </div>
         </div>
         <div class="project-story">
-            <h3>The Challenge</h3>
-            <p>Daily.sa is a sports equipment and fitness e-commerce store. The project focused on building organic visibility from scratch in a competitive market where established brands dominated search results.</p>
+            <h3 data-i18n="cs_challenge">The Challenge</h3>
+            <p data-i18n="cs_n3_challenge">Daily.sa is a sports equipment and fitness e-commerce store. The project focused on building organic visibility from scratch in a competitive market where established brands dominated search results.</p>
             
-            <h3>The Strategy</h3>
-            <p>Implemented a foundational SEO strategy focusing on product page optimization, category structure, and long-tail keyword targeting. Worked alongside organic social media strategy which contributed 46.6% of traffic.</p>
+            <h3 data-i18n="cs_strategy">The Strategy</h3>
+            <p data-i18n="cs_n3_strategy">Implemented a foundational SEO strategy focusing on product page optimization, category structure, and long-tail keyword targeting. Worked alongside organic social media strategy which contributed 46.6% of traffic.</p>
 
-            <h3>Key Results</h3>
+            <h3 data-i18n="cs_results">Key Results</h3>
             <ul class="project-bullets">
-                <li>Organic search delivered 52,466 SAR in revenue (6% of total 869,253 SAR)</li>
-                <li>Generated 12.4K organic clicks and 1.3M impressions via Google Search Console</li>
-                <li>Achieved average CTR of 1% and average search position of 10.8</li>
-                <li>Organic search delivered 60 conversions with 1.12% conversion rate</li>
-                <li>Successfully built organic foundation in a competitive market within 4 months</li>
+                <li data-i18n="cs_n3_b1">Organic search delivered 52,466 SAR in revenue (6% of total 869,253 SAR)</li>
+                <li data-i18n="cs_n3_b2">Generated 12.4K organic clicks and 1.3M impressions via Google Search Console</li>
+                <li data-i18n="cs_n3_b3">Achieved average CTR of 1% and average search position of 10.8</li>
+                <li data-i18n="cs_n3_b4">Organic search delivered 60 conversions with 1.12% conversion rate</li>
+                <li data-i18n="cs_n3_b5">Successfully built organic foundation in a competitive market within 4 months</li>
             </ul>
         </div>
         <div class="project-gallery">
             <div class="gallery-item">
                 <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 5.49.57 PM.jpeg" alt="Daily - Google Analytics" onclick="openLightbox(this)">
-                <div class="gallery-caption">Google Analytics - Traffic & Revenue</div>
+                <div class="gallery-caption" data-i18n="cs_ga_traffic">Google Analytics - Traffic & Revenue</div>
             </div>
             <div class="gallery-item">
                 <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.41.22 PM.jpeg" alt="Daily - Search Console" onclick="openLightbox(this)">
-                <div class="gallery-caption">Google Search Console - Performance</div>
+                <div class="gallery-caption" data-i18n="cs_gsc_perf">Google Search Console - Performance</div>
             </div>
         </div>
     </div>
@@ -616,61 +647,61 @@
         <div class="project-header">
             <div>
                 <h2>MHS Jewellery</h2>
-                <span class="niche">Jewelry, Prayer Beads & Precious Stones</span>
+                <span class="niche" data-i18n="cs_niche4">Jewelry, Prayer Beads & Precious Stones</span>
             </div>
             <span class="period">Jul 2024 - Mar 2025</span>
         </div>
         <div class="project-stats">
             <div class="project-stat">
                 <div class="value">48.8K</div>
-                <div class="label">Total Revenue</div>
+                <div class="label" data-i18n="cs_label_total_rev">Total Revenue</div>
             </div>
             <div class="project-stat">
                 <div class="value">21.3K</div>
-                <div class="label">Organic Revenue</div>
+                <div class="label" data-i18n="cs_label_org_rev">Organic Revenue</div>
             </div>
             <div class="project-stat">
                 <div class="value">43.8%</div>
-                <div class="label">Organic Share</div>
+                <div class="label" data-i18n="cs_label_org_share">Organic Share</div>
             </div>
             <div class="project-stat">
                 <div class="value">4.32K</div>
-                <div class="label">Organic Clicks</div>
+                <div class="label" data-i18n="cs_label_clicks">Organic Clicks</div>
             </div>
             <div class="project-stat">
                 <div class="value">242K</div>
-                <div class="label">Impressions</div>
+                <div class="label" data-i18n="cs_label_impressions">Impressions</div>
             </div>
             <div class="project-stat">
                 <div class="value">40</div>
-                <div class="label">Conversions</div>
+                <div class="label" data-i18n="cs_label_conv">Conversions</div>
             </div>
         </div>
         <div class="project-story">
-            <h3>The Challenge</h3>
-            <p>MHS Jewellery is a heritage jewelry brand established in 1997, specializing in prayer beads (سبح), precious stones, and silver items. The challenge was to build organic visibility for a traditional brand entering the e-commerce space in the Saudi market.</p>
+            <h3 data-i18n="cs_challenge">The Challenge</h3>
+            <p data-i18n="cs_n4_challenge">MHS Jewellery is a heritage jewelry brand established in 1997, specializing in prayer beads (سُبح), precious stones, and silver items. The challenge was to build organic visibility for a traditional brand entering the e-commerce space in the Saudi market.</p>
             
-            <h3>The Strategy</h3>
-            <p>Created a comprehensive SEO strategy combining traditional product optimization with modern e-commerce best practices. Focused on building topical authority in the prayer beads and precious stones niche.</p>
+            <h3 data-i18n="cs_strategy">The Strategy</h3>
+            <p data-i18n="cs_n4_strategy">Created a comprehensive SEO strategy combining traditional product optimization with modern e-commerce best practices. Focused on building topical authority in the prayer beads and precious stones niche.</p>
 
-            <h3>Key Results</h3>
+            <h3 data-i18n="cs_results">Key Results</h3>
             <ul class="project-bullets">
-                <li>Organic search became the #1 revenue channel with 43.8% of total revenue (21,340 SAR out of 48,768 SAR)</li>
-                <li>Outperformed direct traffic (18.8%) by more than 2x</li>
-                <li>Generated 4.32K organic clicks and 242K impressions via Google Search Console</li>
-                <li>Achieved average CTR of 1.8% and average search position of 10.7</li>
-                <li>Organic search delivered 40 conversions with 0.72% conversion rate</li>
-                <li>Successfully established online presence for a heritage brand in the digital space</li>
+                <li data-i18n="cs_n4_b1">Organic search became the #1 revenue channel with 43.8% of total revenue (21,340 SAR out of 48,768 SAR)</li>
+                <li data-i18n="cs_n4_b2">Outperformed direct traffic (18.8%) by more than 2x</li>
+                <li data-i18n="cs_n4_b3">Generated 4.32K organic clicks and 242K impressions via Google Search Console</li>
+                <li data-i18n="cs_n4_b4">Achieved average CTR of 1.8% and average search position of 10.7</li>
+                <li data-i18n="cs_n4_b5">Organic search delivered 40 conversions with 0.72% conversion rate</li>
+                <li data-i18n="cs_n4_b6">Successfully established online presence for a heritage brand in the digital space</li>
             </ul>
         </div>
         <div class="project-gallery">
             <div class="gallery-item">
                 <img src="portfolio_assets/mhs screenshot 1.png" alt="MHS - Search Console Results" onclick="openLightbox(this)">
-                <div class="gallery-caption">Google Search Console - Performance</div>
+                <div class="gallery-caption" data-i18n="cs_gsc_perf">Google Search Console - Performance</div>
             </div>
             <div class="gallery-item">
                 <img src="portfolio_assets/mhs screenshot 2.png" alt="MHS - Analytics Results" onclick="openLightbox(this)">
-                <div class="gallery-caption">Google Analytics - Traffic & Revenue</div>
+                <div class="gallery-caption" data-i18n="cs_ga_traffic">Google Analytics - Traffic & Revenue</div>
             </div>
         </div>
     </div>
@@ -685,11 +716,175 @@
 
 <!-- Footer -->
 <div class="footer">
-    <p>Contact: <a href="mailto:mmetwily1@gmail.com">mmetwily1@gmail.com</a> | +20 10 25183569</p>
-    <p style="margin-top: 10px;"><a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn</a> | <a href="index.html">Portfolio</a> | <a href="cv.html">CV</a></p>
+    <p data-i18n="cs_footer_contact">Contact: <a href="mailto:mmetwily1@gmail.com">mmetwily1@gmail.com</a> | +20 10 25183569</p>
+    <p style="margin-top: 10px;"><a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn</a> | <a href="index.html" data-i18n="cs_footer_portfolio">Portfolio</a> | <a href="cv.html" data-i18n="cs_footer_cv">CV</a></p>
 </div>
 
 <script>
+const translations = {
+    ar: {
+        cs_hero_title: "دراسات الحالة",
+        cs_hero_subtitle: "نتائج حقيقية. بيانات حقيقية. تأثير حقيقي.",
+        cs_hero_desc: "شرح مفصل لاستراتيجيات SEO والنتائج القابلة للقياس عبر مشاريع التجارة الإلكترونية في السوق السعودي.",
+        cs_stat1: "إجمالي الإيرادات (ريال سعودي)",
+        cs_stat2: "إيرادات البحث العضوي (ريال سعودي)",
+        cs_stat3: "نقرات بحث عضوية",
+        cs_stat4: "ظهور في نتائج البحث",
+        cs_niche1: "قطع غيار السيارات والسيارات",
+        cs_niche2: "الموضة المحترمة والجلابيات",
+        cs_niche3: "تجارة المعدات الرياضية واللياقة البدنية",
+        cs_niche4: "المجوهرات والمسابح والأحجار الكريمة",
+        cs_label_total_rev: "إجمالي الإيرادات",
+        cs_label_org_rev: "إيرادات البحث العضوي",
+        cs_label_org_share: "نسبة الإيرادات العضوية",
+        cs_label_clicks: "نقرات بحث عضوية",
+        cs_label_impressions: "ظهور في نتائج البحث",
+        cs_label_conv: "التحويلات",
+        cs_label_conv_rate: "معدل التحويل",
+        cs_label_sessions: "جلسات بحث عضوية",
+        cs_label_ctr: "متوسط CTR",
+        cs_label_engagement: "معدل التفاعل",
+        cs_label_position: "متوسط الترتيب",
+        cs_challenge: "التحدي",
+        cs_strategy: "الاستراتيجية",
+        cs_results: "النتائج الرئيسية",
+        cs_n1_challenge: "تعمل Alwfi.com في سوق قطع غيار السيارات السعودي التنافسي للغاية، حيث تسيطر عليه العلامات التجارية الراسخة ذات شهرة العلامة التجارية القوية. كان الهدف هو بناء ظهور عضوي من الصفر ودفع نمو الإيرادات القابل للقياس.",
+        cs_n1_strategy: "نفّذت استراتيجية SEO شاملة تركز على الكلمات المفتاحية التجارية عالية النية والتحسين التقني لصفحات المنتجات في التجارة الإلكترونية وظهور AI Overviews لالتقاط طلب البحث في لحظة اتخاذ القرار.",
+        cs_n1_b1: " הפך البحث العضوي إلى قناة الإيرادات الأولى بنسبة 71.9% من إجمالي إيرادات المتجر (633,727 ريال سعودي من أصل 881,076 ريال سعودي)",
+        cs_n1_b2: "ولدت 95.7 ألف نقرة عضوية و2.54 مليون ظهور عبر Google Search Console",
+        cs_n1_b3: "حققت ترتيبات بحث في المراكز 1-5 للكلمات المفتاحية التجارية عالية النية في السوق السعودي",
+        cs_n1_b4: "ضمنت الظهور في Google AI Overviews لاستعلامات البحث المتعلقة بالمنتجات الرئيسية",
+        cs_n1_b5: "حققت متوسط CTR بنسبة 3.8% ومتوسط ترتيب بحث 5.5",
+        cs_n1_b6: "قدت 1,156 عملية تحويل من البحث العضوي (72.6% من جميع التحويلات)",
+        cs_n1_b7: "نمت الجلسات العضوية إلى 1.06 مليون (74.7% من إجمالي الزيارات)",
+        cs_n2_challenge: "Hishma-sa.com هو متجر إلكتروني للموضة المحترمة والجلابيات يستهدف السوق السعودي. كان الهدف هو زيادة الظهور العضوي ودفع زيارات عالية النية تتحول إلى مبيعات، في سوق تنافسي بقوة من العلامات التجارية المحلية والعالمية.",
+        cs_n2_strategy: "ركّزت الاستراتيجية على تحسين SEO على مستوى الفئات واستراتيجية المحتوى لوصف المنتجات وبناء سلطة موضوعية في مجال الموضة المحترمة. استغلت AI Overviews لالتقاط نية البحث التجارية والمعلوماتية.",
+        cs_n2_b1: "ولّد البحث العضوي 618,817 ريال سعودي من الإيرادات (21% من إجمالي 2.95 مليون ريال سعودي)",
+        cs_n2_b2: "حققت أعلى معدل تحويل بين جميع القنوات بنسبة 13.67%",
+        cs_n2_b3: "دفعت 1.74 مليون جلسة عضوية مع متوسط وقت تفاعل يزيد عن 3 دقائق للجلسة",
+        cs_n2_b4: "حققت متوسط CTR بنسبة 6.5% ومتوسط ترتيب بحث 4.9",
+        cs_n2_b5: "بلغ معدل تفاعل البحث العضوي 89.5%، متفوقاً بشكل ملحوظ على القنوات المدفوعة",
+        cs_n2_b6: "ضمنت الظهور في Google AI Overviews للاستعلامات التجارية والمعلوماتية",
+        cs_n3_challenge: "Daily.sa هو متجر إلكتروني للمعدات الرياضية واللياقة البدنية. ركّز المشروع على بناء ظهور عضوي من الصفر في سوق تنافسي حيث تسيطر العلامات التجارية الراسخة على نتائج البحث.",
+        cs_n3_strategy: "نفّذت استراتيجية SEO أساسية تركز على تحسين صفحات المنتجات وهياكل الفئات واستهداف الكلمات المفتاحية الطويلة. عملت جنباً إلى جنب مع استراتيجية التواصل العضوي التي ساهمت بنسبة 46.6% من الزيارات.",
+        cs_n3_b1: "قدّم البحث العضوي 52,466 ريال سعودي من الإيرادات (6% من إجمالي 869,253 ريال سعودي)",
+        cs_n3_b2: "ولّد 12.4 ألف نقرة عضوية و1.3 مليون ظهور عبر Google Search Console",
+        cs_n3_b3: "حققت متوسط CTR بنسبة 1% ومتوسط ترتيب بحث 10.8",
+        cs_n3_b4: "قدّم البحث العضوي 60 عملية تحويل بمعدل تحويل 1.12%",
+        cs_n3_b5: "نجحت في بناء أساس عضوي في سوق تنافسي خلال 4 أشهر",
+        cs_n4_challenge: "MHS Jewellery هي علامة تجارية للمجوهرات تأسست عام 1997، متخصصة في المسابح والأحجار الكريمة والفضة. كان التحدي هو بناء ظهور عضوي لعلامة تقليدية تدخل مجال التجارة الإلكترونية في السوق السعودي.",
+        cs_n4_strategy: "أنشأت استراتيجية SEO شاملة تجمع بين تحسين المنتجات التقليدي وأفضل ممارسات التجارة الإلكترونية الحديثة. ركّزت على بناء سلطة موضوعية في مجال المسابح والأحجار الكريمة.",
+        cs_n4_b1: "أصبح البحث العضوي قناة الإيرادات الأولى بنسبة 43.8% من إجمالي الإيرادات (21,340 ريال سعودي من أصل 48,768 ريال سعودي)",
+        cs_n4_b2: "تفوّق على الزيارات المباشرة (18.8%) بأكثر منضعف",
+        cs_n4_b3: "ولّد 4.32 ألف نقرة عضوية و242 ألف ظهور عبر Google Search Console",
+        cs_n4_b4: "حققت متوسط CTR بنسبة 1.8% ومتوسط ترتيب بحث 10.7",
+        cs_n4_b5: "قدّم البحث العضوي 40 عملية تحويل بمعدل تحويل 0.72%",
+        cs_n4_b6: "نجحت في إنشاء حضور رقمي لعلامة تجارية تراثية في الفضاء الرقمي",
+        cs_footer_contact: "التواصل: <a href=\"mailto:mmetwily1@gmail.com\">mmetwily1@gmail.com</a> | +20 10 25183569",
+        cs_footer_portfolio: "البورتفوليو",
+        cs_footer_cv: "السيرة الذاتية",
+        cs_ga_traffic: "Google Analytics - الزيارات والإيرادات",
+        cs_gsc_perf: "Google Search Console - الأداء"
+    },
+    en: {
+        cs_hero_title: "Case Studies",
+        cs_hero_subtitle: "Real Results. Real Data. Real Impact.",
+        cs_hero_desc: "Detailed breakdown of SEO strategies and measurable results across e-commerce projects in the Saudi market.",
+        cs_stat1: "Total Revenue (SAR)",
+        cs_stat2: "Organic Revenue (SAR)",
+        cs_stat3: "Organic Clicks",
+        cs_stat4: "Impressions",
+        cs_niche1: "Automotive & Car Spare Parts",
+        cs_niche2: "Modest Fashion & Jalabiyat",
+        cs_niche3: "Sports Equipment & Fitness",
+        cs_niche4: "Jewelry, Prayer Beads & Precious Stones",
+        cs_label_total_rev: "Total Revenue",
+        cs_label_org_rev: "Organic Revenue",
+        cs_label_org_share: "Organic Share",
+        cs_label_clicks: "Organic Clicks",
+        cs_label_impressions: "Impressions",
+        cs_label_conv: "Conversions",
+        cs_label_conv_rate: "Conv. Rate",
+        cs_label_sessions: "Organic Sessions",
+        cs_label_ctr: "Avg CTR",
+        cs_label_engagement: "Engagement Rate",
+        cs_label_position: "Avg Position",
+        cs_challenge: "The Challenge",
+        cs_strategy: "The Strategy",
+        cs_results: "Key Results",
+        cs_n1_challenge: "Alwfi.com operates in the highly competitive Saudi automotive spare parts market, dominated by established players with strong brand recognition. The goal was to build organic visibility from scratch and drive measurable revenue growth.",
+        cs_n1_strategy: "Implemented a comprehensive SEO strategy focusing on high-intent commercial keywords, technical optimization for e-commerce product pages, and AI Overviews visibility to capture search demand at the moment of decision.",
+        cs_n1_b1: "Organic search became the #1 revenue channel with 71.9% of total store revenue (633,727 SAR out of 881,076 SAR)",
+        cs_n1_b2: "Generated 95.7K organic clicks and 2.54M impressions via Google Search Console",
+        cs_n1_b3: "Achieved top 1-5 search rankings for high-intent commercial keywords in the Saudi market",
+        cs_n1_b4: "Secured visibility in Google AI Overviews for key product-related search queries",
+        cs_n1_b5: "Achieved average CTR of 3.8% and average search position of 5.5",
+        cs_n1_b6: "Delivered 1,156 conversions from organic search (72.6% of all conversions)",
+        cs_n1_b7: "Grew organic sessions to 1.06M (74.7% of total traffic)",
+        cs_n2_challenge: "Hishma-sa.com is a modest fashion and jalabiyat e-commerce store targeting the Saudi market. The goal was to increase organic visibility and drive high-intent traffic that converts, in a market with strong competition from both local and international fashion brands.",
+        cs_n2_strategy: "Focused on category-level SEO optimization, content strategy for product descriptions, and building topical authority in the modest fashion niche. Leveraged AI Overviews to capture both commercial and informational search intent.",
+        cs_n2_b1: "Organic search generated 618,817 SAR in revenue (21% of total 2.95M SAR)",
+        cs_n2_b2: "Achieved the highest conversion rate among all channels at 13.67%",
+        cs_n2_b3: "Drove 1.74M organic sessions with average engagement time of 3+ minutes per session",
+        cs_n2_b4: "Achieved average CTR of 6.5% and average search position of 4.9",
+        cs_n2_b5: "Organic search engagement rate reached 89.5%, significantly outperforming paid channels",
+        cs_n2_b6: "Secured visibility in Google AI Overviews for commercial and informational queries",
+        cs_n3_challenge: "Daily.sa is a sports equipment and fitness e-commerce store. The project focused on building organic visibility from scratch in a competitive market where established brands dominated search results.",
+        cs_n3_strategy: "Implemented a foundational SEO strategy focusing on product page optimization, category structure, and long-tail keyword targeting. Worked alongside organic social media strategy which contributed 46.6% of traffic.",
+        cs_n3_b1: "Organic search delivered 52,466 SAR in revenue (6% of total 869,253 SAR)",
+        cs_n3_b2: "Generated 12.4K organic clicks and 1.3M impressions via Google Search Console",
+        cs_n3_b3: "Achieved average CTR of 1% and average search position of 10.8",
+        cs_n3_b4: "Organic search delivered 60 conversions with 1.12% conversion rate",
+        cs_n3_b5: "Successfully built organic foundation in a competitive market within 4 months",
+        cs_n4_challenge: "MHS Jewellery is a heritage jewelry brand established in 1997, specializing in prayer beads (سُبح), precious stones, and silver items. The challenge was to build organic visibility for a traditional brand entering the e-commerce space in the Saudi market.",
+        cs_n4_strategy: "Created a comprehensive SEO strategy combining traditional product optimization with modern e-commerce best practices. Focused on building topical authority in the prayer beads and precious stones niche.",
+        cs_n4_b1: "Organic search became the #1 revenue channel with 43.8% of total revenue (21,340 SAR out of 48,768 SAR)",
+        cs_n4_b2: "Outperformed direct traffic (18.8%) by more than 2x",
+        cs_n4_b3: "Generated 4.32K organic clicks and 242K impressions via Google Search Console",
+        cs_n4_b4: "Achieved average CTR of 1.8% and average search position of 10.7",
+        cs_n4_b5: "Organic search delivered 40 conversions with 0.72% conversion rate",
+        cs_n4_b6: "Successfully established online presence for a heritage brand in the digital space",
+        cs_footer_contact: "Contact: <a href=\"mailto:mmetwily1@gmail.com\">mmetwily1@gmail.com</a> | +20 10 25183569",
+        cs_footer_portfolio: "Portfolio",
+        cs_footer_cv: "CV",
+        cs_ga_traffic: "Google Analytics - Traffic & Revenue",
+        cs_gsc_perf: "Google Search Console - Performance"
+    }
+};
+
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'ar' : 'en';
+    localStorage.setItem('lang', currentLang);
+    applyTranslations();
+    updateLayout();
+}
+
+function applyTranslations() {
+    const t = translations[currentLang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+            el.innerHTML = t[key];
+        }
+    });
+    document.getElementById('langBtn').textContent = currentLang === 'en' ? 'AR' : 'EN';
+}
+
+function updateLayout() {
+    if (currentLang === 'ar') {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', 'ar');
+    } else {
+        document.documentElement.setAttribute('dir', 'ltr');
+        document.documentElement.setAttribute('lang', 'en');
+    }
+}
+
+applyTranslations();
+updateLayout();
+</script>
 function openLightbox(img) {
     var lightbox = document.getElementById('lightbox');
     var lightboxImg = document.getElementById('lightbox-img');

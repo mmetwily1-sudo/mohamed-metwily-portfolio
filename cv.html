@@ -88,6 +88,36 @@
             color: var(--white);
         }
 
+        /* Language Toggle */
+        .lang-toggle {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lang-toggle:hover {
+            background: var(--accent);
+            transform: scale(1.05);
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .cv-experience ul {
+            padding-left: 0;
+            padding-right: 20px;
+        }
+
+        [dir="rtl"] .cv-cert-list li {
+            padding-left: 0;
+            padding-right: 10px;
+        }
+
         /* CV Container */
         .cv-container {
             max-width: 900px;
@@ -273,6 +303,7 @@
         <a href="index.html">Portfolio</a>
         <a href="case-studies.html">Case Studies</a>
         <a href="cv.html" class="nav-cv active">CV</a>
+        <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">AR</button>
     </div>
 </nav>
 
@@ -280,175 +311,365 @@
 <div class="cv-container">
     <!-- Header -->
     <div class="cv-header">
-        <h1>Mohamed METWILY</h1>
-        <div class="title">HEAD OF SEO</div>
+        <h1 data-i18n="cv_name">Mohamed METWILY</h1>
+        <div class="title" data-i18n="cv_title">HEAD OF SEO</div>
         <div class="contact-info">
             <span>mmetwily1@gmail.com</span>
             <span>+20 10 25183569</span>
-            <span>Mansoura, Egypt</span>
+            <span data-i18n="cv_location">Mansoura, Egypt</span>
             <a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn</a>
-            <a href="index.html">Portfolio</a>
+            <a href="index.html" data-i18n="cv_portfolio">Portfolio</a>
         </div>
     </div>
 
     <!-- Professional Summary -->
     <div class="cv-section">
-        <h2>Professional Summary</h2>
-        <p>Results-driven Head of SEO with hands-on experience managing end-to-end SEO strategy for high-revenue e-commerce businesses in the Saudi market. Proven track record of driving organic growth that generated over 4.75M SAR in revenue across multiple stores. Led and managed a cross-functional SEO team of 3 Team Leaders, 4 SEO Agents, and content specialists. Skilled in keyword research, technical SEO, content optimization, AI Overviews visibility, and competitor analysis using SEMrush, Google Analytics, and Google Search Console. Proficient in leveraging AI tools and AI agents to automate SEO workflows, scale content production, and optimize for AI-generated search results.</p>
+        <h2 data-i18n="cv_summary">Professional Summary</h2>
+        <p data-i18n="cv_summary_text">Results-driven Head of SEO with hands-on experience managing end-to-end SEO strategy for high-revenue e-commerce businesses in the Saudi market. Proven track record of driving organic growth that generated over 4.75M SAR in revenue across multiple stores. Led and managed a cross-functional SEO team of 3 Team Leaders, 4 SEO Agents, and content specialists. Skilled in keyword research, technical SEO, content optimization, AI Overviews visibility, and competitor analysis using SEMrush, Google Analytics, and Google Search Console. Proficient in leveraging AI tools and AI agents to automate SEO workflows, scale content production, and optimize for AI-generated search results.</p>
     </div>
 
     <!-- Professional Experience -->
     <div class="cv-section">
-        <h2>Professional Experience</h2>
+        <h2 data-i18n="cv_experience">Professional Experience</h2>
 
         <div class="cv-experience">
-            <h3>HEAD OF SEO <span class="company">| Freelance / Multiple E-commerce Projects</span></h3>
+            <h3 data-i18n="cv_exp1_title">HEAD OF SEO <span class="company">| Freelance / Multiple E-commerce Projects</span></h3>
             <div class="period">AUG 2025 - Present</div>
             <ul>
-                <li>Developed and led overall SEO strategy for multiple e-commerce stores in the Saudi market, driving growth in organic visibility, traffic, and revenue.</li>
-                <li>Managed full SEO lifecycle including technical audits, on-page optimization, keyword strategy, content planning, and performance tracking.</li>
-                <li>Led a cross-functional team of 3 Team Leaders, 4 SEO Agents, and content specialists, ensuring alignment on strategy execution and KPI targets.</li>
-                <li>Achieved top 1-5 search rankings for target keywords and secured visibility in Google AI Overviews for high-intent commercial queries.</li>
+                <li data-i18n="cv_exp1_b1">Developed and led overall SEO strategy for multiple e-commerce stores in the Saudi market, driving growth in organic visibility, traffic, and revenue.</li>
+                <li data-i18n="cv_exp1_b2">Managed full SEO lifecycle including technical audits, on-page optimization, keyword strategy, content planning, and performance tracking.</li>
+                <li data-i18n="cv_exp1_b3">Led a cross-functional team of 3 Team Leaders, 4 SEO Agents, and content specialists, ensuring alignment on strategy execution and KPI targets.</li>
+                <li data-i18n="cv_exp1_b4">Achieved top 1-5 search rankings for target keywords and secured visibility in Google AI Overviews for high-intent commercial queries.</li>
             </ul>
         </div>
 
         <div class="cv-experience">
-            <h3>TEAM LEADER SEO <span class="company">| Salasl Agency (Marketing Agency)</span></h3>
+            <h3 data-i18n="cv_exp2_title">TEAM LEADER SEO <span class="company">| Salasl Agency (Marketing Agency)</span></h3>
             <div class="period">AUG 2024 - AUG 2025</div>
             <ul>
-                <li>Led a team of SEO specialists at a full-service marketing agency, managing SEO projects across multiple client accounts in various industries.</li>
-                <li>Coordinated with content, design, and strategy teams to deliver integrated SEO campaigns.</li>
+                <li data-i18n="cv_exp2_b1">Led a team of SEO specialists at a full-service marketing agency, managing SEO projects across multiple client accounts in various industries.</li>
+                <li data-i18n="cv_exp2_b2">Coordinated with content, design, and strategy teams to deliver integrated SEO campaigns.</li>
             </ul>
         </div>
 
         <div class="cv-experience">
-            <h3>SEO SPECIALIST</h3>
+            <h3 data-i18n="cv_exp3_title">SEO SPECIALIST</h3>
             <div class="period">FEB 2023 - AUG 2024</div>
             <ul>
-                <li>Implemented SEO strategies to improve rankings and increase organic traffic across multiple e-commerce websites in the Saudi market.</li>
+                <li data-i18n="cv_exp3_b1">Implemented SEO strategies to improve rankings and increase organic traffic across multiple e-commerce websites in the Saudi market.</li>
             </ul>
         </div>
     </div>
 
     <!-- Key Projects -->
     <div class="cv-section">
-        <h2>Key Projects & Results</h2>
+        <h2 data-i18n="cv_projects">Key Projects & Results</h2>
 
         <div class="cv-experience">
-            <h3>Automotive & Car Spare Parts E-commerce</h3>
+            <h3 data-i18n="cv_proj1_title">Automotive & Car Spare Parts E-commerce</h3>
             <div class="period">Mar 2025 - Jun 2026</div>
             <ul>
-                <li>Drove organic search revenue of 633,727 SAR (71.9% of total store revenue of 881,076 SAR).</li>
-                <li>Generated 95.7K organic clicks and 2.54M impressions via Google Search Console.</li>
-                <li>Achieved top 1-5 search rankings for high-intent commercial keywords in the Saudi market.</li>
-                <li>Secured visibility in Google AI Overviews for key product-related search queries.</li>
-                <li>Achieved average CTR of 3.8% and average search position of 5.5.</li>
-                <li>Delivered 1,156 conversions from organic search (72.6% of all conversions).</li>
-                <li>Grew organic sessions to 1.06M (74.7% of total traffic).</li>
+                <li data-i18n="cv_proj1_b1">Drove organic search revenue of 633,727 SAR (71.9% of total store revenue of 881,076 SAR).</li>
+                <li data-i18n="cv_proj1_b2">Generated 95.7K organic clicks and 2.54M impressions via Google Search Console.</li>
+                <li data-i18n="cv_proj1_b3">Achieved top 1-5 search rankings for high-intent commercial keywords in the Saudi market.</li>
+                <li data-i18n="cv_proj1_b4">Secured visibility in Google AI Overviews for key product-related search queries.</li>
+                <li data-i18n="cv_proj1_b5">Achieved average CTR of 3.8% and average search position of 5.5.</li>
+                <li data-i18n="cv_proj1_b6">Delivered 1,156 conversions from organic search (72.6% of all conversions).</li>
+                <li data-i18n="cv_proj1_b7">Grew organic sessions to 1.06M (74.7% of total traffic).</li>
             </ul>
         </div>
 
         <div class="cv-experience">
-            <h3>Modest Fashion & Jalabiyat</h3>
+            <h3 data-i18n="cv_proj2_title">Modest Fashion & Jalabiyat</h3>
             <div class="period">Jun 2025 - Jul 2026</div>
             <ul>
-                <li>Contributed to SEO strategy that generated 618,817 SAR in organic search revenue (21% of total 2.95M SAR).</li>
-                <li>Achieved top 1-5 search rankings for target product categories.</li>
-                <li>Secured visibility in Google AI Overviews for commercial and informational queries.</li>
-                <li>Achieved organic search conversion rate of 13.67% (highest among all channels).</li>
-                <li>Drove 1.74M organic sessions with average engagement time of 3+ minutes per session.</li>
-                <li>Achieved average CTR of 6.5% and average search position of 4.9.</li>
-                <li>Organic search engagement rate reached 89.5%, significantly outperforming paid channels.</li>
+                <li data-i18n="cv_proj2_b1">Contributed to SEO strategy that generated 618,817 SAR in organic search revenue (21% of total 2.95M SAR).</li>
+                <li data-i18n="cv_proj2_b2">Achieved top 1-5 search rankings for target product categories.</li>
+                <li data-i18n="cv_proj2_b3">Secured visibility in Google AI Overviews for commercial and informational queries.</li>
+                <li data-i18n="cv_proj2_b4">Achieved organic search conversion rate of 13.67% (highest among all channels).</li>
+                <li data-i18n="cv_proj2_b5">Drove 1.74M organic sessions with average engagement time of 3+ minutes per session.</li>
+                <li data-i18n="cv_proj2_b6">Achieved average CTR of 6.5% and average search position of 4.9.</li>
+                <li data-i18n="cv_proj2_b7">Organic search engagement rate reached 89.5%, significantly outperforming paid channels.</li>
             </ul>
         </div>
 
         <div class="cv-experience">
-            <h3>Sports Equipment & Fitness E-commerce</h3>
+            <h3 data-i18n="cv_proj3_title">Sports Equipment & Fitness E-commerce</h3>
             <div class="period">Mar 2025 - Jul 2025</div>
             <ul>
-                <li>Drove organic search revenue of 52,466 SAR (6% of total store revenue of 869,253 SAR).</li>
-                <li>Generated 12.4K organic clicks and 1.3M impressions via Google Search Console.</li>
-                <li>Achieved average CTR of 1% and average search position of 10.8.</li>
-                <li>Organic search delivered 60 conversions with 1.12% conversion rate.</li>
-                <li>Managed SEO strategy alongside organic social (46.6% of traffic) and paid channels.</li>
+                <li data-i18n="cv_proj3_b1">Drove organic search revenue of 52,466 SAR (6% of total store revenue of 869,253 SAR).</li>
+                <li data-i18n="cv_proj3_b2">Generated 12.4K organic clicks and 1.3M impressions via Google Search Console.</li>
+                <li data-i18n="cv_proj3_b3">Achieved average CTR of 1% and average search position of 10.8.</li>
+                <li data-i18n="cv_proj3_b4">Organic search delivered 60 conversions with 1.12% conversion rate.</li>
+                <li data-i18n="cv_proj3_b5">Managed SEO strategy alongside organic social (46.6% of traffic) and paid channels.</li>
             </ul>
         </div>
 
         <div class="cv-experience">
-            <h3>Jewelry, Prayer Beads & Precious Stones</h3>
+            <h3 data-i18n="cv_proj4_title">Jewelry, Prayer Beads & Precious Stones</h3>
             <div class="period">Jul 2024 - Mar 2025</div>
             <ul>
-                <li>Drove organic search revenue of 21,340 SAR (43.8% of total store revenue of 48,768 SAR).</li>
-                <li>Generated 4.32K organic clicks and 242K impressions via Google Search Console.</li>
-                <li>Achieved average CTR of 1.8% and average search position of 10.7.</li>
-                <li>Organic search delivered 40 conversions with 0.72% conversion rate.</li>
-                <li>Organic search contributed 43.8% of total revenue, outperforming direct traffic (18.8%).</li>
-                <li>Managed multi-channel strategy including organic social (32.6% of revenue) and paid channels.</li>
-                <li>Total store conversions: 178 with 0.51% conversion rate across 325K sessions.</li>
+                <li data-i18n="cv_proj4_b1">Drove organic search revenue of 21,340 SAR (43.8% of total store revenue of 48,768 SAR).</li>
+                <li data-i18n="cv_proj4_b2">Generated 4.32K organic clicks and 242K impressions via Google Search Console.</li>
+                <li data-i18n="cv_proj4_b3">Achieved average CTR of 1.8% and average search position of 10.7.</li>
+                <li data-i18n="cv_proj4_b4">Organic search delivered 40 conversions with 0.72% conversion rate.</li>
+                <li data-i18n="cv_proj4_b5">Organic search contributed 43.8% of total revenue, outperforming direct traffic (18.8%).</li>
+                <li data-i18n="cv_proj4_b6">Managed multi-channel strategy including organic social (32.6% of revenue) and paid channels.</li>
+                <li data-i18n="cv_proj4_b7">Total store conversions: 178 with 0.51% conversion rate across 325K sessions.</li>
             </ul>
         </div>
     </div>
 
     <!-- Education -->
     <div class="cv-section">
-        <h2>Education</h2>
-        <p><strong>Bachelor's Degree in Arts</strong> - Archaeology Department, Mansoura University (2017 - 2020)</p>
+        <h2 data-i18n="cv_education">Education</h2>
+        <p data-i18n="cv_education_text"><strong>Bachelor's Degree in Arts</strong> - Archaeology Department, Mansoura University (2017 - 2020)</p>
     </div>
 
     <!-- Technical Skills -->
     <div class="cv-section">
-        <h2>Technical Skills</h2>
+        <h2 data-i18n="cv_tech_skills">Technical Skills</h2>
         <div class="cv-skills">
-            <span class="cv-skill-tag">Search Engine Optimization (SEO) - On-Page, Off-Page & Technical</span>
-            <span class="cv-skill-tag">Keyword Research & Competitor Analysis</span>
-            <span class="cv-skill-tag">Google Search Console & Google Analytics (GA4)</span>
-            <span class="cv-skill-tag">Google Tag Manager & Google Keyword Planner</span>
-            <span class="cv-skill-tag">SEMrush & Screaming Frog SEO Audit</span>
-            <span class="cv-skill-tag">E-commerce SEO (Salla, Shopify, Zid, WordPress)</span>
-            <span class="cv-skill-tag">AI Overviews & Generative Engine Optimization</span>
-            <span class="cv-skill-tag">AI Tools & AI Agents (Prompt Engineering, Workflow Automation)</span>
-            <span class="cv-skill-tag">AI-Powered Content Optimization & Scaling</span>
+            <span class="cv-skill-tag" data-i18n="cv_skill1">Search Engine Optimization (SEO) - On-Page, Off-Page & Technical</span>
+            <span class="cv-skill-tag" data-i18n="cv_skill2">Keyword Research & Competitor Analysis</span>
+            <span class="cv-skill-tag" data-i18n="cv_skill3">Google Search Console & Google Analytics (GA4)</span>
+            <span class="cv-skill-tag" data-i18n="cv_skill4">Google Tag Manager & Google Keyword Planner</span>
+            <span class="cv-skill-tag" data-i18n="cv_skill5">SEMrush & Screaming Frog SEO Audit</span>
+            <span class="cv-skill-tag" data-i18n="cv_skill6">E-commerce SEO (Salla, Shopify, Zid, WordPress)</span>
+            <span class="cv-skill-tag" data-i18n="cv_skill7">AI Overviews & Generative Engine Optimization</span>
+            <span class="cv-skill-tag" data-i18n="cv_skill8">AI Tools & AI Agents (Prompt Engineering, Workflow Automation)</span>
+            <span class="cv-skill-tag" data-i18n="cv_skill9">AI-Powered Content Optimization & Scaling</span>
         </div>
     </div>
 
     <!-- Soft Skills -->
     <div class="cv-section">
-        <h2>Soft Skills</h2>
+        <h2 data-i18n="cv_soft_skills">Soft Skills</h2>
         <div class="cv-skills">
-            <span class="cv-skill-tag">Digital Marketing & Content Strategy</span>
-            <span class="cv-skill-tag">Monthly Reporting & Client Communication</span>
-            <span class="cv-skill-tag">Team Leadership & Project Management</span>
-            <span class="cv-skill-tag">Data-Driven Decision Making</span>
+            <span class="cv-skill-tag" data-i18n="cv_soft1">Digital Marketing & Content Strategy</span>
+            <span class="cv-skill-tag" data-i18n="cv_soft2">Monthly Reporting & Client Communication</span>
+            <span class="cv-skill-tag" data-i18n="cv_soft3">Team Leadership & Project Management</span>
+            <span class="cv-skill-tag" data-i18n="cv_soft4">Data-Driven Decision Making</span>
         </div>
     </div>
 
     <!-- Languages -->
     <div class="cv-section">
-        <h2>Languages</h2>
-        <p>Arabic (Native) | English (Good)</p>
+        <h2 data-i18n="cv_languages">Languages</h2>
+        <p data-i18n="cv_languages_text">Arabic (Native) | English (Good)</p>
     </div>
 
     <!-- Certifications -->
     <div class="cv-section">
-        <h2>Certifications & Training</h2>
+        <h2 data-i18n="cv_certs">Certifications & Training</h2>
         <ul class="cv-cert-list">
-            <li>Digital Marketing - Google</li>
-            <li>SEO Training - Salasl Agency</li>
-            <li>Digital Marketing - Edrak Platform</li>
+            <li data-i18n="cv_cert1">Digital Marketing - Google</li>
+            <li data-i18n="cv_cert2">SEO Training - Salasl Agency</li>
+            <li data-i18n="cv_cert3">Digital Marketing - Edrak Platform</li>
         </ul>
     </div>
 
     <!-- Download -->
     <div style="text-align: center; margin-top: 40px;">
-        <a href="Mohamed-Metwily-CV.pdf" download class="download-btn">Download PDF CV</a>
+        <a href="Mohamed-Metwily-CV.pdf" download class="download-btn" data-i18n="cv_download">Download PDF CV</a>
     </div>
 </div>
 
 <!-- Footer -->
 <div class="footer">
-    <p>Contact: <a href="mailto:mmetwily1@gmail.com">mmetwily1@gmail.com</a> | +20 10 25183569</p>
-    <p style="margin-top: 10px;"><a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn</a> | <a href="index.html">Back to Portfolio</a></p>
+    <p data-i18n="cv_footer_contact">Contact: <a href="mailto:mmetwily1@gmail.com">mmetwily1@gmail.com</a> | +20 10 25183569</p>
+    <p style="margin-top: 10px;"><a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn</a> | <a href="index.html" data-i18n="cv_back">Back to Portfolio</a></p>
 </div>
+
+<script>
+const translations = {
+    ar: {
+        cv_portfolio: "البورتفوليو",
+        cv_name: "محمد متولي",
+        cv_title: "مدير تحسين محركات البحث",
+        cv_location: "المنصورة، مصر",
+        cv_summary: "نبذة عني",
+        cv_summary_text: "مدير تحسين محركات البحث ذو خبرة عملية في إدارة استراتيجية SEO الشاملة لأعمال التجارة الإلكترونية ذات الإيرادات العالية في السوق السعودي. سجل حافل مثبت في تحقيق النمو العضوي الذي أوصل إيرادات تزيد عن 4.75 مليون ريال سعودي عبر متاجر متعددة. قادت وأدرت فريق SEO متعدد التخصصات يضم 3 قادة فريق و4 م specializes ومتخصصي محتوى. بارع في أبحاث الكلمات المفتاحية والSEO التقني وتحسين المحتوى وظهور AI Overviews وتحليل المنافسين باستخدام SEMrush وGoogle Analytics وGoogle Search Console. متمكن من استخدام أدوات الذكاء الاصطناعي وأدوات AI لأتمتة سير عمل SEO وتوسيع إنتاج المحتوى والتحسين لنتائج البحث المولدة بالذكاء الاصطناعي.",
+        cv_experience: "الخبرة المهنية",
+        cv_exp1_title: "مدير SEO <span class=\"company\">| مستقل / مشاريع تجارة إلكترونية متعددة</span>",
+        cv_exp1_b1: "طرحت وقيمت استراتيجية SEO الشاملة لمتاجر تجارة إلكترونية متعددة في السوق السعودي، وأدرت النمو في الظهور العضوي والزيارات والإيرادات.",
+        cv_exp1_b2: "أدرت دورة حياة SEO الكاملة بما في ذلك التدقيقات التقنية والتحسين On-Page واستراتيجية الكلمات المفتاحية وتخطيط المحتوى وتتبع الأداء.",
+        cv_exp1_b3: "قيت فريقاً متعدد التخصصات يضم 3 قادة فريق و4 م specializes ومتخصصي محتوى، وضعت التوافق في تنفيذ الاستراتيجية وأهداف KPI.",
+        cv_exp1_b4: "حققت ترتيبات بحث في المراكز 1-5 للكلمات المفتاحية المستهدفة وضمنت الظهور في Google AI Overviews للاستعلامات التجارية عالية النية.",
+        cv_exp2_title: "قائد فريق SEO <span class=\"company\">| وكالة سلاسل (وكالة تسويق)</span>",
+        cv_exp2_b1: "قيت فريقاً من متخصصي SEO في وكالة تسويقية متكاملة الخدمات، وأدرت مشاريع SEO لعملاء متعددين في صناعات مختلفة.",
+        cv_exp2_b2: "تنسيق مع فرق المحتوى والتصميم والاستراتيجية لتقديم حملات SEO متكاملة.",
+        cv_exp3_title: "متخصص SEO",
+        cv_exp3_b1: "نفذت استراتيجيات SEO لتحسين الترتيبات وزيادة الزيارات العضوية عبر مواقع تجارة إلكترونية متعددة في السوق السعودي.",
+        cv_projects: "المشاريع الرئيسية والنتائج",
+        cv_proj1_title: "تجارة قطع غيار السيارات والسيارات",
+        cv_proj1_b1: "حققت إيرادات بحث عضوي بقيمة 633,727 ريال سعودي (71.9% من إجمالي إيرادات المتجر البالغة 881,076 ريال سعودي).",
+        cv_proj1_b2: "ولدت 95.7 ألف نقرة عضوية و2.54 مليون ظهور عبر Google Search Console.",
+        cv_proj1_b3: "حققت ترتيبات بحث في المراكز 1-5 للكلمات المفتاحية التجارية عالية النية في السوق السعودي.",
+        cv_proj1_b4: "ضمنت الظهور في Google AI Overviews لاستعلامات البحث المتعلقة بالمنتجات الرئيسية.",
+        cv_proj1_b5: "حققت متوسط CTR بنسبة 3.8% ومتوسط ترتيب بحث 5.5.",
+        cv_proj1_b6: "قدت 1,156 عملية تحويل من البحث العضوي (72.6% من جميع التحويلات).",
+        cv_proj1_b7: "نمت الجلسات العضوية إلى 1.06 مليون (74.7% من إجمالي الزيارات).",
+        cv_proj2_title: "الموضة المحترمة والجلابيات",
+        cv_proj2_b1: "ساهمت في استراتيجية SEO أوصلت إيرادات بحث عضوي بقيمة 618,817 ريال سعودي (21% من إجمالي 2.95 مليون ريال سعودي).",
+        cv_proj2_b2: "حققت ترتيبات بحث في المراكز 1-5 لفئات المنتجات المستهدفة.",
+        cv_proj2_b3: "ضمنت الظهور في Google AI Overviews للاستعلامات التجارية والمعلوماتية.",
+        cv_proj2_b4: "حققت معدل تحويل بحث عضوي بنسبة 13.67% (الأعلى بين جميع القنوات).",
+        cv_proj2_b5: "دفعت 1.74 مليون جلسة عضوية مع متوسط وقت تفاعل يزيد عن 3 دقائق للجلسة.",
+        cv_proj2_b6: "حققت متوسط CTR بنسبة 6.5% ومتوسط ترتيب بحث 4.9.",
+        cv_proj2_b7: "بلغ معدل تفاعل البحث العضوي 89.5%， متفوقاً بشكل ملحوظ على القنوات المدفوعة.",
+        cv_proj3_title: "تجارة المعدات الرياضية واللياقة البدنية",
+        cv_proj3_b1: "حققت إيرادات بحث عضوي بقيمة 52,466 ريال سعودي (6% من إجمالي إيرادات المتجر البالغة 869,253 ريال سعودي).",
+        cv_proj3_b2: "ولدت 12.4 ألف نقرة عضوية و1.3 مليون ظهور عبر Google Search Console.",
+        cv_proj3_b3: "حققت متوسط CTR بنسبة 1% ومتوسط ترتيب بحث 10.8.",
+        cv_proj3_b4: "قدت البحث العضوي 60 عملية تحويل بمعدل تحويل 1.12%.",
+        cv_proj3_b5: "أدرت استراتيجية SEO إلى جانب التواصل العضوي (46.6% من الزيارات) والقنوات المدفوعة.",
+        cv_proj4_title: "المجوهرات والمسابح والأحجار الكريمة",
+        cv_proj4_b1: "حققت إيرادات بحث عضوي بقيمة 21,340 ريال سعودي (43.8% من إجمالي إيرادات المتجر البالغة 48,768 ريال سعودي).",
+        cv_proj4_b2: "ولدت 4.32 ألف نقرة عضوية و242 ألف ظهور عبر Google Search Console.",
+        cv_proj4_b3: "حققت متوسط CTR بنسبة 1.8% ومتوسط ترتيب بحث 10.7.",
+        cv_proj4_b4: "قدت البحث العضوي 40 عملية تحويل بمعدل تحويل 0.72%.",
+        cv_proj4_b5: "ساهم البحث العضوي بنسبة 43.8% من إجمالي الإيرادات， متفوقاً على الزيارات المباشرة (18.8%).",
+        cv_proj4_b6: "أدرت استراتيجية متعددة القنوات تشمل التواصل العضوي (32.6% من الإيرادات) والقنوات المدفوعة.",
+        cv_proj4_b7: "إجمالي تحويلات المتجر: 178 عملية تحويل بمعدل تحويل 0.51% عبر 325 ألف جلسة.",
+        cv_education: "التعليم",
+        cv_education_text: "<strong>بكالوريوس آداب</strong> - قسم الآثار، جامعة المنصورة (2017 - 2020)",
+        cv_tech_skills: "المهارات التقنية",
+        cv_skill1: "تحسين محركات البحث (SEO) - On-Page وOff-Page والتقني",
+        cv_skill2: "أبحاث الكلمات المفتاحية وتحليل المنافسين",
+        cv_skill3: "Google Search Console وGoogle Analytics (GA4)",
+        cv_skill4: "Google Tag Manager وGoogle Keyword Planner",
+        cv_skill5: "SEMrush وScreaming Frog لتدقيق SEO",
+        cv_skill6: "SEO التجارة الإلكترونية (Salla وShopify وZid وWordPress)",
+        cv_skill7: "AI Overviews وتحسين محركات البحث التوليدي",
+        cv_skill8: "أدوات الذكاء الاصطناعي وأدوات AI (هندسة البرمجة وأتمتة سير العمل)",
+        cv_skill9: "تحسين المحتوى بالذكاء الاصطناعي وتوسيعه",
+        cv_soft_skills: "المهارات الشخصية",
+        cv_soft1: "التسويق الرقمي واستراتيجية المحتوى",
+        cv_soft2: "التقارير الشهرية والتواصل مع العملاء",
+        cv_soft3: "قيادة الفرق وإدارة المشاريع",
+        cv_soft4: "اتخاذ القرارات المبنية على البيانات",
+        cv_languages: "اللغات",
+        cv_languages_text: "العربية (الأم) | الإنجليزية (جيد جداً)",
+        cv_certs: "الشهادات والتدريب",
+        cv_cert1: "التسويق الرقمي - Google",
+        cv_cert2: "تدريب SEO - وكالة سلاسل",
+        cv_cert3: "التسويق الرقمي - منصة إدراك",
+        cv_download: "تحميل السيرة الذاتية PDF",
+        cv_footer_contact: "التواصل: <a href=\"mailto:mmetwily1@gmail.com\">mmetwily1@gmail.com</a> | +20 10 25183569",
+        cv_back: "العودة للبورتفوليو"
+    },
+    en: {
+        cv_portfolio: "Portfolio",
+        cv_name: "Mohamed METWILY",
+        cv_title: "HEAD OF SEO",
+        cv_location: "Mansoura, Egypt",
+        cv_summary: "Professional Summary",
+        cv_summary_text: "Results-driven Head of SEO with hands-on experience managing end-to-end SEO strategy for high-revenue e-commerce businesses in the Saudi market. Proven track record of driving organic growth that generated over 4.75M SAR in revenue across multiple stores. Led and managed a cross-functional SEO team of 3 Team Leaders, 4 SEO Agents, and content specialists. Skilled in keyword research, technical SEO, content optimization, AI Overviews visibility, and competitor analysis using SEMrush, Google Analytics, and Google Search Console. Proficient in leveraging AI tools and AI agents to automate SEO workflows, scale content production, and optimize for AI-generated search results.",
+        cv_experience: "Professional Experience",
+        cv_exp1_title: "HEAD OF SEO <span class=\"company\">| Freelance / Multiple E-commerce Projects</span>",
+        cv_exp1_b1: "Developed and led overall SEO strategy for multiple e-commerce stores in the Saudi market, driving growth in organic visibility, traffic, and revenue.",
+        cv_exp1_b2: "Managed full SEO lifecycle including technical audits, on-page optimization, keyword strategy, content planning, and performance tracking.",
+        cv_exp1_b3: "Led a cross-functional team of 3 Team Leaders, 4 SEO Agents, and content specialists, ensuring alignment on strategy execution and KPI targets.",
+        cv_exp1_b4: "Achieved top 1-5 search rankings for target keywords and secured visibility in Google AI Overviews for high-intent commercial queries.",
+        cv_exp2_title: "TEAM LEADER SEO <span class=\"company\">| Salasl Agency (Marketing Agency)</span>",
+        cv_exp2_b1: "Led a team of SEO specialists at a full-service marketing agency, managing SEO projects across multiple client accounts in various industries.",
+        cv_exp2_b2: "Coordinated with content, design, and strategy teams to deliver integrated SEO campaigns.",
+        cv_exp3_title: "SEO SPECIALIST",
+        cv_exp3_b1: "Implemented SEO strategies to improve rankings and increase organic traffic across multiple e-commerce websites in the Saudi market.",
+        cv_projects: "Key Projects & Results",
+        cv_proj1_title: "Automotive & Car Spare Parts E-commerce",
+        cv_proj1_b1: "Drove organic search revenue of 633,727 SAR (71.9% of total store revenue of 881,076 SAR).",
+        cv_proj1_b2: "Generated 95.7K organic clicks and 2.54M impressions via Google Search Console.",
+        cv_proj1_b3: "Achieved top 1-5 search rankings for high-intent commercial keywords in the Saudi market.",
+        cv_proj1_b4: "Secured visibility in Google AI Overviews for key product-related search queries.",
+        cv_proj1_b5: "Achieved average CTR of 3.8% and average search position of 5.5.",
+        cv_proj1_b6: "Delivered 1,156 conversions from organic search (72.6% of all conversions).",
+        cv_proj1_b7: "Grew organic sessions to 1.06M (74.7% of total traffic).",
+        cv_proj2_title: "Modest Fashion & Jalabiyat",
+        cv_proj2_b1: "Contributed to SEO strategy that generated 618,817 SAR in organic search revenue (21% of total 2.95M SAR).",
+        cv_proj2_b2: "Achieved top 1-5 search rankings for target product categories.",
+        cv_proj2_b3: "Secured visibility in Google AI Overviews for commercial and informational queries.",
+        cv_proj2_b4: "Achieved organic search conversion rate of 13.67% (highest among all channels).",
+        cv_proj2_b5: "Drove 1.74M organic sessions with average engagement time of 3+ minutes per session.",
+        cv_proj2_b6: "Achieved average CTR of 6.5% and average search position of 4.9.",
+        cv_proj2_b7: "Organic search engagement rate reached 89.5%, significantly outperforming paid channels.",
+        cv_proj3_title: "Sports Equipment & Fitness E-commerce",
+        cv_proj3_b1: "Drove organic search revenue of 52,466 SAR (6% of total store revenue of 869,253 SAR).",
+        cv_proj3_b2: "Generated 12.4K organic clicks and 1.3M impressions via Google Search Console.",
+        cv_proj3_b3: "Achieved average CTR of 1% and average search position of 10.8.",
+        cv_proj3_b4: "Organic search delivered 60 conversions with 1.12% conversion rate.",
+        cv_proj3_b5: "Managed SEO strategy alongside organic social (46.6% of traffic) and paid channels.",
+        cv_proj4_title: "Jewelry, Prayer Beads & Precious Stones",
+        cv_proj4_b1: "Drove organic search revenue of 21,340 SAR (43.8% of total store revenue of 48,768 SAR).",
+        cv_proj4_b2: "Generated 4.32K organic clicks and 242K impressions via Google Search Console.",
+        cv_proj4_b3: "Achieved average CTR of 1.8% and average search position of 10.7.",
+        cv_proj4_b4: "Organic search delivered 40 conversions with 0.72% conversion rate.",
+        cv_proj4_b5: "Organic search contributed 43.8% of total revenue, outperforming direct traffic (18.8%).",
+        cv_proj4_b6: "Managed multi-channel strategy including organic social (32.6% of revenue) and paid channels.",
+        cv_proj4_b7: "Total store conversions: 178 with 0.51% conversion rate across 325K sessions.",
+        cv_education: "Education",
+        cv_education_text: "<strong>Bachelor's Degree in Arts</strong> - Archaeology Department, Mansoura University (2017 - 2020)",
+        cv_tech_skills: "Technical Skills",
+        cv_skill1: "Search Engine Optimization (SEO) - On-Page, Off-Page & Technical",
+        cv_skill2: "Keyword Research & Competitor Analysis",
+        cv_skill3: "Google Search Console & Google Analytics (GA4)",
+        cv_skill4: "Google Tag Manager & Google Keyword Planner",
+        cv_skill5: "SEMrush & Screaming Frog SEO Audit",
+        cv_skill6: "E-commerce SEO (Salla, Shopify, Zid, WordPress)",
+        cv_skill7: "AI Overviews & Generative Engine Optimization",
+        cv_skill8: "AI Tools & AI Agents (Prompt Engineering, Workflow Automation)",
+        cv_skill9: "AI-Powered Content Optimization & Scaling",
+        cv_soft_skills: "Soft Skills",
+        cv_soft1: "Digital Marketing & Content Strategy",
+        cv_soft2: "Monthly Reporting & Client Communication",
+        cv_soft3: "Team Leadership & Project Management",
+        cv_soft4: "Data-Driven Decision Making",
+        cv_languages: "Languages",
+        cv_languages_text: "Arabic (Native) | English (Good)",
+        cv_certs: "Certifications & Training",
+        cv_cert1: "Digital Marketing - Google",
+        cv_cert2: "SEO Training - Salasl Agency",
+        cv_cert3: "Digital Marketing - Edrak Platform",
+        cv_download: "Download PDF CV",
+        cv_footer_contact: "Contact: <a href=\"mailto:mmetwily1@gmail.com\">mmetwily1@gmail.com</a> | +20 10 25183569",
+        cv_back: "Back to Portfolio"
+    }
+};
+
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'ar' : 'en';
+    localStorage.setItem('lang', currentLang);
+    applyTranslations();
+    updateLayout();
+}
+
+function applyTranslations() {
+    const t = translations[currentLang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+            el.innerHTML = t[key];
+        }
+    });
+    document.getElementById('langBtn').textContent = currentLang === 'en' ? 'AR' : 'EN';
+}
+
+function updateLayout() {
+    if (currentLang === 'ar') {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', 'ar');
+    } else {
+        document.documentElement.setAttribute('dir', 'ltr');
+        document.documentElement.setAttribute('lang', 'en');
+    }
+}
+
+applyTranslations();
+updateLayout();
+</script>
 
 </body>
 </html>
