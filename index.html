@@ -408,6 +408,54 @@
             background: #ff6b81;
             color: var(--white);
         }
+
+        /* Language Toggle */
+        .lang-toggle {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lang-toggle:hover {
+            background: var(--accent);
+            transform: scale(1.05);
+        }
+
+        /* RTL Support */
+        [dir="rtl"] body {
+            font-family: 'Inter', 'Arial', sans-serif;
+        }
+
+        [dir="rtl"] .experience-item ul {
+            padding-left: 0;
+            padding-right: 20px;
+        }
+
+        [dir="rtl"] .cert-list li {
+            padding-left: 0;
+            padding-right: 10px;
+        }
+
+        [dir="rtl"] .cert-list li:hover {
+            padding-left: 0;
+            padding-right: 10px;
+        }
+
+        [dir="rtl"] .experience-item:hover {
+            padding-left: 0;
+            padding-right: 10px;
+        }
+
+        [dir="rtl"] .section h2 {
+            direction: rtl;
+        }
     </style>
 </head>
 <body>
@@ -416,9 +464,10 @@
 <nav class="navbar">
     <a href="index.html" class="logo">Mohamed <span>Metwily</span></a>
     <div class="navbar-links">
-        <a href="index.html" class="active">Portfolio</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="cv.html" class="nav-cv">CV</a>
+        <a href="index.html" class="active" data-i18n="nav_portfolio">Portfolio</a>
+        <a href="case-studies.html" data-i18n="nav_case_studies">Case Studies</a>
+        <a href="cv.html" class="nav-cv" data-i18n="nav_cv">CV</a>
+        <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">AR</button>
     </div>
 </nav>
 
@@ -428,63 +477,63 @@
     <div class="hero-glow-2"></div>
     <img src="portfolio_assets/profile_gemini.jpg" alt="Mohamed Metwily" class="profile-photo">
     <h1>Mohamed Metwily</h1>
-    <div class="title">HEAD OF SEO</div>
+    <div class="title" data-i18n="hero_title">HEAD OF SEO</div>
     <div class="contact">
         <span>mmetwily1@gmail.com</span>
         <span>+20 10 25183569</span>
-        <span>Mansoura, Egypt</span>
+        <span data-i18n="hero_location">Mansoura, Egypt</span>
         <a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn</a>
     </div>
-    <a href="#cv" class="btn-cv">View Full CV</a>
+    <a href="#cv" class="btn-cv" data-i18n="hero_btn">View Full CV</a>
 </div>
 
 <!-- Summary -->
 <div class="section">
-    <h2>Professional Summary</h2>
-    <p style="color: var(--text-secondary);">Results-driven Head of SEO with hands-on experience managing end-to-end SEO strategy for high-revenue e-commerce businesses in the Saudi market. Proven track record of driving organic growth that generated over 4.75M SAR in revenue across multiple stores. Led and managed a cross-functional SEO team of 3 Team Leaders, 4 SEO Agents, and content specialists. Skilled in keyword research, technical SEO, content optimization, AI Overviews visibility, and competitor analysis using SEMrush, Google Analytics, and Google Search Console. Proficient in leveraging AI tools and AI agents to automate SEO workflows, scale content production, and optimize for AI-generated search results.</p>
+    <h2 data-i18n="summary_title">Professional Summary</h2>
+    <p style="color: var(--text-secondary);" data-i18n="summary_text">Results-driven Head of SEO with hands-on experience managing end-to-end SEO strategy for high-revenue e-commerce businesses in the Saudi market. Proven track record of driving organic growth that generated over 4.75M SAR in revenue across multiple stores. Led and managed a cross-functional SEO team of 3 Team Leaders, 4 SEO Agents, and content specialists. Skilled in keyword research, technical SEO, content optimization, AI Overviews visibility, and competitor analysis using SEMrush, Google Analytics, and Google Search Console. Proficient in leveraging AI tools and AI agents to automate SEO workflows, scale content production, and optimize for AI-generated search results.</p>
 </div>
 
 
 
 <!-- Professional Experience -->
 <div class="section">
-    <h2>Professional Experience</h2>
+    <h2 data-i18n="experience_title">Professional Experience</h2>
 
     <div class="experience-item">
-        <h3>Head of SEO <span class="company">| Freelance / Multiple E-commerce Projects</span></h3>
-        <div class="period">AUG 2025 - Present</div>
+        <h3><span data-i18n="exp1_title">Head of SEO</span> <span class="company">| <span data-i18n="exp1_company">Freelance / Multiple E-commerce Projects</span></span></h3>
+        <div class="period" data-i18n="exp1_period">AUG 2025 - Present</div>
         <ul>
-            <li>Developed and led overall SEO strategy for multiple e-commerce stores in the Saudi market, driving growth in organic visibility, traffic, and revenue.</li>
-            <li>Managed full SEO lifecycle including technical audits, on-page optimization, keyword strategy, content planning, and performance tracking.</li>
-            <li>Led a cross-functional team of 3 Team Leaders, 4 SEO Agents, and content specialists, ensuring alignment on strategy execution and KPI targets.</li>
-            <li>Achieved top 1-5 search rankings for target keywords and secured visibility in Google AI Overviews for high-intent commercial queries.</li>
+            <li data-i18n="exp1_b1">Developed and led overall SEO strategy for multiple e-commerce stores in the Saudi market, driving growth in organic visibility, traffic, and revenue.</li>
+            <li data-i18n="exp1_b2">Managed full SEO lifecycle including technical audits, on-page optimization, keyword strategy, content planning, and performance tracking.</li>
+            <li data-i18n="exp1_b3">Led a cross-functional team of 3 Team Leaders, 4 SEO Agents, and content specialists, ensuring alignment on strategy execution and KPI targets.</li>
+            <li data-i18n="exp1_b4">Achieved top 1-5 search rankings for target keywords and secured visibility in Google AI Overviews for high-intent commercial queries.</li>
         </ul>
     </div>
 
     <div class="experience-item">
-        <h3>Team Leader SEO <span class="company">| Salasl Agency (Marketing Agency)</span></h3>
-        <div class="period">AUG 2024 - AUG 2025</div>
+        <h3><span data-i18n="exp2_title">Team Leader SEO</span> <span class="company">| <span data-i18n="exp2_company">Salasl Agency (Marketing Agency)</span></span></h3>
+        <div class="period" data-i18n="exp2_period">AUG 2024 - AUG 2025</div>
         <ul>
-            <li>Led a team of SEO specialists at a full-service marketing agency, managing SEO projects across multiple client accounts in various industries.</li>
-            <li>Coordinated with content, design, and strategy teams to deliver integrated SEO campaigns.</li>
+            <li data-i18n="exp2_b1">Led a team of SEO specialists at a full-service marketing agency, managing SEO projects across multiple client accounts in various industries.</li>
+            <li data-i18n="exp2_b2">Coordinated with content, design, and strategy teams to deliver integrated SEO campaigns.</li>
         </ul>
     </div>
 
     <div class="experience-item">
-        <h3>SEO Specialist</h3>
-        <div class="period">FEB 2023 - AUG 2024</div>
+        <h3 data-i18n="exp3_title">SEO Specialist</h3>
+        <div class="period" data-i18n="exp3_period">FEB 2023 - AUG 2024</div>
         <ul>
-            <li>Implemented SEO strategies to improve rankings and increase organic traffic across multiple e-commerce websites in the Saudi market</li>
+            <li data-i18n="exp3_b1">Implemented SEO strategies to improve rankings and increase organic traffic across multiple e-commerce websites in the Saudi market</li>
         </ul>
     </div>
 </div>
 
 <!-- Skills -->
 <div class="section">
-    <h2>Skills</h2>
+    <h2 data-i18n="skills_title">Skills</h2>
     <div class="skills-grid">
             <div class="skill-category">
-                <h3>Technical SEO</h3>
+                <h3 data-i18n="skills_tech">Technical SEO</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">SEO (On-Page, Off-Page, Technical)</span>
                     <span class="skill-tag">Keyword Research</span>
@@ -498,7 +547,7 @@
                 </div>
             </div>
             <div class="skill-category">
-                <h3>E-commerce & Platforms</h3>
+                <h3 data-i18n="skills_ecom">E-commerce & Platforms</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Salla</span>
                     <span class="skill-tag">Shopify</span>
@@ -507,7 +556,7 @@
                 </div>
             </div>
             <div class="skill-category">
-                <h3>AI & Automation</h3>
+                <h3 data-i18n="skills_ai">AI & Automation</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">AI Overviews / GEO</span>
                     <span class="skill-tag">AI Tools & Agents</span>
@@ -517,7 +566,7 @@
                 </div>
             </div>
             <div class="skill-category">
-                <h3>Soft Skills</h3>
+                <h3 data-i18n="skills_soft">Soft Skills</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Team Leadership</span>
                     <span class="skill-tag">Project Management</span>
@@ -532,18 +581,18 @@
 
 <!-- Certifications -->
 <div class="section">
-    <h2>Certifications & Training</h2>
+    <h2 data-i18n="cert_title">Certifications & Training</h2>
     <ul class="cert-list">
-        <li>Digital Marketing - Google</li>
-        <li>SEO Training - Salasl Agency</li>
-        <li>Digital Marketing - Edrak Platform</li>
+        <li data-i18n="cert1">Digital Marketing - Google</li>
+        <li data-i18n="cert2">SEO Training - Salasl Agency</li>
+        <li data-i18n="cert3">Digital Marketing - Edrak Platform</li>
     </ul>
 </div>
 
 <!-- Education -->
 <div class="section">
-    <h2>Education</h2>
-    <p><strong>Bachelor's Degree in Arts</strong> - Archaeology Department, Mansoura University (2017 - 2020)</p>
+    <h2 data-i18n="edu_title">Education</h2>
+    <p><strong data-i18n="edu_degree">Bachelor's Degree in Arts</strong> - <span data-i18n="edu_dept">Archaeology Department</span>, <span data-i18n="edu_uni">Mansoura University</span> (2017 - 2020)</p>
 </div>
 
 <!-- Lightbox -->
@@ -554,12 +603,139 @@
 
 <!-- Footer -->
 <div class="footer">
-    <p>Languages: <strong>Arabic</strong> (Native) | <strong>English</strong> (Good)</p>
-    <p style="margin-top: 15px;">Contact: <a href="mailto:mmetwily1@gmail.com">mmetwily1@gmail.com</a> | +20 10 25183569</p>
-    <p style="margin-top: 10px;"><a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn Profile</a> | <a href="case-studies.html">Case Studies</a> | <a href="cv.html">View Full CV</a> | <a href="Mohamed-Metwily-CV.pdf" download>Download PDF CV</a></p>
+    <p><span data-i18n="footer_languages">Languages:</span> <strong>Arabic</strong> (<span data-i18n="footer_native">Native</span>) | <strong>English</strong> (<span data-i18n="footer_good">Good</span>)</p>
+    <p style="margin-top: 15px;"><span data-i18n="footer_contact">Contact:</span> <a href="mailto:mmetwily1@gmail.com">mmetwily1@gmail.com</a> | +20 10 25183569</p>
+    <p style="margin-top: 10px;"><a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn</a> | <a href="case-studies.html" data-i18n="footer_case">Case Studies</a> | <a href="cv.html" data-i18n="footer_cv">View Full CV</a> | <a href="Mohamed-Metwily-CV.pdf" download data-i18n="footer_download">Download PDF CV</a></p>
 </div>
 
 <script>
+// Translations
+const translations = {
+    en: {
+        nav_portfolio: "Portfolio",
+        nav_case_studies: "Case Studies",
+        nav_cv: "CV",
+        hero_title: "HEAD OF SEO",
+        hero_location: "Mansoura, Egypt",
+        hero_btn: "View Full CV",
+        summary_title: "Professional Summary",
+        summary_text: "Results-driven Head of SEO with hands-on experience managing end-to-end SEO strategy for high-revenue e-commerce businesses in the Saudi market. Proven track record of driving organic growth that generated over 4.75M SAR in revenue across multiple stores. Led and managed a cross-functional SEO team of 3 Team Leaders, 4 SEO Agents, and content specialists. Skilled in keyword research, technical SEO, content optimization, AI Overviews visibility, and competitor analysis using SEMrush, Google Analytics, and Google Search Console. Proficient in leveraging AI tools and AI agents to automate SEO workflows, scale content production, and optimize for AI-generated search results.",
+        experience_title: "Professional Experience",
+        exp1_title: "Head of SEO",
+        exp1_company: "Freelance / Multiple E-commerce Projects",
+        exp1_period: "AUG 2025 - Present",
+        exp1_b1: "Developed and led overall SEO strategy for multiple e-commerce stores in the Saudi market, driving growth in organic visibility, traffic, and revenue.",
+        exp1_b2: "Managed full SEO lifecycle including technical audits, on-page optimization, keyword strategy, content planning, and performance tracking.",
+        exp1_b3: "Led a cross-functional team of 3 Team Leaders, 4 SEO Agents, and content specialists, ensuring alignment on strategy execution and KPI targets.",
+        exp1_b4: "Achieved top 1-5 search rankings for target keywords and secured visibility in Google AI Overviews for high-intent commercial queries.",
+        exp2_title: "Team Leader SEO",
+        exp2_company: "Salasl Agency (Marketing Agency)",
+        exp2_period: "AUG 2024 - AUG 2025",
+        exp2_b1: "Led a team of SEO specialists at a full-service marketing agency, managing SEO projects across multiple client accounts in various industries.",
+        exp2_b2: "Coordinated with content, design, and strategy teams to deliver integrated SEO campaigns.",
+        exp3_title: "SEO Specialist",
+        exp3_period: "FEB 2023 - AUG 2024",
+        exp3_b1: "Implemented SEO strategies to improve rankings and increase organic traffic across multiple e-commerce websites in the Saudi market",
+        skills_title: "Skills",
+        skills_tech: "Technical SEO",
+        skills_ecom: "E-commerce & Platforms",
+        skills_ai: "AI & Automation",
+        skills_soft: "Soft Skills",
+        cert_title: "Certifications & Training",
+        cert1: "Digital Marketing - Google",
+        cert2: "SEO Training - Salasl Agency",
+        cert3: "Digital Marketing - Edrak Platform",
+        edu_title: "Education",
+        edu_degree: "Bachelor's Degree in Arts",
+        edu_dept: "Archaeology Department",
+        edu_uni: "Mansoura University",
+        footer_languages: "Languages:",
+        footer_native: "Native",
+        footer_good: "Good",
+        footer_contact: "Contact:",
+        footer_case: "Case Studies",
+        footer_cv: "View Full CV",
+        footer_download: "Download PDF CV"
+    },
+    ar: {
+        nav_portfolio: "البورتفليو",
+        nav_case_studies: "دراسات الحالة",
+        nav_cv: "السيرة الذاتية",
+        hero_title: "رئيس قسم SEO",
+        hero_location: "المنصورة، مصر",
+        hero_btn: "عرض السيرة الذاتية",
+        summary_title: "الملخص المهني",
+        summary_text: "رئيس قسم SEO ي/results-driven بخبرة عملية في إدارة استراتيجية SEO شاملة للأعمال التجارية الإلكترونية عالية الإيرادات في السوق السعودي. سجل حافل في تحقيق النمو العضوي الذي وفر أكثر من 4.75 مليون ريال سعودي من الإيرادات عبر متاجر متعددة. قاد وأدار فريق SEO م多元ي التخصصات من 3 قادة فرق و4 وكلاء SEO ومختصين في المحتوى. ماهر في بحث الكلمات المفتاحية، والتقنية، وتحسين المحتوى، وظهور AI Overviews، وتحليل المنافسين باستخدام SEMrush وGoogle Analytics وGoogle Search Console. بارع في استخدام أدوات الذكاء الاصطناعي وأدوات SEO لأتمتة سير العمل، وتوسيع إنتاج المحتوى، وتحسين نتائج البحث المولدة بالذكاء الاصطناعي.",
+        experience_title: "الخبرة العملية",
+        exp1_title: "رئيس قسم SEO",
+        exp1_company: "عمل حر / مشاريع تجارة إلكترونية متعددة",
+        exp1_period: "أغسطس 2025 - الحالي",
+        exp1_b1: "طورت وقُدت استراتيجية SEO شاملة لمتاجر تجارة إلكترونية متعددة في السوق السعودي، مما أدى إلى نمو في الظهور العضوي والمرور والإيرادات.",
+        exp1_b2: "أدرت دورة حياة SEO الكاملة بما في ذلك التدقيق التقني، والصفحات المحددة، واستراتيجية الكلمات المفتاحية، وتخطيط المحتوى، وتتبع الأداء.",
+        exp1_b3: "قادت فريقاً متعدد التخصصات من 3 قادة فرق و4 وكلاء SEO ومختصين في المحتوى، مما يضمن التوافق على التنفيذ وأهداف KPI.",
+        exp1_b4: "حققت ترتيبات بحث في المراكز 1-5 للكلمات المفتاحية المستهدفة وضمنت الظهور في Google AI Overviews للاستفسارات التجارية عالية النية.",
+        exp2_title: "قائد فريق SEO",
+        exp2_company: "وكالة سلسل (وكالة تسويق)",
+        exp2_period: "أغسطس 2024 - أغسطس 2025",
+        exp2_b1: "قادت فريقاً من متخصصي SEO في وكالة تسويق خدمات متكاملة، وأدرت مشاريع SEO عبر حسابات عملاء متعددة في صناعات مختلفة.",
+        exp2_b2: "نسّقت مع فرق المحتوى والتصميم والاستراتيجية لتقديم حملات SEO متكاملة.",
+        exp3_title: "متخصص SEO",
+        exp3_period: "فبراير 2023 - أغسطس 2024",
+        exp3_b1: "نفّذت استراتيجيات SEO لتحسين الترتيبات وزيادة المرور العضوي عبر مواقع تجارة إلكترونية متعددة في السوق السعودي",
+        skills_title: "المهارات",
+        skills_tech: "SEO التقني",
+        skills_ecom: "التجارة الإلكترونية والمنصات",
+        skills_ai: "الذكاء الاصطناعي والأتمتة",
+        skills_soft: "المهارات الشخصية",
+        cert_title: "الشهادات والتدريب",
+        cert1: "التسويق الرقمي - Google",
+        cert2: "تدريب SEO - وكالة سلسل",
+        cert3: "التسويق الرقمي - منصة إدراك",
+        edu_title: "التعليم",
+        edu_degree: "بكالوريوس في الآداب",
+        edu_dept: "قسم الآثار",
+        edu_uni: "جامعة المنصورة",
+        footer_languages: "اللغات:",
+        footer_native: "محلية",
+        footer_good: "جيد",
+        footer_contact: "التواصل:",
+        footer_case: "دراسات الحالة",
+        footer_cv: "عرض السيرة الذاتية",
+        footer_download: "تحميل السيرة الذاتية PDF"
+    }
+};
+
+// Current language
+let currentLang = localStorage.getItem('lang') || 'en';
+
+// Apply translations
+function applyTranslations() {
+    const lang = translations[currentLang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (lang[key]) {
+            el.textContent = lang[key];
+        }
+    });
+    
+    // Update direction
+    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = currentLang;
+    
+    // Update button text
+    document.getElementById('langBtn').textContent = currentLang === 'en' ? 'AR' : 'EN';
+}
+
+// Toggle language
+function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'ar' : 'en';
+    localStorage.setItem('lang', currentLang);
+    applyTranslations();
+}
+
+// Initialize
+applyTranslations();
+
 function openLightbox(img) {
     var lightbox = document.getElementById('lightbox');
     var lightboxImg = document.getElementById('lightbox-img');
