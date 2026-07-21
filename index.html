@@ -105,6 +105,7 @@
             right: -100px;
             z-index: 0;
             animation: float 6s ease-in-out infinite;
+            pointer-events: none;
         }
 
         .hero-glow-2 {
@@ -117,6 +118,7 @@
             left: -50px;
             z-index: 0;
             animation: float 8s ease-in-out infinite reverse;
+            pointer-events: none;
         }
 
         @keyframes float {
@@ -135,6 +137,8 @@
             font-weight: 600;
             font-size: 1rem;
             transition: all 0.3s;
+            position: relative;
+            z-index: 10;
         }
 
         .btn-cv:hover {
