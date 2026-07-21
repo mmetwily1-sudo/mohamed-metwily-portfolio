@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Metwily - Head of SEO | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #0d0d0d;
+            --accent: #e94560;
+            --accent2: #1a1a2e;
+            --light: #121212;
+            --gray: #a0a0a0;
+            --white: #ffffff;
+            --card-bg: #1e1e1e;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border: #2a2a2a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            background: var(--light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent2) 50%, #0f3460 100%);
+            background-size: 200% 200%;
+            animation: gradient 8s ease infinite;
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .hero .title {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero .contact {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .hero .contact a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .hero .contact a:hover {
+            color: var(--accent);
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 5px 20px rgba(233, 69, 96, 0.3); }
+            50% { box-shadow: 0 5px 30px rgba(233, 69, 96, 0.6); }
+            100% { box-shadow: 0 5px 20px rgba(233, 69, 96, 0.3); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section */
+        .section {
+            background: var(--card-bg);
+            margin: 30px auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            max-width: 1100px;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+        }
+
+        /* Summary */
+        .summary p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            color: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(233, 69, 96, 0.3);
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .stat-card .label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        /* Project Card */
+        .project-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--card-bg);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .project-header h3 {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+        }
+
+        .project-header .period {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .project-header .niche {
+            background: var(--accent);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+            padding: 20px;
+            background: #2a2a2a;
+            border-radius: 8px;
+        }
+
+        .project-stat {
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .project-stat:hover {
+            transform: scale(1.05);
+        }
+
+        .project-stat .value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .project-stat .label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .project-bullets {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-bullets li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .project-bullets li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Experience */
+        .experience-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .experience-item:hover {
+            background: rgba(233, 69, 96, 0.05);
+            padding-left: 10px;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-item h3 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .experience-item .company {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .experience-item .period {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .experience-item ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .experience-item li {
+            margin: 8px 0;
+            color: var(--text-secondary);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #2a2a2a;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Certifications */
+        .cert-list {
+            list-style: none;
+        }
+
+        .cert-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .cert-list li:hover {
+            padding-left: 10px;
+            color: var(--accent);
+        }
+
+        .cert-list li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Project mini gallery */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .section { padding: 25px; }
+            .project-header { flex-direction: column; gap: 10px; }
+            .gallery { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            .summary-row { flex-direction: column-reverse; align-items: center; text-align: center; }
+            .summary-row .summary-photo { width: 100px; height: 100px; }
+            .project-stats { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .project-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: #2a2a2a;
+        }
+
+        /* Project mini gallery */
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+        .project-gallery .gallery-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .project-gallery .gallery-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        .project-gallery .gallery-item img {
+            width: 100%;
+            display: block;
+        }
+        .project-gallery .gallery-caption {
+            padding: 8px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: #2a2a2a;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            background: var(--card-bg);
+            margin-top: 30px;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+    <img src="portfolio_assets/profile_gemini.jpg" alt="Mohamed Metwily" class="profile-photo">
+    <h1>Mohamed Metwily</h1>
+    <div class="title">HEAD OF SEO</div>
+    <div class="contact">
+        <span>mmetwily1@gmail.com</span>
+        <span>+20 10 25183569</span>
+        <span>Mansoura, Egypt</span>
+        <a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn</a>
+    </div>
+</div>
+
+<!-- Summary -->
+<div class="section summary">
+    <h2>Professional Summary</h2>
+    <p style="color: var(--text-secondary);">Results-driven Head of SEO with hands-on experience managing end-to-end SEO strategy for high-revenue e-commerce businesses in the Saudi market. Proven track record of driving organic growth that generated over 4.75M SAR in revenue across multiple stores. Led and managed a cross-functional SEO team of 3 Team Leaders, 4 SEO Agents, and content specialists. Skilled in keyword research, technical SEO, content optimization, AI Overviews visibility, and competitor analysis using SEMrush, Google Analytics, and Google Search Console. Proficient in leveraging AI tools and AI agents to automate SEO workflows, scale content production, and optimize for AI-generated search results.</p>
+</div>
+
+<!-- Overall Stats -->
+<div class="section">
+    <h2>Career Highlights</h2>
+    <div class="stats-bar">
+        <div class="stat-card">
+            <div class="number">4.75M+</div>
+            <div class="label">Total Revenue Generated (SAR)</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">4</div>
+            <div class="label">E-commerce Projects</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">3 + 4</div>
+            <div class="label">Team Leaders + SEO Agents</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">Top 1-5</div>
+            <div class="label">Search Rankings Achieved</div>
+        </div>
+    </div>
+</div>
+
+<!-- Key Projects -->
+<div class="section">
+    <h2>Key Projects & Case Studies</h2>
+
+    <!-- Alwfi -->
+    <div class="project-card">
+        <div class="project-header">
+            <div>
+                <h3>Alwfi.com</h3>
+                <span class="niche">Automotive & Car Spare Parts</span>
+            </div>
+            <span class="period">Mar 2025 - Jun 2026</span>
+        </div>
+        <div class="project-stats">
+            <div class="project-stat">
+                <div class="value">881K</div>
+                <div class="label">Total Revenue (SAR)</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">634K</div>
+                <div class="label">Organic Revenue (SAR)</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">71.9%</div>
+                <div class="label">Organic Revenue Share</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">95.7K</div>
+                <div class="label">Organic Clicks</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">2.54M</div>
+                <div class="label">Impressions</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">1,156</div>
+                <div class="label">Organic Conversions</div>
+            </div>
+        </div>
+        <h4 style="margin: 15px 0 10px; color: var(--text-primary);">Case Study: Organic Dominance</h4>
+        <p style="color: var(--text-secondary); margin-bottom: 15px;">Alwfi.com is an automotive spare parts e-commerce store operating in the Saudi market. The challenge was to build organic visibility in a highly competitive niche dominated by established players.</p>
+        <ul class="project-bullets">
+            <li>Drove organic search revenue of 633,727 SAR (71.9% of total store revenue of 881,076 SAR)</li>
+            <li>Generated 95.7K organic clicks and 2.54M impressions via Google Search Console</li>
+            <li>Achieved top 1-5 search rankings for high-intent commercial keywords in the Saudi market</li>
+            <li>Secured visibility in Google AI Overviews for key product-related search queries</li>
+            <li>Achieved average CTR of 3.8% and average search position of 5.5</li>
+            <li>Delivered 1,156 conversions from organic search (72.6% of all conversions)</li>
+            <li>Grew organic sessions to 1.06M (74.7% of total traffic)</li>
+        </ul>
+        <div class="project-gallery">
+            <div class="gallery-item">
+                <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.02.08 PM.jpeg" alt="Alwfi - Google Analytics" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Analytics - Traffic & Revenue</div>
+            </div>
+            <div class="gallery-item">
+                <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.00.37 PM.jpeg" alt="Alwfi - Search Console" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Search Console - Performance</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hishma -->
+    <div class="project-card">
+        <div class="project-header">
+            <div>
+                <h3>Hishma-sa.com</h3>
+                <span class="niche">Modest Fashion & Jalabiyat</span>
+            </div>
+            <span class="period">Jun 2025 - Jul 2026</span>
+        </div>
+        <div class="project-stats">
+            <div class="project-stat">
+                <div class="value">2.95M</div>
+                <div class="label">Total Revenue (SAR)</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">619K</div>
+                <div class="label">Organic Revenue (SAR)</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">13.67%</div>
+                <div class="label">Organic Conversion Rate</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">1.74M</div>
+                <div class="label">Organic Sessions</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">6.5%</div>
+                <div class="label">Average CTR</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">89.5%</div>
+                <div class="label">Engagement Rate</div>
+            </div>
+        </div>
+        <h4 style="margin: 15px 0 10px; color: var(--text-primary);">Case Study: High-Intent Traffic</h4>
+        <p style="color: var(--text-secondary); margin-bottom: 15px;">Hishma-sa.com is a modest fashion and jalabiyat e-commerce store. The goal was to increase organic visibility and drive high-intent traffic that converts.</p>
+        <ul class="project-bullets">
+            <li>Contributed to SEO strategy that generated 618,817 SAR in organic search revenue (21% of total 2.95M SAR)</li>
+            <li>Achieved top 1-5 search rankings for target product categories</li>
+            <li>Secured visibility in Google AI Overviews for commercial and informational queries</li>
+            <li>Achieved organic search conversion rate of 13.67% (highest among all channels)</li>
+            <li>Drove 1.74M organic sessions with average engagement time of 3+ minutes per session</li>
+            <li>Achieved average CTR of 6.5% and average search position of 4.9</li>
+            <li>Organic search engagement rate reached 89.5%, significantly outperforming paid channels</li>
+        </ul>
+        <div class="project-gallery">
+            <div class="gallery-item">
+                <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.04.47 PM.jpeg" alt="Hishma - Google Analytics" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Analytics - Traffic & Revenue</div>
+            </div>
+            <div class="gallery-item">
+                <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.03.08 PM.jpeg" alt="Hishma - Search Console" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Search Console - Performance</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Daily -->
+    <div class="project-card">
+        <div class="project-header">
+            <div>
+                <h3>Daily.sa</h3>
+                <span class="niche">Sports Equipment & Fitness</span>
+            </div>
+            <span class="period">Mar 2025 - Jul 2025</span>
+        </div>
+        <div class="project-stats">
+            <div class="project-stat">
+                <div class="value">869K</div>
+                <div class="label">Total Revenue (SAR)</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">52K</div>
+                <div class="label">Organic Revenue (SAR)</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">12.4K</div>
+                <div class="label">Organic Clicks</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">1.3M</div>
+                <div class="label">Impressions</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">1%</div>
+                <div class="label">Average CTR</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">10.8</div>
+                <div class="label">Average Position</div>
+            </div>
+        </div>
+        <h4 style="margin: 15px 0 10px; color: var(--text-primary);">Case Study: Building Organic Foundation</h4>
+        <p style="color: var(--text-secondary); margin-bottom: 15px;">Daily.sa is a sports equipment and fitness e-commerce store. The project focused on building organic visibility from scratch in a competitive market.</p>
+        <ul class="project-bullets">
+            <li>Drove organic search revenue of 52,466 SAR (6% of total store revenue of 869,253 SAR)</li>
+            <li>Generated 12.4K organic clicks and 1.3M impressions via Google Search Console</li>
+            <li>Achieved average CTR of 1% and average search position of 10.8</li>
+            <li>Organic search delivered 60 conversions with 1.12% conversion rate</li>
+            <li>Managed SEO strategy alongside organic social (46.6% of traffic) and paid channels</li>
+        </ul>
+        <div class="project-gallery">
+            <div class="gallery-item">
+                <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 5.49.57 PM.jpeg" alt="Daily - Google Analytics" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Analytics - Traffic & Revenue</div>
+            </div>
+            <div class="gallery-item">
+                <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.41.22 PM.jpeg" alt="Daily - Search Console" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Search Console - Performance</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MHS Jewellery -->
+    <div class="project-card">
+        <div class="project-header">
+            <div>
+                <h3>MHS Jewellery (mhsjewellery.com)</h3>
+                <span class="niche">Jewelry, Prayer Beads & Precious Stones</span>
+            </div>
+            <span class="period">Jul 2024 - Mar 2025</span>
+        </div>
+        <div class="project-stats">
+            <div class="project-stat">
+                <div class="value">48.8K</div>
+                <div class="label">Total Revenue (SAR)</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">21.3K</div>
+                <div class="label">Organic Revenue (SAR)</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">43.8%</div>
+                <div class="label">Organic Revenue Share</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">4.32K</div>
+                <div class="label">Organic Clicks</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">242K</div>
+                <div class="label">Impressions</div>
+            </div>
+            <div class="project-stat">
+                <div class="value">40</div>
+                <div class="label">Organic Conversions</div>
+            </div>
+        </div>
+        <h4 style="margin: 15px 0 10px; color: var(--text-primary);">Case Study: Organic Growth for Heritage Jewelry Brand</h4>
+        <p style="color: var(--text-secondary); margin-bottom: 15px;">MHS Jewellery is a heritage jewelry brand established in 1997, specializing in prayer beads (سبح), precious stones, and silver items. The challenge was to build organic visibility for a traditional brand entering the e-commerce space in the Saudi market.</p>
+        <ul class="project-bullets">
+            <li>Drove organic search revenue of 21,340 SAR (43.8% of total store revenue of 48,768 SAR)</li>
+            <li>Generated 4.32K organic clicks and 242K impressions via Google Search Console</li>
+            <li>Achieved average CTR of 1.8% and average search position of 10.7</li>
+            <li>Organic search delivered 40 conversions with 0.72% conversion rate</li>
+            <li>Organic search contributed 43.8% of total revenue, outperforming direct traffic (18.8%)</li>
+            <li>Managed multi-channel strategy including organic social (32.6% of revenue) and paid channels</li>
+            <li>Total store conversions: 178 with 0.51% conversion rate across 325K sessions</li>
+        </ul>
+        <div class="project-gallery">
+            <div class="gallery-item">
+                <img src="portfolio_assets/mhs screenshot 1.png" alt="MHS - Search Console Results" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Search Console - Performance</div>
+            </div>
+            <div class="gallery-item">
+                <img src="portfolio_assets/mhs screenshot 2.png" alt="MHS - Analytics Results" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Analytics - Traffic & Revenue</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <h2>Professional Experience</h2>
+
+    <div class="experience-item">
+        <h3>Head of SEO <span class="company">| Freelance / Multiple E-commerce Projects</span></h3>
+        <div class="period">AUG 2025 - Present</div>
+        <ul>
+            <li>Developed and led overall SEO strategy for multiple e-commerce stores in the Saudi market</li>
+            <li>Managed full SEO lifecycle including technical audits, on-page optimization, keyword strategy, content planning, and performance tracking</li>
+            <li>Led a cross-functional team of 3 Team Leaders, 4 SEO Agents, and content specialists</li>
+            <li>Achieved top 1-5 search rankings for target keywords and secured visibility in Google AI Overviews</li>
+        </ul>
+    </div>
+
+    <div class="experience-item">
+        <h3>Team Leader SEO <span class="company">| Salasl Agency (Marketing Agency)</span></h3>
+        <div class="period">AUG 2024 - AUG 2025</div>
+        <ul>
+            <li>Led a team of SEO specialists at a full-service marketing agency</li>
+            <li>Managed SEO projects across multiple client accounts in various industries</li>
+            <li>Coordinated with content, design, and strategy teams to deliver integrated SEO campaigns</li>
+        </ul>
+    </div>
+
+    <div class="experience-item">
+        <h3>SEO Specialist</h3>
+        <div class="period">FEB 2023 - AUG 2024</div>
+        <ul>
+            <li>Implemented SEO strategies to improve rankings and increase organic traffic across multiple e-commerce websites in the Saudi market</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Skills -->
+<div class="section">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-category">
+            <h3>Technical SEO</h3>
+            <div class="skill-tags">
+                <span class="skill-tag">SEO (On-Page, Off-Page, Technical)</span>
+                <span class="skill-tag">Keyword Research</span>
+                <span class="skill-tag">Competitor Analysis</span>
+                <span class="skill-tag">Google Search Console</span>
+                <span class="skill-tag">Google Analytics (GA4)</span>
+                <span class="skill-tag">Google Tag Manager</span>
+                <span class="skill-tag">SEMrush</span>
+                <span class="skill-tag">Screaming Frog</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>E-commerce & Platforms</h3>
+            <div class="skill-tags">
+                <span class="skill-tag">Salla</span>
+                <span class="skill-tag">Shopify</span>
+                <span class="skill-tag">Zid</span>
+                <span class="skill-tag">WordPress</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>AI & Automation</h3>
+            <div class="skill-tags">
+                <span class="skill-tag">AI Overviews / GEO</span>
+                <span class="skill-tag">AI Tools & Agents</span>
+                <span class="skill-tag">Prompt Engineering</span>
+                <span class="skill-tag">Workflow Automation</span>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h3>Soft Skills</h3>
+            <div class="skill-tags">
+                <span class="skill-tag">Team Leadership</span>
+                <span class="skill-tag">Project Management</span>
+                <span class="skill-tag">Content Strategy</span>
+                <span class="skill-tag">Client Communication</span>
+                <span class="skill-tag">Data-Driven Decisions</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Certifications -->
+<div class="section">
+    <h2>Certifications & Training</h2>
+    <ul class="cert-list">
+        <li>Digital Marketing - Google</li>
+        <li>SEO Training - Salasl Agency</li>
+        <li>Digital Marketing - Edrak Platform</li>
+    </ul>
+</div>
+
+<!-- Education -->
+<div class="section">
+    <h2>Education</h2>
+    <p><strong>Bachelor's Degree in Arts</strong> - Archaeology Department, Mansoura University (2017 - 2020)</p>
+</div>
+
+<!-- Proof of Results -->
+<div class="section">
+    <h2>Proof of Results</h2>
+    <p style="color: var(--text-secondary); margin-bottom: 30px;">Real screenshots from Google Analytics and Google Search Console dashboards for each project.</p>
+
+    <!-- Additional Screenshots -->
+    <div class="project-screenshots">
+        <h3 style="color: var(--text-primary); margin: 30px 0 15px; font-size: 1.2rem;">Additional Results</h3>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.02.08 PM.jpeg" alt="Alwfi - Google Analytics" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Analytics - Alwfi Traffic & Revenue</div>
+            </div>
+            <div class="gallery-item">
+                <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.00.37 PM.jpeg" alt="Alwfi - Search Console" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Search Console - Alwfi Performance</div>
+            </div>
+            <div class="gallery-item">
+                <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.04.47 PM.jpeg" alt="Hishma - Google Analytics" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Analytics - Hishma Traffic & Revenue</div>
+            </div>
+            <div class="gallery-item">
+                <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.03.08 PM.jpeg" alt="Hishma - Search Console" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Search Console - Hishma Performance</div>
+            </div>
+            <div class="gallery-item">
+                <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 5.49.57 PM.jpeg" alt="Daily - Google Analytics" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Analytics - Daily Traffic & Revenue</div>
+            </div>
+            <div class="gallery-item">
+                <img src="portfolio_assets/WhatsApp Image 2026-07-20 at 4.41.22 PM.jpeg" alt="Daily - Search Console" onclick="openLightbox(this)">
+                <div class="gallery-caption">Google Search Console - Daily Performance</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" src="" alt="Full size image">
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>Languages: <strong>Arabic</strong> (Native) | <strong>English</strong> (Good)</p>
+    <p style="margin-top: 15px;">Contact: <a href="mailto:mmetwily1@gmail.com">mmetwily1@gmail.com</a> | +20 10 25183569</p>
+    <p style="margin-top: 10px;"><a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn Profile</a></p>
+</div>
+
+<script>
+function openLightbox(img) {
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = img.src;
+    lightbox.classList.add('active');
+}
+
+function closeLightbox() {
+    var lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
+</script>
+
+</body>
+</html>
