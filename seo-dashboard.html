@@ -3,90 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Dashboard - XY Beauty | Salasl Agency</title>
+    <title>SEO Dashboard - XY Beauty</title>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;900&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* ============================================
+           SALASL.AGENCY EXACT BRAND IDENTITY
+           Source: https://salasl.agency CSS
+           ============================================ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; background: #f8f9fa; color: #1a1b1e; font-family: 'Red Hat Text', sans-serif; min-height: 100vh; }
+
+        body {
+            font-family: "Red Hat Text", sans-serif;
+            font-size: 16px;
+            line-height: 1.875;
+            font-weight: 400;
+            color: #606060;
+            background: #fff;
+            min-height: 100vh;
+        }
+
         .dashboard { max-width: 1400px; margin: 0 auto; padding: 20px; }
-        .header { text-align: center; padding: 30px 0; border-bottom: 3px solid #fe4c1c; margin-bottom: 30px; background: linear-gradient(135deg, #fff 0%, #f0f6ff 100%); border-radius: 20px; box-shadow: 0 10px 40px rgba(42, 67, 113, 0.1); }
-        .header h1 { color: #1a1b1e; font-family: 'Red Hat Display', sans-serif; font-size: 2.5em; font-weight: 900; margin-bottom: 10px; }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 40px 30px;
+            margin-bottom: 30px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 8px 8px 30px 0px rgba(42, 67, 113, 0.15);
+        }
+        .header h1 {
+            color: #1a1b1e;
+            font-family: "Red Hat Display", sans-serif;
+            font-weight: 900;
+            font-size: 2.5em;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
         .header p { color: #606060; font-size: 1.1em; }
-        .header .date { color: #fe4c1c; font-weight: bold; }
+        .header .date { color: #fe4c1c; font-weight: 700; font-family: "Red Hat Display", sans-serif; }
+
+        /* SCORE CARDS */
         .score-overview { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 30px; }
-        .score-card { background: #fff; border-radius: 15px; padding: 20px; text-align: center; border: 1px solid #e5e5e5; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(42, 67, 113, 0.08); cursor: pointer; }
-        .score-card:hover { transform: translateY(-5px); border-color: #fe4c1c; box-shadow: 0 15px 40px rgba(254, 76, 28, 0.15); }
-        .score-card .label { font-size: 0.9em; color: #606060; font-weight: 500; margin-bottom: 8px; }
-        .score-card .score { font-size: 2.8em; font-family: 'Red Hat Display', sans-serif; font-weight: 900; }
-        .score-card .bar { height: 8px; background: #f0f6ff; border-radius: 3px; margin-top: 10px; overflow: hidden; }
+        .score-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px 20px;
+            text-align: center;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 8px 8px 30px 0px rgba(42, 67, 113, 0.15);
+        }
+        .score-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 12px 12px 20px 0px rgba(254, 76, 28, 0.3);
+            border-color: #fe4c1c;
+        }
+        .score-card .label {
+            font-size: 0.9em;
+            color: #606060;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .score-card .score {
+            font-size: 2.8em;
+            font-family: "Red Hat Display", sans-serif;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+        .score-card .bar { height: 8px; background: #f0f6ff; border-radius: 4px; margin-top: 15px; overflow: hidden; }
         .score-card .bar-fill { height: 100%; border-radius: 4px; transition: width 1s ease; }
-        .critical { color: #ff4444; } .critical .bar-fill { background: linear-gradient(90deg, #ff4444, #ff6666); }
-        .warning { color: #fe4c1c; } .warning .bar-fill { background: linear-gradient(90deg, #fe4c1c, #ff7043); }
-        .good { color: #00c3ff; } .good .bar-fill { background: linear-gradient(90deg, #00c3ff, #4dd0e1); }
-        .excellent { color: #00c853; } .excellent .bar-fill { background: linear-gradient(90deg, #00c853, #69f0ae); }
-        .info { color: #720eec; } .info .bar-fill { background: linear-gradient(90deg, #720eec, #9c27b0); }
-        .overall { color: #fe4c1c; } .overall .bar-fill { background: linear-gradient(90deg, #fe4c1c, #ff5722); }
-        .section { background: #fff; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(42, 67, 113, 0.08); margin-bottom: 20px; border: 1px solid #222; }
-        .section h2 { color: #1a1b1e; font-family: 'Red Hat Display', sans-serif; font-weight: 900; margin-bottom: 15px; font-size: 1.3em; border-bottom: 2px solid #f0f6ff; padding-bottom: 10px; }
+
+        /* SCORE COLORS */
+        .critical { color: #ff4444; } .critical .bar-fill { background: #ff4444; }
+        .warning { color: #fe4c1c; } .warning .bar-fill { background: #fe4c1c; }
+        .good { color: #00c3ff; } .good .bar-fill { background: #00c3ff; }
+        .excellent { color: #00c853; } .excellent .bar-fill { background: #00c853; }
+        .info { color: #720eec; } .info .bar-fill { background: #720eec; }
+        .overall { color: #fe4c1c; } .overall .bar-fill { background: #fe4c1c; }
+
+        /* SECTIONS */
+        .section {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid #e5e5e5;
+            box-shadow: 8px 8px 30px 0px rgba(42, 67, 113, 0.15);
+        }
+        .section h2 {
+            color: #1a1b1e;
+            font-family: "Red Hat Display", sans-serif;
+            font-weight: 900;
+            font-size: 1.4em;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f6ff;
+            padding-bottom: 15px;
+        }
+
+        /* GRIDS */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
-        .metric-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f6ff; }
+
+        /* METRICS */
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f6ff;
+        }
         .metric-row:last-child { border-bottom: none; }
         .metric-label { color: #606060; font-weight: 500; }
-        .metric-value { font-weight: bold; }
-        .status-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold; }
+        .metric-value { font-weight: 700; color: #1a1b1e; }
+
+        /* BADGES */
+        .status-badge {
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: 25px;
+            font-size: 0.85em;
+            font-weight: 700;
+            font-family: "Red Hat Display", sans-serif;
+        }
         .badge-pass { background: #e8f5e9; color: #00c853; }
         .badge-fail { background: #ffebee; color: #ff4444; }
         .badge-warn { background: #fff3e0; color: #fe4c1c; }
         .badge-info { background: #e3f2fd; color: #00c3ff; }
+
+        /* ISSUES */
         .issue-list { list-style: none; }
-        .issue-list li { padding: 10px 15px; margin-bottom: 8px; border-radius: 10px; font-size: 0.95em; }
+        .issue-list li { padding: 12px 16px; margin-bottom: 8px; border-radius: 10px; font-size: 0.95em; }
         .issue-critical { background: #ffebee; border-right: 4px solid #ff4444; }
         .issue-error { background: #fff3e0; border-right: 4px solid #fe4c1c; }
         .issue-warning { background: #fff8e1; border-right: 4px solid #ffab00; }
         .issue-passed { background: #e8f5e9; border-right: 4px solid #00c853; }
-        .chart-container { position: relative; height: 200px; margin: 15px 0; }
-        .bar-chart { display: flex; align-items: flex-end; justify-content: space-around; height: 180px; padding: 0 10px; border-bottom: 2px solid #f0f6ff; }
-        .bar-item { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-        .bar-rect { width: 50px; border-radius: 4px 4px 0 0; transition: height 1s ease; position: relative; }
+
+        /* BAR CHART */
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 200px;
+            padding: 0 10px;
+            border-bottom: 2px solid #f0f6ff;
+        }
+        .bar-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .bar-rect { width: 50px; border-radius: 8px 8px 0 0; transition: height 1s ease; position: relative; }
         .bar-rect:hover { opacity: 0.8; }
-        .bar-label { font-size: 0.8em; color: #606060; font-weight: 500; text-align: center; max-width: 70px; }
-        .bar-value { font-size: 0.85em; font-weight: bold; }
+        .bar-label { font-size: 0.8em; color: #606060; text-align: center; max-width: 70px; font-weight: 500; }
+        .bar-value { font-size: 0.9em; font-weight: 700; color: #1a1b1e; }
+
+        /* TABLE */
         .rank-table { width: 100%; border-collapse: collapse; }
-        .rank-table th { background: #f0f6ff; color: #1a1b1e; font-family: 'Red Hat Display', sans-serif; font-weight: 700; padding: 10px; text-align: right; }
-        .rank-table td { padding: 10px; border-bottom: 1px solid #f0f6ff; }
+        .rank-table th {
+            background: #f0f6ff;
+            color: #1a1b1e;
+            padding: 12px;
+            text-align: right;
+            font-family: "Red Hat Display", sans-serif;
+            font-weight: 700;
+            font-size: 0.95em;
+        }
+        .rank-table td { padding: 12px; border-bottom: 1px solid #f0f6ff; color: #1a1b1e; }
         .rank-table tr:hover { background: #f8f9fa; }
+
+        /* PROGRESS RING */
         .progress-ring { display: inline-block; position: relative; width: 120px; height: 120px; }
         .progress-ring svg { transform: rotate(-90deg); }
         .progress-ring circle { fill: none; stroke-width: 8; }
         .progress-ring .bg { stroke: #f0f6ff; }
         .progress-ring .fg { stroke: #fe4c1c; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
         .progress-ring .center-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
-        .tab-nav { display: flex; gap: 5px; margin-bottom: 20px; }
-        .tab-btn { padding: 12px 24px; background: #fff; border: 2px solid #e5e5e5; border-radius: 25px; color: #606060; font-family: 'Red Hat Display', sans-serif; font-weight: 700; cursor: pointer; transition: all 0.3s; }
-        .tab-btn.active { background: #e94560; color: white; border-color: #fe4c1c; box-shadow: 0 15px 40px rgba(254, 76, 28, 0.15); }
+
+        /* TABS - exact salasl button style */
+        .tab-nav { display: flex; gap: 8px; margin-bottom: 25px; flex-wrap: wrap; }
+        .tab-btn {
+            padding: 16px 28px;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 25px;
+            color: #606060;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            font-family: "Red Hat Display", sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 8px 8px 30px 0px rgba(42, 67, 113, 0.15);
+        }
+        .tab-btn.active {
+            background: #fe4c1c;
+            color: #fff;
+            border-color: #fe4c1c;
+            box-shadow: 12px 12px 20px 0px rgba(254, 76, 28, 0.3);
+        }
         .tab-btn:hover { border-color: #fe4c1c; color: #fe4c1c; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-        .recommendation { background: #fff; box-shadow: 0 3px 15px rgba(42, 67, 113, 0.08); padding: 15px; border-radius: 8px; margin-bottom: 10px; border-right: 4px solid #fe4c1c; }
-        .recommendation .priority { font-size: 0.85em; padding: 5px 12px; border-radius: 20px; font-weight: 700; margin-left: 8px; }
+
+        /* RECOMMENDATIONS */
+        .recommendation {
+            background: #fff;
+            padding: 18px 20px;
+            border-radius: 15px;
+            margin-bottom: 12px;
+            border-right: 4px solid #fe4c1c;
+            box-shadow: 8px 8px 30px 0px rgba(42, 67, 113, 0.15);
+            line-height: 1.6;
+        }
+        .recommendation .priority {
+            font-size: 0.85em;
+            padding: 5px 14px;
+            border-radius: 25px;
+            margin-left: 10px;
+            font-weight: 700;
+            font-family: "Red Hat Display", sans-serif;
+        }
         .priority-high { background: #ffebee; color: #ff4444; }
         .priority-medium { background: #fff3e0; color: #fe4c1c; }
         .priority-low { background: #e3f2fd; color: #00c3ff; }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .score-overview { grid-template-columns: repeat(2, 1fr); }
             .grid-2, .grid-3 { grid-template-columns: 1fr; }
         }
+
+        /* ANIMATION */
         .animate-in { animation: fadeIn 0.5s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
-        <link href='https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;900&family=Red+Hat+Text:wght@400;500;700&display=swap' rel='stylesheet'>
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
     <div class="dashboard">
         <div class="header animate-in">
-            <h1>SEO Dashboard - XY Beauty | Salasl Agency</h1>
+            <h1>SEO Dashboard - XY Beauty</h1>
             <p>تحليل شامل لـ SEO | <span class="date">23 يوليو 2026</span></p>
-            <p style="margin-top:5px; color:#606060;">xy-ksa.com | شركة دروب الحكمة للتجارة</p>
+            <p style="margin-top:5px;">xy-ksa.com | شركة دروب الحكمة للتجارة</p>
         </div>
 
         <div class="score-overview animate-in">
@@ -269,8 +425,8 @@
                 </div>
                 <div class="section">
                     <h2>نتائج Filler Analysis</h2>
-                    <p style="color:#606060; font-size:0.9em;">لم يتم العثور على عبارات filler</p>
-                    <p style="color:#606060; font-size:0.9em; margin-top:10px;">لم يتم العثور على أنماط AI مميزة</p>
+                    <p style="font-size:0.9em;">لم يتم العثور على عبارات filler</p>
+                    <p style="font-size:0.9em; margin-top:10px;">لم يتم العثور على أنماط AI مميزة</p>
                 </div>
             </div>
             <div class="section">
@@ -405,7 +561,7 @@
         <div id="tab-keywords" class="tab-content">
             <div class="section">
                 <h2>تتبع الترتيب - الكلمات المفتاحية</h2>
-                <p style="color:#606060; margin-bottom:15px;">النتيجة: الموقع لا يظهر في أول 20 نتيجة لأي كلمة مفتاحية مستهدفة</p>
+                <p style="margin-bottom:15px;">النتيجة: الموقع لا يظهر في أول 20 نتيجة لأي كلمة مفتاحية مستهدفة</p>
                 <table class="rank-table">
                     <thead><tr><th>#</th><th>الكلمة المفتاحية</th><th>الترتيب</th><th>الأولوية</th><th>الحالة</th></tr></thead>
                     <tbody>
