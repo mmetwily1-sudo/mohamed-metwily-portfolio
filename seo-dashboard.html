@@ -7,12 +7,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;900&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         /* ============================================
-           SALASL.AGENCY EXACT BRAND IDENTITY
-           Source: https://salasl.agency CSS
+           SALASL.AGENCY COMPLETE DESIGN SYSTEM
+           Extracted via CSS analysis + color extractor
            ============================================ */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        /* RESET */
+        *, *:before, *:after { box-sizing: inherit; }
+        html { box-sizing: border-box; line-height: 1.15; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+
+        /* BODY - exact salasl tokens */
         body {
+            margin: 0;
             font-family: "Red Hat Text", sans-serif;
             font-size: 16px;
             line-height: 1.875;
@@ -20,11 +25,30 @@
             color: #606060;
             background: #fff;
             min-height: 100vh;
+            -ms-word-wrap: break-word;
+            word-wrap: break-word;
         }
 
-        .dashboard { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        /* HEADINGS - exact salasl tokens */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Red Hat Display", sans-serif;
+            font-weight: 900;
+            line-height: 1.2;
+            margin: 0 0 20px;
+            color: #1a1b1e;
+        }
 
-        /* HEADER */
+        /* LINKS - exact salasl token */
+        a { color: #00c3ff; text-decoration: none; transition: all 0.3s linear; }
+
+        /* PARAGRAPH */
+        p { margin: 0 0 20px; }
+
+        .dashboard { max-width: 1140px; margin: 0 auto; padding: 20px; }
+
+        /* ============================================
+           HEADER
+           ============================================ */
         .header {
             text-align: center;
             padding: 40px 30px;
@@ -34,17 +58,42 @@
             box-shadow: 8px 8px 30px 0px rgba(42, 67, 113, 0.15);
         }
         .header h1 {
-            color: #1a1b1e;
-            font-family: "Red Hat Display", sans-serif;
-            font-weight: 900;
-            font-size: 2.5em;
-            line-height: 1.2;
+            font-size: 36px;
             margin-bottom: 10px;
         }
-        .header p { color: #606060; font-size: 1.1em; }
-        .header .date { color: #fe4c1c; font-weight: 700; font-family: "Red Hat Display", sans-serif; }
+        .header p { color: #606060; font-size: 16px; margin-bottom: 5px; }
+        .header .date { color: #fe4c1c; font-weight: 700; }
 
-        /* SCORE CARDS */
+        /* ============================================
+           BUTTONS - exact salasl .octf-btn tokens
+           ============================================ */
+        .octf-btn {
+            transition: all 0.2s ease-out;
+            font-size: 16px;
+            padding: 16px 28px;
+            line-height: 1;
+            display: inline-block;
+            text-decoration: none;
+            white-space: nowrap;
+            vertical-align: middle;
+            font-weight: bold;
+            letter-spacing: 0;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid transparent;
+            outline: 0;
+            color: #fff;
+            position: relative;
+            font-family: "Red Hat Display", sans-serif;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 12px 12px 20px 0px rgba(254, 76, 28, 0.3);
+            background: #fe4c1c;
+        }
+
+        /* ============================================
+           SCORE CARDS
+           ============================================ */
         .score-overview { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 30px; }
         .score-card {
             background: #fff;
@@ -62,16 +111,18 @@
             border-color: #fe4c1c;
         }
         .score-card .label {
-            font-size: 0.9em;
+            font-size: 16px;
             color: #606060;
             margin-bottom: 10px;
             font-weight: 500;
+            line-height: 1.875;
         }
         .score-card .score {
-            font-size: 2.8em;
+            font-size: 48px;
             font-family: "Red Hat Display", sans-serif;
             font-weight: 900;
             line-height: 1.2;
+            color: #1a1b1e;
         }
         .score-card .bar { height: 8px; background: #f0f6ff; border-radius: 4px; margin-top: 15px; overflow: hidden; }
         .score-card .bar-fill { height: 100%; border-radius: 4px; transition: width 1s ease; }
@@ -84,7 +135,9 @@
         .info { color: #720eec; } .info .bar-fill { background: #720eec; }
         .overall { color: #fe4c1c; } .overall .bar-fill { background: #fe4c1c; }
 
-        /* SECTIONS */
+        /* ============================================
+           SECTIONS
+           ============================================ */
         .section {
             background: #fff;
             border-radius: 15px;
@@ -94,11 +147,7 @@
             box-shadow: 8px 8px 30px 0px rgba(42, 67, 113, 0.15);
         }
         .section h2 {
-            color: #1a1b1e;
-            font-family: "Red Hat Display", sans-serif;
-            font-weight: 900;
-            font-size: 1.4em;
-            line-height: 1.2;
+            font-size: 30px;
             margin-bottom: 20px;
             border-bottom: 2px solid #f0f6ff;
             padding-bottom: 15px;
@@ -108,7 +157,9 @@
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
 
-        /* METRICS */
+        /* ============================================
+           METRICS
+           ============================================ */
         .metric-row {
             display: flex;
             justify-content: space-between;
@@ -117,32 +168,39 @@
             border-bottom: 1px solid #f0f6ff;
         }
         .metric-row:last-child { border-bottom: none; }
-        .metric-label { color: #606060; font-weight: 500; }
-        .metric-value { font-weight: 700; color: #1a1b1e; }
+        .metric-label { color: #606060; font-weight: 500; font-size: 16px; line-height: 1.875; }
+        .metric-value { font-weight: 700; color: #1a1b1e; font-size: 16px; line-height: 1.875; }
 
-        /* BADGES */
+        /* ============================================
+           BADGES - exact salasl pill style
+           ============================================ */
         .status-badge {
             display: inline-block;
             padding: 5px 14px;
             border-radius: 25px;
-            font-size: 0.85em;
+            font-size: 14px;
             font-weight: 700;
             font-family: "Red Hat Display", sans-serif;
+            line-height: 1.4;
         }
         .badge-pass { background: #e8f5e9; color: #00c853; }
         .badge-fail { background: #ffebee; color: #ff4444; }
         .badge-warn { background: #fff3e0; color: #fe4c1c; }
         .badge-info { background: #e3f2fd; color: #00c3ff; }
 
-        /* ISSUES */
-        .issue-list { list-style: none; }
-        .issue-list li { padding: 12px 16px; margin-bottom: 8px; border-radius: 10px; font-size: 0.95em; }
+        /* ============================================
+           ISSUES
+           ============================================ */
+        .issue-list { list-style: none; padding: 0; margin: 0; }
+        .issue-list li { padding: 12px 16px; margin-bottom: 8px; border-radius: 10px; font-size: 16px; line-height: 1.875; }
         .issue-critical { background: #ffebee; border-right: 4px solid #ff4444; }
         .issue-error { background: #fff3e0; border-right: 4px solid #fe4c1c; }
         .issue-warning { background: #fff8e1; border-right: 4px solid #ffab00; }
         .issue-passed { background: #e8f5e9; border-right: 4px solid #00c853; }
 
-        /* BAR CHART */
+        /* ============================================
+           BAR CHART
+           ============================================ */
         .bar-chart {
             display: flex;
             align-items: flex-end;
@@ -152,12 +210,14 @@
             border-bottom: 2px solid #f0f6ff;
         }
         .bar-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-        .bar-rect { width: 50px; border-radius: 8px 8px 0 0; transition: height 1s ease; position: relative; }
+        .bar-rect { width: 50px; border-radius: 8px 8px 0 0; transition: height 1s ease; }
         .bar-rect:hover { opacity: 0.8; }
-        .bar-label { font-size: 0.8em; color: #606060; text-align: center; max-width: 70px; font-weight: 500; }
-        .bar-value { font-size: 0.9em; font-weight: 700; color: #1a1b1e; }
+        .bar-label { font-size: 14px; color: #606060; text-align: center; max-width: 70px; font-weight: 500; }
+        .bar-value { font-size: 16px; font-weight: 700; color: #1a1b1e; }
 
-        /* TABLE */
+        /* ============================================
+           TABLE
+           ============================================ */
         .rank-table { width: 100%; border-collapse: collapse; }
         .rank-table th {
             background: #f0f6ff;
@@ -166,45 +226,42 @@
             text-align: right;
             font-family: "Red Hat Display", sans-serif;
             font-weight: 700;
-            font-size: 0.95em;
+            font-size: 16px;
         }
-        .rank-table td { padding: 12px; border-bottom: 1px solid #f0f6ff; color: #1a1b1e; }
+        .rank-table td { padding: 12px; border-bottom: 1px solid #f0f6ff; color: #1a1b1e; font-size: 16px; }
         .rank-table tr:hover { background: #f8f9fa; }
 
-        /* PROGRESS RING */
-        .progress-ring { display: inline-block; position: relative; width: 120px; height: 120px; }
-        .progress-ring svg { transform: rotate(-90deg); }
-        .progress-ring circle { fill: none; stroke-width: 8; }
-        .progress-ring .bg { stroke: #f0f6ff; }
-        .progress-ring .fg { stroke: #fe4c1c; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
-        .progress-ring .center-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
-
-        /* TABS - exact salasl button style */
+        /* ============================================
+           TABS - exact salasl .octf-btn-octf-btn-white style
+           ============================================ */
         .tab-nav { display: flex; gap: 8px; margin-bottom: 25px; flex-wrap: wrap; }
         .tab-btn {
             padding: 16px 28px;
             background: #fff;
-            border: 1px solid #e5e5e5;
+            border: 1px solid transparent;
             border-radius: 25px;
-            color: #606060;
+            color: #fe4c1c;
             cursor: pointer;
             transition: all 0.2s ease-out;
             font-family: "Red Hat Display", sans-serif;
-            font-weight: 700;
+            font-weight: bold;
             font-size: 16px;
-            box-shadow: 8px 8px 30px 0px rgba(42, 67, 113, 0.15);
+            box-shadow: 6px 6px 13px 0px rgba(42, 67, 113, 0.15);
+            line-height: 1;
         }
         .tab-btn.active {
             background: #fe4c1c;
             color: #fff;
-            border-color: #fe4c1c;
+            border-color: transparent;
             box-shadow: 12px 12px 20px 0px rgba(254, 76, 28, 0.3);
         }
         .tab-btn:hover { border-color: #fe4c1c; color: #fe4c1c; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
 
-        /* RECOMMENDATIONS */
+        /* ============================================
+           RECOMMENDATIONS
+           ============================================ */
         .recommendation {
             background: #fff;
             padding: 18px 20px;
@@ -212,27 +269,34 @@
             margin-bottom: 12px;
             border-right: 4px solid #fe4c1c;
             box-shadow: 8px 8px 30px 0px rgba(42, 67, 113, 0.15);
-            line-height: 1.6;
+            line-height: 1.875;
+            font-size: 16px;
         }
         .recommendation .priority {
-            font-size: 0.85em;
+            font-size: 14px;
             padding: 5px 14px;
             border-radius: 25px;
             margin-left: 10px;
             font-weight: 700;
             font-family: "Red Hat Display", sans-serif;
+            display: inline-block;
+            line-height: 1.4;
         }
         .priority-high { background: #ffebee; color: #ff4444; }
         .priority-medium { background: #fff3e0; color: #fe4c1c; }
         .priority-low { background: #e3f2fd; color: #00c3ff; }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 767px) {
             .score-overview { grid-template-columns: repeat(2, 1fr); }
             .grid-2, .grid-3 { grid-template-columns: 1fr; }
         }
 
-        /* ANIMATION */
+        /* ============================================
+           ANIMATION
+           ============================================ */
         .animate-in { animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -242,7 +306,7 @@
         <div class="header animate-in">
             <h1>SEO Dashboard - XY Beauty</h1>
             <p>تحليل شامل لـ SEO | <span class="date">23 يوليو 2026</span></p>
-            <p style="margin-top:5px;">xy-ksa.com | شركة دروب الحكمة للتجارة</p>
+            <p style="margin-bottom:0;">xy-ksa.com | شركة دروب الحكمة للتجارة</p>
         </div>
 
         <div class="score-overview animate-in">
@@ -289,31 +353,11 @@
                 <div class="section">
                     <h2>ملخص النتائج</h2>
                     <div class="bar-chart">
-                        <div class="bar-item">
-                            <div class="bar-value">71</div>
-                            <div class="bar-rect" style="height:142px; background:#00c3ff;"></div>
-                            <div class="bar-label">تقني</div>
-                        </div>
-                        <div class="bar-item">
-                            <div class="bar-value">74</div>
-                            <div class="bar-rect" style="height:148px; background:#fe4c1c;"></div>
-                            <div class="bar-label">محتوى</div>
-                        </div>
-                        <div class="bar-item">
-                            <div class="bar-value">48</div>
-                            <div class="bar-rect" style="height:96px; background:#ff4444;"></div>
-                            <div class="bar-label">روابط</div>
-                        </div>
-                        <div class="bar-item">
-                            <div class="bar-value">42</div>
-                            <div class="bar-rect" style="height:84px; background:#720eec;"></div>
-                            <div class="bar-label">سرعة</div>
-                        </div>
-                        <div class="bar-item">
-                            <div class="bar-value">91</div>
-                            <div class="bar-rect" style="height:180px; background:#00c853;"></div>
-                            <div class="bar-label">صحة</div>
-                        </div>
+                        <div class="bar-item"><div class="bar-value">71</div><div class="bar-rect" style="height:142px; background:#00c3ff;"></div><div class="bar-label">تقني</div></div>
+                        <div class="bar-item"><div class="bar-value">74</div><div class="bar-rect" style="height:148px; background:#fe4c1c;"></div><div class="bar-label">محتوى</div></div>
+                        <div class="bar-item"><div class="bar-value">48</div><div class="bar-rect" style="height:96px; background:#ff4444;"></div><div class="bar-label">روابط</div></div>
+                        <div class="bar-item"><div class="bar-value">42</div><div class="bar-rect" style="height:84px; background:#720eec;"></div><div class="bar-label">سرعة</div></div>
+                        <div class="bar-item"><div class="bar-value">91</div><div class="bar-rect" style="height:180px; background:#00c853;"></div><div class="bar-label">صحة</div></div>
                     </div>
                 </div>
                 <div class="section">
@@ -425,8 +469,8 @@
                 </div>
                 <div class="section">
                     <h2>نتائج Filler Analysis</h2>
-                    <p style="font-size:0.9em;">لم يتم العثور على عبارات filler</p>
-                    <p style="font-size:0.9em; margin-top:10px;">لم يتم العثور على أنماط AI مميزة</p>
+                    <p style="font-size:16px; margin-bottom:5px;">لم يتم العثور على عبارات filler</p>
+                    <p style="font-size:16px; margin-bottom:0;">لم يتم العثور على أنماط AI مميزة</p>
                 </div>
             </div>
             <div class="section">
@@ -641,9 +685,9 @@
             <div class="section">
                 <h2>توقعات النتائج</h2>
                 <div class="grid-3">
-                    <div class="recommendation"><strong>خلال أسبوع</strong><br>تحسين السرعة 50%<br>إصلاح الأخطاء التقنية</div>
-                    <div class="recommendation"><strong>خلال شهر</strong><br>ترتيب 10+ كلمات في أول 3 صفحات<br>زيادة الزيارات 25%</div>
-                    <div class="recommendation"><strong>خلال 3 أشهر</strong><br>ترتيب 20+ كلمة في الصفحة الأولى<br>زيادة الزيارات 50-100%</div>
+                    <div class="recommendation"><strong style="color:#1a1b1e;">خلال أسبوع</strong><br>تحسين السرعة 50%<br>إصلاح الأخطاء التقنية</div>
+                    <div class="recommendation"><strong style="color:#1a1b1e;">خلال شهر</strong><br>ترتيب 10+ كلمات في أول 3 صفحات<br>زيادة الزيارات 25%</div>
+                    <div class="recommendation"><strong style="color:#1a1b1e;">خلال 3 أشهر</strong><br>ترتيب 20+ كلمة في الصفحة الأولى<br>زيادة الزيارات 50-100%</div>
                 </div>
             </div>
         </div>
