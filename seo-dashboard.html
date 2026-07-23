@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Dashboard - XY Beauty</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; background: #0a0a0a; color: #e0e0e0; min-height: 100vh; }
+        .dashboard { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; padding: 30px 0; border-bottom: 2px solid #e94560; margin-bottom: 30px; }
+        .header h1 { color: #e94560; font-size: 2.2em; margin-bottom: 10px; }
+        .header p { color: #888; font-size: 1.1em; }
+        .header .date { color: #e94560; font-weight: bold; }
+        .score-overview { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 30px; }
+        .score-card { background: #111; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #222; transition: transform 0.3s; cursor: pointer; }
+        .score-card:hover { transform: translateY(-5px); border-color: #e94560; }
+        .score-card .label { font-size: 0.9em; color: #888; margin-bottom: 8px; }
+        .score-card .score { font-size: 2.5em; font-weight: bold; }
+        .score-card .bar { height: 6px; background: #222; border-radius: 3px; margin-top: 10px; overflow: hidden; }
+        .score-card .bar-fill { height: 100%; border-radius: 3px; transition: width 1s ease; }
+        .critical { color: #ff4444; } .critical .bar-fill { background: #ff4444; }
+        .warning { color: #ffaa00; } .warning .bar-fill { background: #ffaa00; }
+        .good { color: #44ff44; } .good .bar-fill { background: #44ff44; }
+        .excellent { color: #00ff88; } .excellent .bar-fill { background: #00ff88; }
+        .info { color: #4488ff; } .info .bar-fill { background: #4488ff; }
+        .overall { color: #e94560; } .overall .bar-fill { background: #e94560; }
+        .section { background: #111; border-radius: 12px; padding: 25px; margin-bottom: 20px; border: 1px solid #222; }
+        .section h2 { color: #e94560; margin-bottom: 15px; font-size: 1.3em; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .metric-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #1a1a1a; }
+        .metric-row:last-child { border-bottom: none; }
+        .metric-label { color: #aaa; }
+        .metric-value { font-weight: bold; }
+        .status-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold; }
+        .badge-pass { background: #00ff8822; color: #00ff88; }
+        .badge-fail { background: #ff444422; color: #ff4444; }
+        .badge-warn { background: #ffaa0022; color: #ffaa00; }
+        .badge-info { background: #4488ff22; color: #4488ff; }
+        .issue-list { list-style: none; }
+        .issue-list li { padding: 8px 12px; margin-bottom: 5px; border-radius: 6px; font-size: 0.95em; }
+        .issue-critical { background: #ff444411; border-right: 3px solid #ff4444; }
+        .issue-error { background: #ff660011; border-right: 3px solid #ff6600; }
+        .issue-warning { background: #ffaa0011; border-right: 3px solid #ffaa00; }
+        .issue-passed { background: #00ff8811; border-right: 3px solid #00ff88; }
+        .chart-container { position: relative; height: 200px; margin: 15px 0; }
+        .bar-chart { display: flex; align-items: flex-end; justify-content: space-around; height: 180px; padding: 0 10px; border-bottom: 1px solid #333; }
+        .bar-item { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        .bar-rect { width: 50px; border-radius: 4px 4px 0 0; transition: height 1s ease; position: relative; }
+        .bar-rect:hover { opacity: 0.8; }
+        .bar-label { font-size: 0.75em; color: #888; text-align: center; max-width: 70px; }
+        .bar-value { font-size: 0.85em; font-weight: bold; }
+        .rank-table { width: 100%; border-collapse: collapse; }
+        .rank-table th { background: #1a1a1a; color: #e94560; padding: 10px; text-align: right; }
+        .rank-table td { padding: 10px; border-bottom: 1px solid #1a1a1a; }
+        .rank-table tr:hover { background: #1a1a1a; }
+        .progress-ring { display: inline-block; position: relative; width: 120px; height: 120px; }
+        .progress-ring svg { transform: rotate(-90deg); }
+        .progress-ring circle { fill: none; stroke-width: 8; }
+        .progress-ring .bg { stroke: #222; }
+        .progress-ring .fg { stroke: #e94560; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+        .progress-ring .center-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+        .tab-nav { display: flex; gap: 5px; margin-bottom: 20px; }
+        .tab-btn { padding: 10px 20px; background: #1a1a1a; border: 1px solid #333; border-radius: 8px; color: #888; cursor: pointer; transition: all 0.3s; }
+        .tab-btn.active { background: #e94560; color: white; border-color: #e94560; }
+        .tab-btn:hover { border-color: #e94560; color: #e0e0e0; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .recommendation { background: #1a1a1a; padding: 15px; border-radius: 8px; margin-bottom: 10px; border-right: 4px solid #e94560; }
+        .recommendation .priority { font-size: 0.8em; padding: 2px 8px; border-radius: 4px; margin-left: 8px; }
+        .priority-high { background: #ff444422; color: #ff4444; }
+        .priority-medium { background: #ffaa0022; color: #ffaa00; }
+        .priority-low { background: #4488ff22; color: #4488ff; }
+        @media (max-width: 768px) {
+            .score-overview { grid-template-columns: repeat(2, 1fr); }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        }
+        .animate-in { animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header animate-in">
+            <h1>SEO Dashboard - XY Beauty</h1>
+            <p>تحليل شامل لـ SEO | <span class="date">23 يوليو 2026</span></p>
+            <p style="margin-top:5px; color:#666;">xy-ksa.com | شركة دروب الحكمة للتجارة</p>
+        </div>
+
+        <div class="score-overview animate-in">
+            <div class="score-card overall" onclick="showTab('overview')">
+                <div class="label">النتيجة الإجمالية</div>
+                <div class="score" id="overall-score">63</div>
+                <div class="bar"><div class="bar-fill" style="width:63%"></div></div>
+            </div>
+            <div class="score-card good" onclick="showTab('technical')">
+                <div class="label">تقني</div>
+                <div class="score">71</div>
+                <div class="bar"><div class="bar-fill" style="width:71%"></div></div>
+            </div>
+            <div class="score-card warning" onclick="showTab('content')">
+                <div class="label">محتوى</div>
+                <div class="score">74</div>
+                <div class="bar"><div class="bar-fill" style="width:74%"></div></div>
+            </div>
+            <div class="score-card critical" onclick="showTab('backlinks')">
+                <div class="label">روابط</div>
+                <div class="score">48</div>
+                <div class="bar"><div class="bar-fill" style="width:48%"></div></div>
+            </div>
+            <div class="score-card info" onclick="showTab('speed')">
+                <div class="label">سرعة</div>
+                <div class="score">42</div>
+                <div class="bar"><div class="bar-fill" style="width:42%"></div></div>
+            </div>
+        </div>
+
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="showTab('overview')">نظرة عامة</button>
+            <button class="tab-btn" onclick="showTab('technical')">تقني</button>
+            <button class="tab-btn" onclick="showTab('content')">محتوى</button>
+            <button class="tab-btn" onclick="showTab('backlinks')">روابط</button>
+            <button class="tab-btn" onclick="showTab('speed')">سرعة</button>
+            <button class="tab-btn" onclick="showTab('monitoring')">مراقبة</button>
+            <button class="tab-btn" onclick="showTab('keywords')">الكلمات</button>
+            <button class="tab-btn" onclick="showTab('plan')">خطة التحسين</button>
+        </div>
+
+        <div id="tab-overview" class="tab-content active">
+            <div class="grid-2">
+                <div class="section">
+                    <h2>ملخص النتائج</h2>
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <div class="bar-value">71</div>
+                            <div class="bar-rect" style="height:142px; background:#44ff44;"></div>
+                            <div class="bar-label">تقني</div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-value">74</div>
+                            <div class="bar-rect" style="height:148px; background:#ffaa00;"></div>
+                            <div class="bar-label">محتوى</div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-value">48</div>
+                            <div class="bar-rect" style="height:96px; background:#ff4444;"></div>
+                            <div class="bar-label">روابط</div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-value">42</div>
+                            <div class="bar-rect" style="height:84px; background:#4488ff;"></div>
+                            <div class="bar-label">سرعة</div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-value">91</div>
+                            <div class="bar-rect" style="height:180px; background:#00ff88;"></div>
+                            <div class="bar-label">صحة</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <h2>إحصائيات سريعة</h2>
+                    <div class="metric-row"><span class="metric-label">الحالة العامة</span><span class="status-badge badge-pass">HEALTHY</span></div>
+                    <div class="metric-row"><span class="metric-label">صحة الموقع</span><span class="metric-value" style="color:#00ff88">91/100</span></div>
+                    <div class="metric-row"><span class="metric-label">وقت الاستجابة</span><span class="metric-value">0.67 ثانية</span></div>
+                    <div class="metric-row"><span class="metric-label">حجم الصفحة</span><span class="metric-value">122.6 KB</span></div>
+                    <div class="metric-row"><span class="metric-label">HTTPS</span><span class="status-badge badge-pass">مفعل</span></div>
+                    <div class="metric-row"><span class="metric-label">التوافق مع الجوال</span><span class="status-badge badge-pass">متوافق</span></div>
+                    <div class="metric-row"><span class="metric-label">عدد الصور</span><span class="metric-value">26</span></div>
+                    <div class="metric-row"><span class="metric-label">الروابط الداخلية</span><span class="metric-value">32</span></div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>أهم التوصيات (مرتبة حسب الأولوية)</h2>
+                <div class="recommendation"><span class="priority priority-high">عالية</span> تفعيل الضغط (gzip/brotli) - تأثير: +20 نقطة سرعة</div>
+                <div class="recommendation"><span class="priority priority-high">عالية</span> إضافة Cache-Control headers - تأثير: +15 نقطة سرعة</div>
+                <div class="recommendation"><span class="priority priority-high">عالية</span> إضافة lazy loading للصور - تأثير: +10 نقطة سرعة</div>
+                <div class="recommendation"><span class="priority priority-high">عالية</span> إضافة محتوى أطول (800+ كلمة) - تأثير: +20 نقطة محتوى</div>
+                <div class="recommendation"><span class="priority priority-high">عالية</span> تقليل الملفات الحابسة للعرض - تأثير: +15 نقطة سرعة</div>
+                <div class="recommendation"><span class="priority priority-high">عالية</span> إضافة إشارات E-E-A-T (خبرة، اختصاص، موثوقية) - تأثير: +15 نقطة محتوى</div>
+                <div class="recommendation"><span class="priority priority-medium">متوسطة</span> إصلاح H1 المزدوج - تأثير: +5 نقاط تقنية</div>
+                <div class="recommendation"><span class="priority priority-medium">متوسطة</span> تقليل وصف Meta إلى 155 حرف - تأثير: +3 نقاط</div>
+                <div class="recommendation"><span class="priority priority-medium">متوسطة</span> إضافة بيانات + أرقام لتحسين كثافة المعلومات - تأثير: +5 نقاط محتوى</div>
+                <div class="recommendation"><span class="priority priority-medium">متوسطة</span> بناء ملف روابط خلفية متنوع - تأثير: +15 نقطة</div>
+            </div>
+        </div>
+
+        <div id="tab-technical" class="tab-content">
+            <div class="section">
+                <h2>التحليل التقني - تفصيلي</h2>
+                <div class="metric-row"><span class="metric-label">النتيجة التقنية</span><span class="metric-value" style="color:#44ff44">71/100</span></div>
+                <div class="metric-row"><span class="metric-label">النتيجة التقنية (نظيفة)</span><span class="metric-value">91/100</span></div>
+            </div>
+            <div class="grid-2">
+                <div class="section">
+                    <h2>العناصر المقبولة</h2>
+                    <ul class="issue-list">
+                        <li class="issue-passed">[OK] عنوان الصفحة مثالي (59 حرفاً)</li>
+                        <li class="issue-passed">[OK] رابط معياري (Canonical) موجود</li>
+                        <li class="issue-passed">[OK] لا يوجد قيد في robots meta</li>
+                        <li class="issue-passed">[OK] جميع الصور تحتوي على alt text</li>
+                        <li class="issue-passed">[OK] بيانات منظمة (Schema) موجودة</li>
+                        <li class="issue-passed">[OK] viewport meta tag موجود</li>
+                        <li class="issue-passed">[OK] HTTPS مفعل</li>
+                        <li class="issue-passed">[OK] اللغة محددة: ar</li>
+                        <li class="issue-passed">[OK] 8 عناصر Open Graph</li>
+                        <li class="issue-passed">[OK] HSTS مفعل</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h2>المشاكل والتحذيرات</h2>
+                    <ul class="issue-list">
+                        <li class="issue-warning">[!] وصف meta طويل جداً (170 حرف)</li>
+                        <li class="issue-warning">[!] وجود H1 مزدوج (2 عنوان رئيسي)</li>
+                        <li class="issue-warning">[!] محتوى نحيف (188 كلمة فقط)</li>
+                        <li class="issue-error">[X] 9 صور بدون أبعاد ثابتة (مخاطر CLS)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section">
+                <h2>هيكل العناوين</h2>
+                <div class="metric-row"><span class="metric-label">H1</span><span class="metric-value">2 (يجب أن يكون 1)</span></div>
+                <div class="metric-row"><span class="metric-label">H2</span><span class="metric-value">6</span></div>
+                <div class="metric-row"><span class="metric-label">H3</span><span class="metric-value">2</span></div>
+                <div class="metric-row"><span class="metric-label">H4</span><span class="metric-value">1</span></div>
+            </div>
+            <div class="section">
+                <h2>البيانات المنظمة</h2>
+                <div class="metric-row"><span class="metric-label">نوع Schema</span><span class="metric-value">Organization</span></div>
+                <div class="metric-row"><span class="metric-label">الحالة</span><span class="status-badge badge-pass">موجود وصحيح</span></div>
+            </div>
+        </div>
+
+        <div id="tab-content" class="tab-content">
+            <div class="section">
+                <h2>تحليل المحتوى v2.0</h2>
+                <div class="metric-row"><span class="metric-label">نتيجة المحتوى</span><span class="metric-value" style="color:#ffaa00">74/100</span></div>
+            </div>
+            <div class="grid-2">
+                <div class="section">
+                    <h2>القابلية للقراءة</h2>
+                    <div class="metric-row"><span class="metric-label">Flesch-Kincaid</span><span class="metric-value">45.6 (متوسط)</span></div>
+                    <div class="metric-row"><span class="metric-label">Gunning Fog</span><span class="metric-value">26.3 (صعب)</span></div>
+                    <div class="metric-row"><span class="metric-label">عدد الكلمات</span><span class="metric-value" style="color:#ff4444">188</span></div>
+                    <div class="metric-row"><span class="metric-label">عدد الجمل</span><span class="metric-value">3</span></div>
+                    <div class="metric-row"><span class="metric-label">متوسط الكلمات/جملة</span><span class="metric-value">62.7 (طويل جداً)</span></div>
+                    <div class="metric-row"><span class="metric-label">تنويع المفردات</span><span class="metric-value">0.667</span></div>
+                </div>
+                <div class="section">
+                    <h2>كشف أنماط AI (QRG-aligned)</h2>
+                    <div class="metric-row"><span class="metric-label">عبارات Filler</span><span class="status-badge badge-pass">0 عبارة</span></div>
+                    <div class="metric-row"><span class="metric-label">أنماط AI</span><span class="status-badge badge-pass">0 نمط</span></div>
+                    <div class="metric-row"><span class="metric-label">كثافة المعلومات</span><span class="metric-value" style="color:#ffaa00">0.0331</span></div>
+                    <div class="metric-row"><span class="metric-label">نسبة التكرار</span><span class="metric-value" style="color:#ffaa00">31.5%</span></div>
+                    <div class="metric-row"><span class="metric-label">عدد الأرقام</span><span class="metric-value">5</span></div>
+                    <div class="metric-row"><span class="metric-label">عدد الكيانات</span><span class="metric-value">1</span></div>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="section">
+                    <h2>إشارات E-E-A-T</h2>
+                    <div class="metric-row"><span class="metric-label">الخبرة (Experience)</span><span class="metric-value" style="color:#ff4444">0/100</span></div>
+                    <div class="metric-row"><span class="metric-label">الاختصاص (Expertise)</span><span class="metric-value" style="color:#ff4444">0/100</span></div>
+                    <div class="metric-row"><span class="metric-label">الموثوقية (Trust)</span><span class="metric-value" style="color:#ff4444">0/100</span></div>
+                    <div class="metric-row"><span class="metric-label">السلطان (Authority)</span><span class="metric-value" style="color:#ff4444">0/100</span></div>
+                    <div class="metric-row"><span class="metric-label">النتيجة الإجمالية</span><span class="status-badge badge-fail">0/100</span></div>
+                </div>
+                <div class="section">
+                    <h2>نتائج Filler Analysis</h2>
+                    <p style="color:#888; font-size:0.9em;">لم يتم العثور على عبارات filler</p>
+                    <p style="color:#888; font-size:0.9em; margin-top:10px;">لم يتم العثور على أنماط AI مميزة</p>
+                </div>
+            </div>
+            <div class="section">
+                <h2>أكثر الكلمات تكراراً</h2>
+                <div class="bar-chart">
+                    <div class="bar-item"><div class="bar-value">6</div><div class="bar-rect" style="height:120px; background:#e94560;"></div><div class="bar-label">beauty</div></div>
+                    <div class="bar-item"><div class="bar-value">4</div><div class="bar-rect" style="height:80px; background:#e94560;"></div><div class="bar-label">العناية</div></div>
+                    <div class="bar-item"><div class="bar-value">4</div><div class="bar-rect" style="height:80px; background:#e94560;"></div><div class="bar-label">شركة</div></div>
+                    <div class="bar-item"><div class="bar-value">4</div><div class="bar-rect" style="height:80px; background:#e94560;"></div><div class="bar-label">دروب</div></div>
+                    <div class="bar-item"><div class="bar-value">4</div><div class="bar-rect" style="height:80px; background:#e94560;"></div><div class="bar-label">الحكمة</div></div>
+                    <div class="bar-item"><div class="bar-value">3</div><div class="bar-rect" style="height:60px; background:#e94560;"></div><div class="bar-label">خدمة</div></div>
+                    <div class="bar-item"><div class="bar-value">3</div><div class="bar-rect" style="height:60px; background:#e94560;"></div><div class="bar-label">العملاء</div></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-backlinks" class="tab-content">
+            <div class="section">
+                <h2>تحليل الروابط</h2>
+                <div class="metric-row"><span class="metric-label">نتيجة الروابط</span><span class="metric-value" style="color:#ff4444">48/100</span></div>
+            </div>
+            <div class="grid-2">
+                <div class="section">
+                    <h2>ملف الروابط</h2>
+                    <div class="metric-row"><span class="metric-label">تنويع الروابط</span><span class="metric-value" style="color:#ff4444">20/100</span></div>
+                    <div class="metric-row"><span class="metric-label">الروابط الداخلية</span><span class="metric-value">64/100</span></div>
+                    <div class="metric-row"><span class="metric-label">جودة الروابط</span><span class="metric-value">60/100</span></div>
+                    <div class="metric-row"><span class="metric-label">روابط صادرة</span><span class="metric-value">3</span></div>
+                    <div class="metric-row"><span class="metric-label">نطاقات فريدة</span><span class="metric-value" style="color:#ff4444">2 فقط</span></div>
+                </div>
+                <div class="section">
+                    <h2>الروابط الخارجية</h2>
+                    <div class="metric-row"><span class="metric-label">wa.me (WhatsApp)</span><span class="metric-value">2 رابط</span></div>
+                    <div class="metric-row"><span class="metric-label">enable-javascript.com</span><span class="metric-value">1 رابط</span></div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>فرص بناء الروابط</h2>
+                <div class="recommendation"><span class="priority priority-high">عالية</span> التسجيل في 20+ مجلد تجاري سعودي</div>
+                <div class="recommendation"><span class="priority priority-high">عالية</span> التواصل مع مدونين في مجال الجمال</div>
+                <div class="recommendation"><span class="priority priority-medium">متوسطة</span> إنشاء محتوى يجذب الروابط الطبيعية</div>
+                <div class="recommendation"><span class="priority priority-medium">متوسطة</span> تحسين هيكل الروابط الداخلية</div>
+            </div>
+        </div>
+
+        <div id="tab-speed" class="tab-content">
+            <div class="section">
+                <h2>تحليل السرعة v2.0</h2>
+                <div class="metric-row"><span class="metric-label">نتيجة السرعة الإجمالية</span><span class="metric-value" style="color:#4488ff">42/100</span></div>
+            </div>
+            <div class="section">
+                <h2>Core Web Vitals (مارس 2026)</h2>
+                <div class="bar-chart">
+                    <div class="bar-item"><div class="bar-value">40</div><div class="bar-rect" style="height:80px; background:#ff4444;"></div><div class="bar-label">TTFB</div></div>
+                    <div class="bar-item"><div class="bar-value">70</div><div class="bar-rect" style="height:140px; background:#ffaa00;"></div><div class="bar-label">Page Size</div></div>
+                    <div class="bar-item"><div class="bar-value">70</div><div class="bar-rect" style="height:140px; background:#ffaa00;"></div><div class="bar-label">Resources</div></div>
+                    <div class="bar-item"><div class="bar-value">20</div><div class="bar-rect" style="height:40px; background:#ff4444;"></div><div class="bar-label">Render Block</div></div>
+                    <div class="bar-item"><div class="bar-value">30</div><div class="bar-rect" style="height:60px; background:#ff4444;"></div><div class="bar-label">Caching</div></div>
+                    <div class="bar-item"><div class="bar-value">20</div><div class="bar-rect" style="height:40px; background:#ff4444;"></div><div class="bar-label">Compression</div></div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>عتبات Core Web Vitals</h2>
+                <table class="rank-table">
+                    <thead><tr><th>المؤشر</th><th>جيد</th><th>يحتاج تحسين</th><th>سيء</th><th>الحالة</th></tr></thead>
+                    <tbody>
+                        <tr><td>LCP</td><td>≤ 2500ms</td><td>2500-4000ms</td><td>> 4000ms</td><td><span class="status-badge badge-warn">يحتاج بيانات ميدانية</span></td></tr>
+                        <tr><td>INP</td><td>≤ 200ms</td><td>200-500ms</td><td>> 500ms</td><td><span class="status-badge badge-warn">يحتاج بيانات ميدانية</span></td></tr>
+                        <tr><td>CLS</td><td>≤ 0.1</td><td>0.1-0.25</td><td>> 0.25</td><td><span class="status-badge badge-warn">يحتاج بيانات ميدانية</span></td></tr>
+                        <tr><td>FCP</td><td>≤ 1800ms</td><td>1800-3000ms</td><td>> 3000ms</td><td><span class="status-badge badge-warn">يحتاج بيانات ميدانية</span></td></tr>
+                        <tr><td>TTFB</td><td>≤ 800ms</td><td>800-1800ms</td><td>> 1800ms</td><td><span class="status-badge badge-pass">0.714s [جيد]</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="grid-2">
+                <div class="section">
+                    <h2>المؤشرات الرئيسية</h2>
+                    <div class="metric-row"><span class="metric-label">وقت الاستجابة</span><span class="metric-value">0.721 ثانية</span></div>
+                    <div class="metric-row"><span class="metric-label">TTFB</span><span class="metric-value" style="color:#44ff44">0.714 ثانية [جيد]</span></div>
+                    <div class="metric-row"><span class="metric-label">حجم الصفحة</span><span class="metric-value">122.6 KB</span></div>
+                </div>
+                <div class="section">
+                    <h2>الموارد</h2>
+                    <div class="metric-row"><span class="metric-label">Scripts</span><span class="metric-value">10 (8 خارجي)</span></div>
+                    <div class="metric-row"><span class="metric-label">Stylesheets</span><span class="metric-value">5</span></div>
+                    <div class="metric-row"><span class="metric-label">Images</span><span class="metric-value">26</span></div>
+                    <div class="metric-row"><span class="metric-label">Lazy Loaded</span><span class="metric-value" style="color:#ff4444">0/26</span></div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>المشاكل الحرجة</h2>
+                <ul class="issue-list">
+                    <li class="issue-error">[X] لا يوجد ضغط (gzip/brotli) - تأثير كبير جداً</li>
+                    <li class="issue-error">[X] لا توجد Cache-Control headers</li>
+                    <li class="issue-error">[X] 15 ملف حجب العرض</li>
+                    <li class="issue-error">[X] لا توجد صور lazy loaded</li>
+                    <li class="issue-warning">[!] 9 صور بدون أبعاد ثابتة (مخاطر CLS)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="tab-monitoring" class="tab-content">
+            <div class="section">
+                <h2>مراقبة الأخطاء</h2>
+                <div class="metric-row"><span class="metric-label">صحة الموقع</span><span class="metric-value" style="color:#00ff88">91/100</span></div>
+                <div class="metric-row"><span class="metric-label">الحالة</span><span class="status-badge badge-pass">HEALTHY</span></div>
+            </div>
+            <div class="grid-2">
+                <div class="section">
+                    <h2>التوفر والاتصال</h2>
+                    <div class="metric-row"><span class="metric-label">كود الحالة</span><span class="status-badge badge-pass">200</span></div>
+                    <div class="metric-row"><span class="metric-label">وقت الاستجابة</span><span class="metric-value">0.671 ثانية</span></div>
+                    <div class="metric-row"><span class="metric-label">URL النهائي</span><span class="metric-value">xy-ksa.com/</span></div>
+                </div>
+                <div class="section">
+                    <h2>الأمان</h2>
+                    <div class="metric-row"><span class="metric-label">HTTPS</span><span class="status-badge badge-pass">مفعل</span></div>
+                    <div class="metric-row"><span class="metric-label">HSTS</span><span class="status-badge badge-pass">مفعل</span></div>
+                    <div class="metric-row"><span class="metric-label">رؤوس الأمان</span><span class="metric-value">4/6</span></div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>التحذيرات</h2>
+                <ul class="issue-list">
+                    <li class="issue-warning">[!] إعادة توجيه مكتشفة: xy-ksa.com -> xy-ksa.com/</li>
+                    <li class="issue-warning">[!] وصف meta طويل جداً (170 حرف)</li>
+                    <li class="issue-warning">[!] وجود H1 مزدوج</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="tab-keywords" class="tab-content">
+            <div class="section">
+                <h2>تتبع الترتيب - الكلمات المفتاحية</h2>
+                <p style="color:#888; margin-bottom:15px;">النتيجة: الموقع لا يظهر في أول 20 نتيجة لأي كلمة مفتاحية مستهدفة</p>
+                <table class="rank-table">
+                    <thead><tr><th>#</th><th>الكلمة المفتاحية</th><th>الترتيب</th><th>الأولوية</th><th>الحالة</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>منتجات العناية بالبشرة الكورية</td><td>N/A</td><td><span class="priority priority-high">عالية</span></td><td><span class="status-badge badge-fail">غير موجود</span></td></tr>
+                        <tr><td>2</td><td>مكياج كوري في السعودية</td><td>N/A</td><td><span class="priority priority-high">عالية</span></td><td><span class="status-badge badge-fail">غير موجود</span></td></tr>
+                        <tr><td>3</td><td>متجر منتجات كورية أصلية</td><td>N/A</td><td><span class="priority priority-high">عالية</span></td><td><span class="status-badge badge-fail">غير موجود</span></td></tr>
+                        <tr><td>4</td><td>عناية بالبشرة كورية</td><td>N/A</td><td><span class="priority priority-high">عالية</span></td><td><span class="status-badge badge-fail">غير موجود</span></td></tr>
+                        <tr><td>5</td><td>روتين العناية بالبشرة الكوري</td><td>N/A</td><td><span class="priority priority-high">عالية</span></td><td><span class="status-badge badge-fail">غير موجود</span></td></tr>
+                        <tr><td>6</td><td>سيروم وجه كوري</td><td>N/A</td><td><span class="priority priority-high">عالية</span></td><td><span class="status-badge badge-fail">غير موجود</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="section">
+                <h2>الكلمات المقترحة للمتابعة</h2>
+                <table class="rank-table">
+                    <thead><tr><th>#</th><th>الكلمة المفتاحية</th><th>الأولوية</th><th>الصعوبة المتوقعة</th></tr></thead>
+                    <tbody>
+                        <tr><td>7</td><td>ماسكارا كورية</td><td><span class="priority priority-medium">متوسطة</span></td><td>متوسطة</td></tr>
+                        <tr><td>8</td><td>مستحضرات تجميل كورية</td><td><span class="priority priority-medium">متوسطة</span></td><td>متوسطة</td></tr>
+                        <tr><td>9</td><td>منتجات جمال كورية</td><td><span class="priority priority-medium">متوسطة</span></td><td>سهلة</td></tr>
+                        <tr><td>10</td><td>كوريا بيوتي السعودية</td><td><span class="priority priority-medium">متوسطة</span></td><td>سهلة</td></tr>
+                        <tr><td>11</td><td>كريم تبييض كوري</td><td><span class="priority priority-high">عالية</span></td><td>متوسطة</td></tr>
+                        <tr><td>12</td><td>شراء منتجات كورية أونلاين</td><td><span class="priority priority-high">عالية</span></td><td>سهلة</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="tab-plan" class="tab-content">
+            <div class="section">
+                <h2>خطة التنفيذ - 4 أسابيع</h2>
+            </div>
+            <div class="grid-2">
+                <div class="section">
+                    <h2>الأسبوع 1: إصلاح المشاكل الحرجة</h2>
+                    <ul class="issue-list">
+                        <li class="issue-critical">☐ إصلاح H1 المزدوج</li>
+                        <li class="issue-critical">☐ تقليل وصف Meta إلى 155 حرف</li>
+                        <li class="issue-critical">☐ تفعيل الضغط (gzip/brotli)</li>
+                        <li class="issue-critical">☐ إضافة Cache-Control headers</li>
+                        <li class="issue-critical">☐ إضافة async/defer للscripts</li>
+                        <li class="issue-critical">☐ إضافة lazy loading للصور</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h2>الأسبوع 2: تحسين المحتوى</h2>
+                    <ul class="issue-list">
+                        <li class="issue-warning">☐ إضافة 600+ كلمة للصفحة الرئيسية</li>
+                        <li class="issue-warning">☐ إضافة قسم "عن الشركة"</li>
+                        <li class="issue-warning">☐ إضافة قسم "لماذا تختارنا"</li>
+                        <li class="issue-warning">☐ إضافة "آراء العملاء"</li>
+                        <li class="issue-warning">☐ إضافة "أسئلة شائعة"</li>
+                        <li class="issue-warning">☐ إضافة إشارات E-E-A-T</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h2>الأسبوع 3: بناء السلطة</h2>
+                    <ul class="issue-list">
+                        <li class="issue-warning">☐ إضافة FAQ schema</li>
+                        <li class="issue-warning">☐ إضافة Review schema</li>
+                        <li class="issue-warning">☐ تحسين الروابط الداخلية</li>
+                        <li class="issue-warning">☐ التسجيل في 10 مجلدات تجارية</li>
+                        <li class="issue-warning">☐ التواصل مع 5 مدونين</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h2>الأسبوع 4: القياس والتكرار</h2>
+                    <ul class="issue-list">
+                        <li class="issue-passed">☐ تشغيل أدوات التحليل مرة أخرى</li>
+                        <li class="issue-passed">☐ مقارنة النتائج الجديدة بالقديمة</li>
+                        <li class="issue-passed">☐ تشغيل rank_tracker.py</li>
+                        <li class="issue-passed">☐ معالجة المشاكل المتبقية</li>
+                        <li class="issue-passed">☐ خطة الشهر القادم</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section">
+                <h2>توقعات النتائج</h2>
+                <div class="grid-3">
+                    <div class="recommendation"><strong>خلال أسبوع</strong><br>تحسين السرعة 50%<br>إصلاح الأخطاء التقنية</div>
+                    <div class="recommendation"><strong>خلال شهر</strong><br>ترتيب 10+ كلمات في أول 3 صفحات<br>زيادة الزيارات 25%</div>
+                    <div class="recommendation"><strong>خلال 3 أشهر</strong><br>ترتيب 20+ كلمة في الصفحة الأولى<br>زيادة الزيارات 50-100%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + tabId).classList.add('active');
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                if (b.textContent.includes(getTabLabel(tabId))) b.classList.add('active');
+            });
+        }
+        function getTabLabel(id) {
+            const map = { overview: 'نظرة عامة', technical: 'تقني', content: 'محتوى', backlinks: 'روابط', speed: 'سرعة', monitoring: 'مراقبة', keywords: 'الكلمات', plan: 'خطة' };
+            return map[id] || '';
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.score-card');
+            cards.forEach((card, i) => {
+                card.style.animationDelay = (i * 0.1) + 's';
+                card.classList.add('animate-in');
+            });
+            document.querySelectorAll('.section').forEach((s, i) => {
+                s.style.animationDelay = (i * 0.05) + 's';
+                s.classList.add('animate-in');
+            });
+        });
+    </script>
+</body>
+</html>
