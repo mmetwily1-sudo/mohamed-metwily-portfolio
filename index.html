@@ -1,762 +1,691 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Metwily - Head of SEO | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        :root {
-            --primary: #0d0d0d;
-            --accent: #e94560;
-            --accent2: #1a1a2e;
-            --light: #121212;
-            --gray: #a0a0a0;
-            --white: #ffffff;
-            --card-bg: #1e1e1e;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
-            --border: #2a2a2a;
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  data-title-en="Mohamed Metwily | Head of SEO – E-commerce &amp; AI Search, Arabic Markets"
+  data-title-ar="محمد متولي | رئيس قسم SEO – التجارة الإلكترونية والبحث بالذكاء الاصطناعي"
+  data-desc-en="Head of SEO who generated 4.75M+ SAR for Saudi e-commerce stores, 1.32M SAR of it from organic search. Top 1-5 rankings and Google AI Overviews visibility. Available remote or relocating anywhere."
+  data-desc-ar="رئيس قسم SEO حقق أكثر من 4.75 مليون ريال لمتاجر سعودية، منها 1.32 مليون ريال من البحث العضوي. ترتيب 1-5 وظهور في ملخصات Google بالذكاء الاصطناعي. متاح عن بُعد أو بالانتقال لأي مكان."
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Mohamed Metwily | Head of SEO – E-commerce &amp; AI Search, Arabic Markets
+    </title>
+    <meta
+      name="description"
+      content="Head of SEO who generated 4.75M+ SAR for Saudi e-commerce stores, 1.32M SAR of it from organic search. Top 1-5 rankings and Google AI Overviews visibility. Available remote or relocating anywhere."
+    />
+    <link
+      rel="canonical"
+      href="https://mmetwily1-sudo.github.io/mohamed-metwily-portfolio/index.html"
+    />
+    <meta property="og:title" content="Mohamed Metwily | Head of SEO" />
+    <meta
+      property="og:description"
+      content="4.75M+ SAR generated across Saudi e-commerce stores. SEO strategy, technical SEO and AI search visibility."
+    />
+    <meta property="og:type" content="profile" />
+    <meta
+      property="og:image"
+      content="https://mmetwily1-sudo.github.io/mohamed-metwily-portfolio/portfolio_assets/profile_gemini.jpg"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_AR" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+    />
+    <link rel="stylesheet" href="site.css" />
+    <script src="site.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Mohamed Metwily",
+          "alternateName": "محمد متولي",
+          "jobTitle": "Head of SEO",
+          "image": "https://mmetwily1-sudo.github.io/mohamed-metwily-portfolio/portfolio_assets/profile_gemini.jpg",
+          "email": "mailto:mmetwily1@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Mansoura",
+            "addressCountry": "EG"
+          },
+          "sameAs": ["https://www.linkedin.com/in/mohamed-metwily"],
+          "knowsLanguage": ["Arabic", "English"],
+          "knowsAbout": [
+            "Technical SEO",
+            "E-commerce SEO",
+            "Generative Engine Optimization",
+            "Google Search Console",
+            "GA4"
+          ]
         }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            background: var(--light);
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent2) 50%, #0f3460 100%);
-            background-size: 200% 200%;
-            animation: gradient 8s ease infinite;
-            color: var(--white);
-            padding: 120px 20px 80px;
-            text-align: center;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('portfolio_assets/profile_gemini.jpg') center center / cover no-repeat;
-            opacity: 0.08;
-            z-index: 0;
-        }
-
-        .hero > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .hero .title {
-            font-size: 1.3rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .hero .contact {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        .hero .contact a {
-            color: var(--white);
-            text-decoration: none;
-        }
-
-        .hero .contact a:hover {
-            color: var(--accent);
-        }
-
-        .hero-glow {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(233, 69, 96, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -100px;
-            right: -100px;
-            z-index: 0;
-            animation: float 6s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .hero-glow-2 {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(15, 52, 96, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -50px;
-            left: -50px;
-            z-index: 0;
-            animation: float 8s ease-in-out infinite reverse;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(20px); }
-        }
-
-        .btn-cv {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 30px;
-            background: var(--accent);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s;
-            position: relative;
-            z-index: 10;
-        }
-
-        .btn-cv:hover {
-            background: #ff6b81;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
-            color: var(--white);
-        }
-
-        .profile-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--accent);
-            margin-bottom: 20px;
-            box-shadow: 0 0 30px rgba(233, 69, 96, 0.4), 0 5px 20px rgba(0,0,0,0.3);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 5px 20px rgba(233, 69, 96, 0.3); }
-            50% { box-shadow: 0 5px 30px rgba(233, 69, 96, 0.6); }
-            100% { box-shadow: 0 5px 20px rgba(233, 69, 96, 0.3); }
-        }
-
-        /* Container */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Section */
-        .section {
-            background: var(--card-bg);
-            margin: 30px auto;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-            max-width: 1100px;
-        }
-
-        .section h2 {
-            font-size: 1.8rem;
-            color: var(--text-primary);
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--accent);
-            display: inline-block;
-        }
-
-        /* Experience */
-        .experience-item {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-
-        .experience-item:hover {
-            background: rgba(233, 69, 96, 0.05);
-            padding-left: 10px;
-        }
-
-        .experience-item:last-child {
-            border-bottom: none;
-        }
-
-        .experience-item h3 {
-            font-size: 1.2rem;
-            color: var(--text-primary);
-        }
-
-        .experience-item .company {
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        .experience-item .period {
-            color: var(--gray);
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-
-        .experience-item ul {
-            margin-top: 10px;
-            padding-left: 20px;
-        }
-
-        .experience-item li {
-            margin: 8px 0;
-            color: var(--text-secondary);
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        .skill-category h3 {
-            font-size: 1.1rem;
-            color: var(--text-primary);
-            margin-bottom: 15px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-tag {
-            background: #2a2a2a;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            transition: all 0.3s;
-        }
-
-        .skill-tag:hover {
-            background: var(--accent);
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-
-        /* Certifications */
-        .cert-list {
-            list-style: none;
-        }
-
-        .cert-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s;
-        }
-
-        .cert-list li:hover {
-            padding-left: 10px;
-            color: var(--accent);
-        }
-
-        .cert-list li::before {
-            content: "✓";
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .section { padding: 25px; }
-        }
-
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        .lightbox .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            background: var(--card-bg);
-            margin-top: 30px;
-        }
-
-        .footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Navbar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 999;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .navbar .logo {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--white);
-            text-decoration: none;
-        }
-
-        .navbar .logo span {
-            color: var(--accent);
-        }
-
-        .navbar-links {
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .navbar-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        .navbar-links a:hover,
-        .navbar-links a.active {
-            color: var(--accent);
-        }
-
-        .navbar-links a.nav-cv {
-            background: var(--accent);
-            color: var(--white);
-            padding: 8px 20px;
-            border-radius: 6px;
-        }
-
-        .navbar-links a.nav-cv:hover {
-            background: #ff6b81;
-            color: var(--white);
-        }
-
-        /* Language Toggle */
-        .lang-toggle {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--white);
-            padding: 6px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .lang-toggle:hover {
-            background: var(--accent);
-            transform: scale(1.05);
-        }
-
-        /* RTL Support */
-        [dir="rtl"] body {
-            font-family: 'Inter', 'Arial', sans-serif;
-        }
-
-        [dir="rtl"] .experience-item ul {
-            padding-left: 0;
-            padding-right: 20px;
-        }
-
-        [dir="rtl"] .cert-list li {
-            padding-left: 0;
-            padding-right: 10px;
-        }
-
-        [dir="rtl"] .cert-list li:hover {
-            padding-left: 0;
-            padding-right: 10px;
-        }
-
-        [dir="rtl"] .experience-item:hover {
-            padding-left: 0;
-            padding-right: 10px;
-        }
-
-        [dir="rtl"] .section h2 {
-            direction: rtl;
-        }
-    </style>
-</head>
-<body>
-
-<!-- Navbar -->
-<nav class="navbar">
-    <a href="index.html" class="logo">Mohamed <span>Metwily</span></a>
-    <div class="navbar-links">
-        <a href="index.html" class="active" data-i18n="nav_portfolio">Portfolio</a>
-        <a href="case-studies.html" data-i18n="nav_case_studies">Case Studies</a>
-        <a href="cv.html" class="nav-cv" data-i18n="nav_cv">CV</a>
-        <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">AR</button>
-    </div>
-</nav>
-
-<!-- Hero -->
-<div class="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-glow-2"></div>
-    <img src="portfolio_assets/profile_gemini.jpg" alt="Mohamed Metwily" class="profile-photo">
-    <h1>Mohamed Metwily</h1>
-    <div class="title" data-i18n="hero_title">HEAD OF SEO</div>
-    <div class="contact">
-        <span>mmetwily1@gmail.com</span>
-        <span>+20 10 25183569</span>
-        <span data-i18n="hero_location">Mansoura, Egypt</span>
-        <a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn</a>
-    </div>
-    <a href="cv.html" class="btn-cv" data-i18n="hero_btn">View Full CV</a>
-</div>
-
-<!-- Summary -->
-<div class="section">
-    <h2 data-i18n="summary_title">Professional Summary</h2>
-    <p style="color: var(--text-secondary);" data-i18n="summary_text">Results-driven Head of SEO with hands-on experience managing end-to-end SEO strategy for high-revenue e-commerce businesses in the Saudi market. Proven track record of driving organic growth that generated over 4.75M SAR in revenue across multiple stores. Led and managed a cross-functional SEO team of 3 Team Leaders, 4 SEO Agents, and content specialists. Skilled in keyword research, technical SEO, content optimization, AI Overviews visibility, and competitor analysis using SEMrush, Google Analytics, and Google Search Console. Proficient in leveraging AI tools and AI agents to automate SEO workflows, scale content production, and optimize for AI-generated search results.</p>
-</div>
-
-
-
-<!-- Professional Experience -->
-<div class="section">
-    <h2 data-i18n="experience_title">Professional Experience</h2>
-
-    <div class="experience-item">
-        <h3><span data-i18n="exp1_title">Head of SEO</span> <span class="company">| <span data-i18n="exp1_company">Freelance / Multiple E-commerce Projects</span></span></h3>
-        <div class="period" data-i18n="exp1_period">AUG 2025 - Present</div>
-        <ul>
-            <li data-i18n="exp1_b1">Developed and led overall SEO strategy for multiple e-commerce stores in the Saudi market, driving growth in organic visibility, traffic, and revenue.</li>
-            <li data-i18n="exp1_b2">Managed full SEO lifecycle including technical audits, on-page optimization, keyword strategy, content planning, and performance tracking.</li>
-            <li data-i18n="exp1_b3">Led a cross-functional team of 3 Team Leaders, 4 SEO Agents, and content specialists, ensuring alignment on strategy execution and KPI targets.</li>
-            <li data-i18n="exp1_b4">Achieved top 1-5 search rankings for target keywords and secured visibility in Google AI Overviews for high-intent commercial queries.</li>
-        </ul>
-    </div>
-
-    <div class="experience-item">
-        <h3><span data-i18n="exp2_title">Team Leader SEO</span> <span class="company">| <span data-i18n="exp2_company">Salasl Agency (Marketing Agency)</span></span></h3>
-        <div class="period" data-i18n="exp2_period">AUG 2024 - AUG 2025</div>
-        <ul>
-            <li data-i18n="exp2_b1">Led a team of SEO specialists at a full-service marketing agency, managing SEO projects across multiple client accounts in various industries.</li>
-            <li data-i18n="exp2_b2">Coordinated with content, design, and strategy teams to deliver integrated SEO campaigns.</li>
-        </ul>
-    </div>
-
-    <div class="experience-item">
-        <h3 data-i18n="exp3_title">SEO Specialist</h3>
-        <div class="period" data-i18n="exp3_period">FEB 2023 - AUG 2024</div>
-        <ul>
-            <li data-i18n="exp3_b1">Implemented SEO strategies to improve rankings and increase organic traffic across multiple e-commerce websites in the Saudi market</li>
-        </ul>
-    </div>
-</div>
-
-<!-- Skills -->
-<div class="section">
-    <h2 data-i18n="skills_title">Skills</h2>
-    <div class="skills-grid">
-            <div class="skill-category">
-                <h3 data-i18n="skills_tech">Technical SEO</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">SEO (On-Page, Off-Page, Technical)</span>
-                    <span class="skill-tag">Keyword Research</span>
-                    <span class="skill-tag">Competitor Analysis</span>
-                    <span class="skill-tag">Google Search Console</span>
-                    <span class="skill-tag">Google Analytics (GA4)</span>
-                    <span class="skill-tag">Google Tag Manager</span>
-                    <span class="skill-tag">Google Keyword Planner</span>
-                    <span class="skill-tag">SEMrush</span>
-                    <span class="skill-tag">Screaming Frog</span>
-                </div>
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main"
+      ><span class="en">Skip to content</span
+      ><span class="ar">تخطي إلى المحتوى</span></a
+    >
+
+    <nav class="top" aria-label="Main">
+      <div class="wrap">
+        <a class="brand" href="index.html"
+          ><span class="en">Mohamed Metwily</span
+          ><span class="ar">محمد متولي</span></a
+        >
+        <div class="links">
+          <a href="#results"
+            ><span class="en">Results</span><span class="ar">النتائج</span></a
+          >
+          <a href="#experience"
+            ><span class="en">Experience</span><span class="ar">الخبرة</span></a
+          >
+          <a href="#skills"
+            ><span class="en">Skills</span><span class="ar">المهارات</span></a
+          >
+          <a href="case-studies.html"
+            ><span class="en">Case Studies</span
+            ><span class="ar">دراسات الحالة</span></a
+          >
+          <a href="cv.html"
+            ><span class="en">CV</span><span class="ar">السيرة الذاتية</span></a
+          >
+          <button
+            class="lang-btn"
+            type="button"
+            data-lang-btn
+            onclick="toggleLang()"
+          >
+            AR
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="wrap" id="main">
+      <header class="hero">
+        <div>
+          <div class="eyebrow">
+            <span class="en">Head of SEO · E-commerce · AI Search</span
+            ><span class="ar"
+              >رئيس قسم SEO · التجارة الإلكترونية · البحث بالذكاء
+              الاصطناعي</span
+            >
+          </div>
+          <h1>
+            <span class="en"
+              >I turn organic search into revenue for Arabic-market e-commerce
+              brands.</span
+            >
+            <span class="ar"
+              >أحوّل البحث العضوي إلى إيرادات لمتاجر التجارة الإلكترونية في
+              الأسواق العربية.</span
+            >
+          </h1>
+          <p class="lead">
+            <span class="en"
+              ><span class="num">4.75M+</span> SAR in store revenue across four
+              Saudi stores, <span class="num">1.32M</span> SAR of it from
+              organic search. Top 1-5 rankings and Google AI Overviews
+              visibility, delivered by a team I lead and AI tools that automate
+              SEO workflows.</span
+            >
+            <span class="ar"
+              >أكثر من <span class="num">4.75</span> مليون ريال إيرادات عبر
+              أربعة متاجر سعودية، منها <span class="num">1.32</span> مليون ريال
+              من البحث العضوي. ترتيب بين المركز 1 و5 وظهور في ملخصات Google
+              بالذكاء الاصطناعي، بفريق أقوده وأدوات ذكاء اصطناعي تؤتمت مهام الـ
+              SEO.</span
+            >
+          </p>
+          <div class="avail">
+            <span class="en"
+              >Available for remote work or relocation anywhere in the
+              world</span
+            >
+            <span class="ar"
+              >متاح للعمل عن بُعد أو الانتقال إلى أي مكان في العالم</span
+            >
+          </div>
+          <div class="cta">
+            <a class="btn p" href="case-studies.html"
+              ><span class="en">View case studies</span
+              ><span class="ar">شاهد دراسات الحالة</span></a
+            >
+            <a class="btn s" href="cv.html"
+              ><span class="en">View CV</span
+              ><span class="ar">السيرة الذاتية</span></a
+            >
+            <a class="btn s" href="mailto:mmetwily1@gmail.com"
+              ><span class="en">Hire me</span
+              ><span class="ar">تواصل معي</span></a
+            >
+          </div>
+        </div>
+        <img
+          src="portfolio_assets/profile_gemini.jpg"
+          alt="Portrait of Mohamed Metwily, Head of SEO"
+          width="330"
+          height="330"
+          fetchpriority="high"
+        />
+      </header>
+
+      <div class="stats" role="list" aria-label="Key results">
+        <div class="stat" role="listitem">
+          <b>4.75M+</b
+          ><span
+            ><span class="en">SAR total revenue</span
+            ><span class="ar">ريال إجمالي الإيرادات</span></span
+          >
+        </div>
+        <div class="stat" role="listitem">
+          <b>1.32M</b
+          ><span
+            ><span class="en">SAR organic revenue</span
+            ><span class="ar">ريال من البحث العضوي</span></span
+          >
+        </div>
+        <div class="stat" role="listitem">
+          <b>112K+</b
+          ><span
+            ><span class="en">organic clicks</span
+            ><span class="ar">نقرة عضوية</span></span
+          >
+        </div>
+        <div class="stat" role="listitem">
+          <b>4.1M+</b
+          ><span
+            ><span class="en">search impressions</span
+            ><span class="ar">ظهور في نتائج البحث</span></span
+          >
+        </div>
+      </div>
+
+      <section id="about">
+        <h2>
+          <span class="en">Professional summary</span
+          ><span class="ar">الملخص المهني</span>
+        </h2>
+        <p class="sub">
+          <span class="en"
+            >Results-driven Head of SEO managing end-to-end SEO strategy for
+            high-revenue e-commerce businesses in the Saudi market. I lead a
+            cross-functional team of 3 Team Leaders, 4 SEO Agents and content
+            specialists, and I use AI tools and agents to automate SEO
+            workflows, scale content production and optimize for AI-generated
+            search results.</span
+          >
+          <span class="ar"
+            >رئيس قسم SEO يقود الاستراتيجية الكاملة لمتاجر تجارة إلكترونية عالية
+            الإيراد في السوق السعودي. أدير فريقًا متعدد التخصصات من 3 قادة فرق
+            و4 متخصصي SEO ومختصين في المحتوى، وأوظّف أدوات ووكلاء الذكاء
+            الاصطناعي لأتمتة مهام الـ SEO وتوسيع إنتاج المحتوى والتحسين لنتائج
+            البحث التوليدية.</span
+          >
+        </p>
+        <div class="grid three">
+          <article class="card">
+            <h3>
+              <span class="en">Technical SEO &amp; audits</span
+              ><span class="ar">الـ SEO التقني والتدقيق</span>
+            </h3>
+            <p>
+              <span class="en"
+                >Site audits, indexing, structure and on-page optimization for
+                product and category pages.</span
+              ><span class="ar"
+                >تدقيق المواقع والفهرسة والهيكلة وتحسين صفحات المنتجات
+                والأقسام.</span
+              >
+            </p>
+          </article>
+          <article class="card">
+            <h3>
+              <span class="en">E-commerce growth</span
+              ><span class="ar">نمو التجارة الإلكترونية</span>
+            </h3>
+            <p>
+              <span class="en"
+                >Keyword strategy for high-intent buyers on Salla, Shopify, Zid
+                and WordPress stores.</span
+              ><span class="ar"
+                >استراتيجية كلمات مفتاحية للمشترين ذوي النية العالية في متاجر
+                سلة وشوبيفاي وزد ووردبريس.</span
+              >
+            </p>
+          </article>
+          <article class="card">
+            <h3>
+              <span class="en">AI search (GEO)</span
+              ><span class="ar">البحث بالذكاء الاصطناعي (GEO)</span>
+            </h3>
+            <p>
+              <span class="en"
+                >Visibility in Google AI Overviews for commercial and
+                informational queries.</span
+              ><span class="ar"
+                >الظهور في ملخصات Google بالذكاء الاصطناعي للاستعلامات التجارية
+                والمعلوماتية.</span
+              >
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results">
+        <h2>
+          <span class="en">Results that matter</span
+          ><span class="ar">نتائج تهمّك</span>
+        </h2>
+        <p class="sub">
+          <span class="en"
+            >Figures from Google Search Console and GA4. Screenshots are in the
+            case studies.</span
+          ><span class="ar"
+            >أرقام من Google Search Console وGA4. لقطات الشاشة في دراسات
+            الحالة.</span
+          >
+        </p>
+        <div class="grid">
+          <article class="card">
+            <h3>Alwfi.com</h3>
+            <div class="tag">
+              <span class="en">Automotive spare parts</span
+              ><span class="ar">قطع غيار السيارات</span> ·
+              <span class="num">Mar 2025 – Jun 2026</span>
             </div>
-            <div class="skill-category">
-                <h3 data-i18n="skills_ecom">E-commerce & Platforms</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Salla</span>
-                    <span class="skill-tag">Shopify</span>
-                    <span class="skill-tag">Zid</span>
-                    <span class="skill-tag">WordPress</span>
-                </div>
+            <div class="big"><span class="num">71.9%</span></div>
+            <div>
+              <span class="en"
+                >of store revenue from organic search (633,727 SAR)</span
+              ><span class="ar"
+                >من إيرادات المتجر من البحث العضوي (633,727 ريال)</span
+              >
             </div>
-            <div class="skill-category">
-                <h3 data-i18n="skills_ai">AI & Automation</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">AI Overviews / GEO</span>
-                    <span class="skill-tag">AI Tools & Agents</span>
-                    <span class="skill-tag">Prompt Engineering</span>
-                    <span class="skill-tag">Workflow Automation</span>
-                    <span class="skill-tag">AI-Powered Content Optimization</span>
-                </div>
+            <ul>
+              <li>
+                <span class="en">95.7K clicks · 2.54M impressions</span
+                ><span class="ar">95.7 ألف نقرة · 2.54 مليون ظهور</span>
+              </li>
+              <li>
+                <span class="en">Avg position 5.5 · 1,156 conversions</span
+                ><span class="ar">متوسط الترتيب 5.5 · 1,156 تحويل</span>
+              </li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Hishma-sa.com</h3>
+            <div class="tag">
+              <span class="en">Modest fashion</span
+              ><span class="ar">الأزياء المحتشمة والجلابيات</span> ·
+              <span class="num">Jun 2025 – Jul 2026</span>
             </div>
-            <div class="skill-category">
-                <h3 data-i18n="skills_soft">Soft Skills</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Team Leadership</span>
-                    <span class="skill-tag">Project Management</span>
-                    <span class="skill-tag">Content Strategy</span>
-                    <span class="skill-tag">Client Communication</span>
-                    <span class="skill-tag">Monthly Reporting</span>
-                    <span class="skill-tag">Data-Driven Decisions</span>
-                </div>
+            <div class="big">
+              <span class="num">618,817</span> <span class="en">SAR</span
+              ><span class="ar">ريال</span>
             </div>
-    </div>
-</div>
+            <div>
+              <span class="en"
+                >organic revenue, the highest-converting channel (<span class="num">13.67%</span>)</span
+              ><span class="ar"
+                >إيرادات عضوية، وأعلى قناة تحويلًا (<span class="num">13.67%</span>)</span
+              >
+            </div>
+            <ul>
+              <li>
+                <span class="en">Avg position 4.9 · CTR <span class="num">6.5%</span></span
+                ><span class="ar">متوسط الترتيب 4.9 · نسبة النقر <span class="num">6.5%</span></span>
+              </li>
+              <li>
+                <span class="en">Engagement rate <span class="num">89.5%</span></span
+                ><span class="ar">معدل التفاعل <span class="num">89.5%</span></span>
+              </li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Daily.sa</h3>
+            <div class="tag">
+              <span class="en">Sports &amp; fitness</span
+              ><span class="ar">المعدات الرياضية واللياقة</span> ·
+              <span class="num">Mar – Jul 2025</span>
+            </div>
+            <div class="big">
+              <span class="en">4 months</span><span class="ar">4 أشهر</span>
+            </div>
+            <div>
+              <span class="en">to build an organic foundation from scratch</span
+              ><span class="ar">لبناء أساس عضوي من الصفر</span>
+            </div>
+            <ul>
+              <li>
+                <span class="en">52,466 SAR organic revenue</span
+                ><span class="ar">52,466 ريال إيرادات عضوية</span>
+              </li>
+              <li>
+                <span class="en">12.4K clicks · 1.3M impressions</span
+                ><span class="ar">12.4 ألف نقرة · 1.3 مليون ظهور</span>
+              </li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>MHS Jewellery</h3>
+            <div class="tag">
+              <span class="en">Prayer beads &amp; stones</span
+              ><span class="ar">المسابح والأحجار الكريمة</span> ·
+              <span class="num">Jul 2024 – Mar 2025</span>
+            </div>
+            <div class="big"><span class="num">43.8%</span></div>
+            <div>
+              <span class="en"
+                >of revenue from organic search, over 2x direct traffic</span
+              ><span class="ar"
+                >من الإيرادات من البحث العضوي، أكثر من ضعف الزيارات
+                المباشرة</span
+              >
+            </div>
+            <ul>
+              <li>
+                <span class="en">4.32K clicks · 242K impressions</span
+                ><span class="ar">4.32 ألف نقرة · 242 ألف ظهور</span>
+              </li>
+              <li>
+                <span class="en">Heritage brand (est. 1997) taken online</span
+                ><span class="ar"
+                  >علامة تراثية (تأسست 1997) انتقلت للتجارة الإلكترونية</span
+                >
+              </li>
+            </ul>
+          </article>
+        </div>
+        <p>
+          <a href="case-studies.html"
+            ><span class="en">Read the full case studies →</span
+            ><span class="ar">اقرأ دراسات الحالة كاملة ←</span></a
+          >
+        </p>
+      </section>
 
-<!-- Certifications -->
-<div class="section">
-    <h2 data-i18n="cert_title">Certifications & Training</h2>
-    <ul class="cert-list">
-        <li data-i18n="cert1">Digital Marketing - Google</li>
-        <li data-i18n="cert2">SEO Training - Salasl Agency</li>
-        <li data-i18n="cert3">Digital Marketing - Edrak Platform</li>
-    </ul>
-</div>
+      <section id="experience">
+        <h2>
+          <span class="en">Experience</span
+          ><span class="ar">الخبرة العملية</span>
+        </h2>
+        <div class="tl">
+          <div>
+            <b
+              ><span class="en">Head of SEO</span
+              ><span class="ar">رئيس قسم SEO</span></b
+            >
+            · <span class="en">Freelance, multiple e-commerce projects</span
+            ><span class="ar">عمل حر، مشاريع تجارة إلكترونية متعددة</span><br />
+            <small
+              ><span class="en">Aug 2025 – Present</span
+              ><span class="ar">أغسطس 2025 – الحالي</span></small
+            >
+            <ul>
+              <li>
+                <span class="en"
+                  >Lead SEO strategy for multiple Saudi e-commerce stores:
+                  organic visibility, traffic and revenue.</span
+                ><span class="ar"
+                  >أقود استراتيجية الـ SEO لعدة متاجر سعودية: الظهور العضوي
+                  والزيارات والإيرادات.</span
+                >
+              </li>
+              <li>
+                <span class="en"
+                  >Own the full lifecycle: technical audits, on-page, keyword
+                  strategy, content planning, performance tracking.</span
+                ><span class="ar"
+                  >أدير دورة العمل كاملة: التدقيق التقني والتحسين الداخلي
+                  والكلمات المفتاحية وتخطيط المحتوى ومتابعة الأداء.</span
+                >
+              </li>
+              <li>
+                <span class="en"
+                  >Lead 3 Team Leaders, 4 SEO Agents and content specialists,
+                  aligned on KPI targets.</span
+                ><span class="ar"
+                  >أقود 3 قادة فرق و4 متخصصي SEO ومختصي محتوى حول أهداف أداء
+                  واضحة.</span
+                >
+              </li>
+              <li>
+                <span class="en"
+                  >Reached top 1-5 rankings and Google AI Overviews visibility
+                  for high-intent commercial queries.</span
+                ><span class="ar"
+                  >حققت ترتيبًا بين 1 و5 وظهورًا في ملخصات Google بالذكاء
+                  الاصطناعي للاستعلامات التجارية عالية النية.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <b
+              ><span class="en">Team Leader, SEO</span
+              ><span class="ar">قائد فريق SEO</span></b
+            >
+            · <span class="en">Salasl Agency (marketing agency)</span
+            ><span class="ar">وكالة سلاسل للتسويق</span><br />
+            <small
+              ><span class="en">Aug 2024 – Aug 2025</span
+              ><span class="ar">أغسطس 2024 – أغسطس 2025</span></small
+            >
+            <ul>
+              <li>
+                <span class="en"
+                  >Led SEO specialists on projects for multiple clients across
+                  industries.</span
+                ><span class="ar"
+                  >قدت متخصصي SEO في مشاريع لعملاء متعددين في قطاعات
+                  مختلفة.</span
+                >
+              </li>
+              <li>
+                <span class="en"
+                  >Coordinated content, design and strategy teams on integrated
+                  SEO campaigns.</span
+                ><span class="ar"
+                  >نسّقت بين فرق المحتوى والتصميم والاستراتيجية لتقديم حملات SEO
+                  متكاملة.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <b
+              ><span class="en">SEO Specialist</span
+              ><span class="ar">متخصص SEO</span></b
+            ><br />
+            <small
+              ><span class="en">Feb 2023 – Aug 2024</span
+              ><span class="ar">فبراير 2023 – أغسطس 2024</span></small
+            >
+            <ul>
+              <li>
+                <span class="en"
+                  >Improved rankings and organic traffic across multiple Saudi
+                  e-commerce websites.</span
+                ><span class="ar"
+                  >حسّنت الترتيب والزيارات العضوية لعدة مواقع تجارة إلكترونية
+                  سعودية.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-<!-- Education -->
-<div class="section">
-    <h2 data-i18n="edu_title">Education</h2>
-    <p><strong data-i18n="edu_degree">Bachelor's Degree in Physical Education</strong> - <span data-i18n="edu_dept">Mansoura University</span> (2017 - 2020)</p>
-</div>
+      <section id="skills">
+        <h2>
+          <span class="en">Skills &amp; tools</span
+          ><span class="ar">المهارات والأدوات</span>
+        </h2>
+        <div class="group-title">
+          <span class="en">Technical SEO</span
+          ><span class="ar">الـ SEO التقني</span>
+        </div>
+        <div class="pills">
+          <span>Search Console</span><span>GA4</span><span>Tag Manager</span
+          ><span>Keyword Planner</span><span>SEMrush</span
+          ><span>Screaming Frog</span>
+          <span
+            ><span class="en">Keyword research</span
+            ><span class="ar">بحث الكلمات المفتاحية</span></span
+          ><span
+            ><span class="en">Competitor analysis</span
+            ><span class="ar">تحليل المنافسين</span></span
+          ><span
+            ><span class="en">On-page / off-page</span
+            ><span class="ar">داخلي / خارجي</span></span
+          >
+        </div>
+        <div class="group-title">
+          <span class="en">E-commerce platforms</span
+          ><span class="ar">منصات التجارة الإلكترونية</span>
+        </div>
+        <div class="pills">
+          <span>Salla</span><span>Shopify</span><span>Zid</span
+          ><span>WordPress</span>
+        </div>
+        <div class="group-title">
+          <span class="en">AI &amp; automation</span
+          ><span class="ar">الذكاء الاصطناعي والأتمتة</span>
+        </div>
+        <div class="pills">
+          <span>AI Overviews / GEO</span
+          ><span
+            ><span class="en">AI tools &amp; agents</span
+            ><span class="ar">أدوات ووكلاء الذكاء الاصطناعي</span></span
+          ><span>Prompt Engineering</span
+          ><span
+            ><span class="en">Workflow automation</span
+            ><span class="ar">أتمتة سير العمل</span></span
+          >
+        </div>
+        <div class="group-title">
+          <span class="en">Leadership</span><span class="ar">القيادة</span>
+        </div>
+        <div class="pills">
+          <span
+            ><span class="en">Team leadership</span
+            ><span class="ar">قيادة الفرق</span></span
+          ><span
+            ><span class="en">Project management</span
+            ><span class="ar">إدارة المشاريع</span></span
+          ><span
+            ><span class="en">Content strategy</span
+            ><span class="ar">استراتيجية المحتوى</span></span
+          ><span
+            ><span class="en">Monthly reporting</span
+            ><span class="ar">التقارير الشهرية</span></span
+          ><span
+            ><span class="en">Client communication</span
+            ><span class="ar">التواصل مع العملاء</span></span
+          >
+        </div>
+      </section>
 
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <span class="close">&times;</span>
-    <img id="lightbox-img" src="" alt="Full size image">
-</div>
+      <section id="education">
+        <div class="grid">
+          <article class="card">
+            <h3>
+              <span class="en">Education</span
+              ><span class="ar">المؤهل العلمي</span>
+            </h3>
+            <p>
+              <b
+                ><span class="en">Bachelor's degree in Physical Education</span
+                ><span class="ar">بكالوريوس التربية الرياضية</span></b
+              ><br /><span class="en">Mansoura University · 2017 – 2020</span
+              ><span class="ar">جامعة المنصورة · 2017 – 2020</span>
+            </p>
+            <p>
+              <span class="en">Languages: Arabic (native) · English (good)</span
+              ><span class="ar"
+                >اللغات: العربية (لغة أم) · الإنجليزية (جيد)</span
+              >
+            </p>
+          </article>
+          <article class="card">
+            <h3>
+              <span class="en">Certifications &amp; training</span
+              ><span class="ar">الشهادات والتدريب</span>
+            </h3>
+            <ul>
+              <li>
+                <span class="en">Digital Marketing – Google</span
+                ><span class="ar">التسويق الرقمي – Google</span>
+              </li>
+              <li>
+                <span class="en">SEO Training – Salasl Agency</span
+                ><span class="ar">تدريب SEO – وكالة سلاسل</span>
+              </li>
+              <li>
+                <span class="en">Digital Marketing – Edrak Platform</span
+                ><span class="ar">التسويق الرقمي – منصة إدراك</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-<!-- Footer -->
-<div class="footer">
-    <p><span data-i18n="footer_languages">Languages:</span> <strong>Arabic</strong> (<span data-i18n="footer_native">Native</span>) | <strong>English</strong> (<span data-i18n="footer_good">Good</span>)</p>
-    <p style="margin-top: 15px;"><span data-i18n="footer_contact">Contact:</span> <a href="mailto:mmetwily1@gmail.com">mmetwily1@gmail.com</a> | +20 10 25183569</p>
-    <p style="margin-top: 10px;"><a href="https://www.linkedin.com/in/mohamed-metwily" target="_blank">LinkedIn</a> | <a href="case-studies.html" data-i18n="footer_case">Case Studies</a> | <a href="cv.html" data-i18n="footer_cv">View Full CV</a> | <a href="Mohamed-Metwily-CV.pdf" download data-i18n="footer_download">Download PDF CV</a></p>
-</div>
+      <section id="contact">
+        <h2>
+          <span class="en">Let's talk</span><span class="ar">لنتحدث</span>
+        </h2>
+        <p class="sub">
+          <span class="en"
+            >Open to Head of SEO and SEO Lead roles at Arabic-language
+            companies. Remote, or relocating anywhere in the world.</span
+          ><span class="ar"
+            >متاح لوظائف رئيس قسم SEO وقائد SEO في الشركات الناطقة بالعربية. عن
+            بُعد أو بالانتقال لأي مكان في العالم.</span
+          >
+        </p>
+        <div class="cta">
+          <a class="btn p" href="mailto:mmetwily1@gmail.com"
+            >mmetwily1@gmail.com</a
+          >
+          <a class="btn s" href="tel:+201025183569"
+            ><span class="num">+20 10 25183569</span></a
+          >
+          <a class="btn s" href="https://www.linkedin.com/in/mohamed-metwily"
+            >LinkedIn</a
+          >
+        </div>
+      </section>
+    </main>
 
-<script>
-// Translations
-const translations = {
-    en: {
-        nav_portfolio: "Portfolio",
-        nav_case_studies: "Case Studies",
-        nav_cv: "CV",
-        hero_title: "HEAD OF SEO",
-        hero_location: "Mansoura, Egypt",
-        hero_btn: "View Full CV",
-        summary_title: "Professional Summary",
-        summary_text: "Results-driven Head of SEO with hands-on experience managing end-to-end SEO strategy for high-revenue e-commerce businesses in the Saudi market. Proven track record of driving organic growth that generated over 4.75M SAR in revenue across multiple stores. Led and managed a cross-functional SEO team of 3 Team Leaders, 4 SEO Agents, and content specialists. Skilled in keyword research, technical SEO, content optimization, AI Overviews visibility, and competitor analysis using SEMrush, Google Analytics, and Google Search Console. Proficient in leveraging AI tools and AI agents to automate SEO workflows, scale content production, and optimize for AI-generated search results.",
-        experience_title: "Professional Experience",
-        exp1_title: "Head of SEO",
-        exp1_company: "Freelance / Multiple E-commerce Projects",
-        exp1_period: "AUG 2025 - Present",
-        exp1_b1: "Developed and led overall SEO strategy for multiple e-commerce stores in the Saudi market, driving growth in organic visibility, traffic, and revenue.",
-        exp1_b2: "Managed full SEO lifecycle including technical audits, on-page optimization, keyword strategy, content planning, and performance tracking.",
-        exp1_b3: "Led a cross-functional team of 3 Team Leaders, 4 SEO Agents, and content specialists, ensuring alignment on strategy execution and KPI targets.",
-        exp1_b4: "Achieved top 1-5 search rankings for target keywords and secured visibility in Google AI Overviews for high-intent commercial queries.",
-        exp2_title: "Team Leader SEO",
-        exp2_company: "Salasl Agency (Marketing Agency)",
-        exp2_period: "AUG 2024 - AUG 2025",
-        exp2_b1: "Led a team of SEO specialists at a full-service marketing agency, managing SEO projects across multiple client accounts in various industries.",
-        exp2_b2: "Coordinated with content, design, and strategy teams to deliver integrated SEO campaigns.",
-        exp3_title: "SEO Specialist",
-        exp3_period: "FEB 2023 - AUG 2024",
-        exp3_b1: "Implemented SEO strategies to improve rankings and increase organic traffic across multiple e-commerce websites in the Saudi market",
-        skills_title: "Skills",
-        skills_tech: "Technical SEO",
-        skills_ecom: "E-commerce & Platforms",
-        skills_ai: "AI & Automation",
-        skills_soft: "Soft Skills",
-        cert_title: "Certifications & Training",
-        cert1: "Digital Marketing - Google",
-        cert2: "SEO Training - Salasl Agency",
-        cert3: "Digital Marketing - Edrak Platform",
-        edu_title: "Education",
-        edu_degree: "Bachelor's Degree in Physical Education",
-        edu_dept: "Mansoura University",
-        edu_uni: "Mansoura University",
-        footer_languages: "Languages:",
-        footer_native: "Native",
-        footer_good: "Good",
-        footer_contact: "Contact:",
-        footer_case: "Case Studies",
-        footer_cv: "View Full CV",
-        footer_download: "Download PDF CV"
-    },
-    ar: {
-        nav_portfolio: "الملف المهني",
-        nav_case_studies: "دراسات الحالة",
-        nav_cv: "السيرة الذاتية",
-        hero_title: "رئيس قسم تحسين محركات البحث",
-        hero_location: "المنصورة، مصر",
-        hero_btn: "عرض السيرة الذاتية",
-        summary_title: "الملخص المهني",
-        summary_text: "رئيس قسم تحسين محركات البحث ذو خبرة واسعة في وضع وتنفيذ الاستراتيجيات الشاملة لمتاجر التجارة الإلكترونية الكبرى في السوق السعودي. سجل حافل في تحقيق النمو العضوي الذي أسهم في إيرادات تجاوزت 4.75 مليون ريال سعودي عبر متاجر متعددة. أدرت فريقاً متعدد التخصصات يضم 3 رؤساء فرق و4 متخصصين في تحسين محركات البحث ومختصين في المحتوى. متمكن من البحث عن الكلمات المفتاحية والتحسين التقني للمواقع وتحسين المحتوى والظهور في نتائج البحث المولدة بالذكاء الاصطناعي وتحليل المنافسين باستخدام SEMrush وGoogle Analytics وGoogle Search Console. بارع في توظيف أدوات الذكاء الاصطناعي لأتمتة عمليات تحسين محركات البحث وتوسيع إنتاج المحتوى والتحسين لنتائج البحث التوليدية.",
-        experience_title: "الخبرة العملية",
-        exp1_title: "رئيس قسم تحسين محركات البحث",
-        exp1_company: "عمل حر / مشاريع تجارة إلكترونية متعددة",
-        exp1_period: "أغسطس 2025 - الحالي",
-        exp1_b1: "وضع الاستراتيجية الشاملة لتحسين محركات البحث لمتاجر تجارة إلكترونية متعددة في السوق السعودي، وأشرف على تنفيذها لتحقيق نمو ملموس في الظهور العضوي والزيارات والإيرادات.",
-        exp1_b2: "أدرت كامل مراحل عمل تحسين محركات البحث بما في ذلك التدقيق التقني والتحسين الداخلي واستراتيجية الكلمات المفتاحية وتخطيط المحتوى ومتابعة الأداء.",
-        exp1_b3: "أشرفت على فريق عمل متعدد التخصصات يضم 3 رؤساء فرق و4 متخصصين في تحسين محركات البحث ومختصين في المحتوى، وضمن التوافق في تنفيذ الاستراتيجية وتحقيق أهداف الأداء.",
-        exp1_b4: "حققت ترتيبات متقدمة في نتائج البحث للكلمات المفتاحية المستهدفة، وأمنت الظهور في نتائج البحث المولدة بالذكاء الاصطناعي من Google للاستعلامات التجارية عالية القصد.",
-        exp2_title: "قائد فريق تحسين محركات البحث",
-        exp2_company: "وكالة سلاسل للتسويق",
-        exp2_period: "أغسطس 2024 - أغسطس 2025",
-        exp2_b1: "أدرت فريقاً من متخصصي تحسين محركات البحث في وكالة تسويقية شاملة الخدمات، وأشرفت على مشاريع تحسين محركات البحث لعملاء متعددين في قطاعات صناعية مختلفة.",
-        exp2_b2: "تعاملت مع فرق المحتوى والتصميم والاستراتيجية لتقديم حملات تحسين محركات البحث بشكل متكامل.",
-        exp3_title: "متخصص تحسين محركات البحث",
-        exp3_period: "فبراير 2023 - أغسطس 2024",
-        exp3_b1: "نفّذت استراتيجيات تحسين محركات البحث لتعزيز ترتيبات المواقع وزيادة حركة المرور العضوية عبر مواقع تجارة إلكترونية متعددة في السوق السعودي",
-        skills_title: "المهارات",
-        skills_tech: "التحسين التقني",
-        skills_ecom: "التجارة الإلكترونية والمنصات",
-        skills_ai: "الذكاء الاصطناعي والأتمتة",
-        skills_soft: "المهارات الشخصية",
-        cert_title: "الشهادات والتدريب",
-        cert1: "التسويق الرقمي - Google",
-        cert2: "تحسين محركات البحث - وكالة سلاسل",
-        cert3: "التسويق الرقمي - منصة إدراك",
-        edu_title: "المؤهل العلمي",
-        edu_degree: "بكالوريوس التربية الرياضية",
-        edu_dept: "جامعة المنصورة",
-        footer_languages: "اللغات:",
-        footer_native: "العربية (اللغة الأم)",
-        footer_good: "الإنجليزية (جيد جداً)",
-        footer_contact: "للتواصل:",
-        footer_case: "دراسات الحالة",
-        footer_cv: "عرض السيرة الذاتية",
-        footer_download: "تحميل السيرة الذاتية (PDF)"
-    }
-};
-
-// Current language
-let currentLang = localStorage.getItem('lang') || 'en';
-
-// Apply translations
-function applyTranslations() {
-    const lang = translations[currentLang];
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (lang[key]) {
-            el.textContent = lang[key];
-        }
-    });
-    
-    // Update direction
-    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.lang = currentLang;
-    
-    // Update button text
-    document.getElementById('langBtn').textContent = currentLang === 'en' ? 'AR' : 'EN';
-}
-
-// Toggle language
-function toggleLanguage() {
-    currentLang = currentLang === 'en' ? 'ar' : 'en';
-    localStorage.setItem('lang', currentLang);
-    applyTranslations();
-}
-
-// Initialize
-applyTranslations();
-
-function openLightbox(img) {
-    var lightbox = document.getElementById('lightbox');
-    var lightboxImg = document.getElementById('lightbox-img');
-    lightboxImg.src = img.src;
-    lightbox.classList.add('active');
-}
-
-function closeLightbox() {
-    var lightbox = document.getElementById('lightbox');
-    lightbox.classList.remove('active');
-}
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeLightbox();
-    }
-});
-</script>
-
-</body>
+    <footer class="site">
+      <div class="wrap">
+        <a href="case-studies.html"
+          ><span class="en">Case Studies</span
+          ><span class="ar">دراسات الحالة</span></a
+        >
+        <a href="cv.html"
+          ><span class="en">CV</span><span class="ar">السيرة الذاتية</span></a
+        >
+        <a href="Mohamed-Metwily-CV.pdf" class="en">Download CV (PDF)</a>
+        <a href="Mohamed-Metwily-CV-ar.pdf" class="ar"
+          >تحميل السيرة الذاتية (PDF)</a
+        >
+        <p>
+          © 2026 <span class="en">Mohamed Metwily</span
+          ><span class="ar">محمد متولي</span>
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>
